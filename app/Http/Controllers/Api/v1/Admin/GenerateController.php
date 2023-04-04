@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api\v1\Admin;
 
-use App\Models\User;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\v1\Admin\GenerateRequest;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class GenerateController extends Controller
 {
