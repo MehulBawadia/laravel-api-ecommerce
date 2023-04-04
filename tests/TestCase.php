@@ -11,10 +11,9 @@ abstract class TestCase extends BaseTestCase
     /**
      * Send a post request in the JSON format.
      *
-     * @param  string $url
-     * @param  array $data
-     * @param  array $headers
-     *
+     * @param  string  $url
+     * @param  array  $data
+     * @param  array  $headers
      * @return \Illuminate\Testing\TestResponse
      */
     public function postJsonPayload($url, $data = [], $headers = [])

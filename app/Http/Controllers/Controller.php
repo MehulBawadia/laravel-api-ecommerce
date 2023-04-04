@@ -15,8 +15,7 @@ class Controller extends BaseController
      *
      * @param  string  $message
      * @param  array  $data
-     * @param  integer  $statusCode
-     *
+     * @param  int  $statusCode
      * @return \Illuminate\Http\JsonResponse
      */
     public function successResponse($message, $data = [], $statusCode = 200)
@@ -33,8 +32,7 @@ class Controller extends BaseController
      *
      * @param  string  $message
      * @param  array  $data
-     * @param  integer  $statusCode
-     *
+     * @param  int  $statusCode
      * @return \Illuminate\Http\JsonResponse
      */
     public function errorResponse($message, $data = [], $statusCode = 500)
