@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\v1\Admin\GenerateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\v1\Admin\AuthController;
+use App\Http\Controllers\Api\v1\Admin\GenerateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::name('v1_admin')->prefix('/v1/admin')->group(function () {
     Route::post('/generate', [GenerateController::class, 'store'])->name('.generate');
+
+    Route::post('/login', [AuthController::class, 'login'])->name('.login');
+
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::post('/logout', [AuthController::class, 'logout'])->name('.logout');
+    });
 });
