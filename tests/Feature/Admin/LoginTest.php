@@ -4,8 +4,6 @@ namespace Tests\Feature\Admin;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 
 class LoginTest extends TestCase
@@ -44,13 +42,13 @@ class LoginTest extends TestCase
         $response = $this->postJsonPayload($this->postRoute, $payload);
         $headers = [
             'Accept' => 'application/json',
-            'Authorization' => 'Bearer ' . $response->json()['data']['access_token'],
+            'Authorization' => 'Bearer '.$response->json()['data']['access_token'],
         ];
 
         $response = $this->postJsonPayload(route('v1_admin.logout'), [], $headers);
         $response->assertJsonFragment([
             'status' => 'success',
-            'message' => 'Administrator logged out successfully.'
+            'message' => 'Administrator logged out successfully.',
         ]);
     }
 

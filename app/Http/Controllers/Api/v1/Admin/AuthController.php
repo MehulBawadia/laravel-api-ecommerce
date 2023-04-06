@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api\v1\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\v1\Admin\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\v1\Admin\LoginRequest;
 
 class AuthController extends Controller
 {
@@ -43,7 +43,6 @@ class AuthController extends Controller
     /**
      * Logout the administator.
      *
-     * @param  \Illuminate\Http\Request  $request
      *
      * @return \Illuminate\Http\JsonResponse
      */
