@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\v1\Admin\AuthController;
 use App\Http\Controllers\Api\v1\Admin\GenerateController;
+use App\Http\Controllers\Api\v1\Admin\PasswordController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +24,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::name('v1_admin')->prefix('/v1/admin')->group(function () {
     Route::post('/generate', [GenerateController::class, 'store'])->name('.generate');
 
-    Route::post('/login', [AuthController::class, 'login'])->name('.login');
+    Route::middleware('guest')->group(function () {
+        Route::post('/login', [AuthController::class, 'login'])->name('.login');
+        Route::post('/forgot-password', [PasswordController::class, 'sendResetLink'])->name('.forgotPassword');
+    });
 
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('/logout', [AuthController::class, 'logout'])->name('.logout');
