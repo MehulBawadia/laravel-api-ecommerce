@@ -42,7 +42,7 @@ class ForgotPasswordTest extends TestCase
 
     public function test_logged_in_admin_cannot_request_password_reset_link()
     {
-        $this->withoutDeprecationHandling();
+        $this->withoutExceptionHandling();
 
         Sanctum::actingAs(User::first());
 

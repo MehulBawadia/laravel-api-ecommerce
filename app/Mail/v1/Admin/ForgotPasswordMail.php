@@ -40,7 +40,6 @@ class ForgotPasswordMail extends Mailable
      */
     public function content(): Content
     {
-        // dd($this->data);
         return new Content(
             markdown: 'mail.v1.admin.forgot-password-mail',
             with: $this->data,

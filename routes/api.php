@@ -26,7 +26,7 @@ Route::name('v1_admin')->prefix('/v1/admin')->group(function () {
 
     Route::middleware('guest')->group(function () {
         Route::post('/login', [AuthController::class, 'login'])->name('.login');
-        Route::post('/forgot-password', [PasswordController::class, 'forgot'])->name('.forgotPassword');
+        Route::post('/forgot-password', [PasswordController::class, 'sendResetLink'])->name('.forgotPassword');
     });
 
     Route::middleware('auth:sanctum')->group(function () {

@@ -11,11 +11,13 @@ use Illuminate\Support\Facades\Mail;
 class PasswordController extends Controller
 {
     /**
-     * Auth the administrator
+     * Send the password reset link to the given email address.
+     *
+     * @param  \App\Http\Requests\v1\Admin\ForgotPasswordRequest  $request
      *
      * @return void
      */
-    public function forgot(ForgotPasswordRequest $request)
+    public function sendResetLink(ForgotPasswordRequest $request)
     {
         try {
             $randomString = \Illuminate\Support\Str::random(36);
