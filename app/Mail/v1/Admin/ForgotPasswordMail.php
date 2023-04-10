@@ -3,7 +3,6 @@
 namespace App\Mail\v1\Admin;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -29,7 +28,7 @@ class ForgotPasswordMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: config('app.name') .': Reset Password Link',
+            subject: config('app.name').': Reset Password Link',
             to: $this->data['email'],
             from: 'no-reply@example.com',
         );

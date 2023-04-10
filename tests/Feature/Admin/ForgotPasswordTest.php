@@ -2,12 +2,12 @@
 
 namespace Tests\Feature\Admin;
 
-use Tests\TestCase;
-use App\Models\User;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\v1\Admin\ForgotPasswordMail;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Mail;
 use Laravel\Sanctum\Sanctum;
+use Tests\TestCase;
 
 class ForgotPasswordTest extends TestCase
 {
@@ -63,7 +63,7 @@ class ForgotPasswordTest extends TestCase
 
         Mail::assertSent(ForgotPasswordMail::class, function (ForgotPasswordMail $mail) {
             return $mail->hasTo('admin@example.com') &&
-                    $mail->hasSubject(config('app.name') .': Reset Password Link');
+                    $mail->hasSubject(config('app.name').': Reset Password Link');
         });
     }
 
@@ -73,16 +73,16 @@ class ForgotPasswordTest extends TestCase
             'email' => 'admin@example.com',
             'token' => 'random-string',
             'created_at' => now(),
-            'reset_password_link' => env('APP_FRONTEND_BASE_URL') . '/reset-password/random-string?email=admin@example.com',
+            'reset_password_link' => env('APP_FRONTEND_BASE_URL').'/reset-password/random-string?email=admin@example.com',
         ];
 
         $mailable = new ForgotPasswordMail($data);
 
         $mailable->assertFrom('no-reply@example.com');
         $mailable->assertHasTo($data['email']);
-        $mailable->assertHasSubject(config('app.name') .': Reset Password Link');
+        $mailable->assertHasSubject(config('app.name').': Reset Password Link');
 
-        $mailable->assertSeeInHtml('Dear '. $data['email']);
+        $mailable->assertSeeInHtml('Dear '.$data['email']);
         $mailable->assertSeeInHtml($data['reset_password_link']);
     }
 

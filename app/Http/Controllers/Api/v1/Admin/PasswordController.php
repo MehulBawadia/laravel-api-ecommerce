@@ -13,7 +13,6 @@ class PasswordController extends Controller
     /**
      * Send the password reset link to the given email address.
      *
-     * @param  \App\Http\Requests\v1\Admin\ForgotPasswordRequest  $request
      *
      * @return void
      */
@@ -32,7 +31,7 @@ class PasswordController extends Controller
                     ->where('email', $request->email)
                     ->first();
             $data = collect($data)->put(
-                'reset_password_link', env('APP_FRONTEND_BASE_URL') . '/reset-password/'. $randomString . '?email='. $request->email,
+                'reset_password_link', env('APP_FRONTEND_BASE_URL').'/reset-password/'.$randomString.'?email='.$request->email,
             )->toArray();
 
             Mail::to($request->email)
