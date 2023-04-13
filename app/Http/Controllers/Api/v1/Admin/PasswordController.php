@@ -80,7 +80,7 @@ class PasswordController extends Controller
         DB::beginTransaction();
 
         try {
-            $user->update(['password' => bcrypt($request->password)]);
+            $user->update(['password' => bcrypt($request->new_password)]);
 
             $this->deleteTokenRecord();
 
