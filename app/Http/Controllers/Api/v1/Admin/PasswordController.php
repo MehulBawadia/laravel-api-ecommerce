@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Api\v1\Admin;
 
-use Carbon\Carbon;
-use App\Models\User;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\v1\Admin\ForgotPasswordMail;
-use App\Http\Requests\v1\Admin\ResetPasswordRequest;
 use App\Http\Requests\v1\Admin\ForgotPasswordRequest;
+use App\Http\Requests\v1\Admin\ResetPasswordRequest;
+use App\Mail\v1\Admin\ForgotPasswordMail;
+use App\Models\User;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class PasswordController extends Controller
 {
@@ -52,7 +52,6 @@ class PasswordController extends Controller
     /**
      * Reset the user's password with the new password.
      *
-     * @param \App\Http\Requests\v1\Admin\ResetPasswordRequest $request
      * @return void
      */
     public function reset(ResetPasswordRequest $request)
