@@ -28,7 +28,8 @@ class ForgotPasswordTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $payload = $this->preparePayload();
+        $createdAt = now()->format('Y-m-d H:i:s');
+        $payload = $this->preparePayload(['created_at' => $createdAt]);
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
         $response->assertStatus(201);
@@ -36,7 +37,7 @@ class ForgotPasswordTest extends TestCase
 
         $this->assertDatabaseHas('password_reset_tokens', [
             'email' => 'admin@example.com',
-            'created_at' => now(),
+            'created_at' => $createdAt,
         ]);
     }
 
