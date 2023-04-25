@@ -37,7 +37,7 @@ abstract class TestCase extends BaseTestCase
     {
         $payload = array_merge([
             'email' => 'admin@example.com',
-            'password' => bcrypt('Password')
+            'password' => bcrypt('Password'),
         ], $data);
 
         return User::factory()->create($payload);

@@ -31,8 +31,8 @@ class PasswordController extends Controller
             ]);
 
             $data = DB::table('password_reset_tokens')
-                    ->where('email', $request->email)
-                    ->first();
+                ->where('email', $request->email)
+                ->first();
             $data = collect($data)->put(
                 'reset_password_link', env('APP_FRONTEND_BASE_URL').'/reset-password/'.$randomString.'?email='.$request->email,
             )->toArray();
@@ -57,9 +57,9 @@ class PasswordController extends Controller
     public function reset(ResetPasswordRequest $request)
     {
         $resetToken = DB::table('password_reset_tokens')
-                ->where('email', $request->email)
-                ->where('token', $request->token)
-                ->first();
+            ->where('email', $request->email)
+            ->where('token', $request->token)
+            ->first();
         if (! $resetToken) {
             return $this->errorResponse('Invalid email address or reset token.', [], 404);
         }

@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\Admin\AccountSettings;
 
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -11,6 +10,7 @@ class GeneralSettingsTest extends TestCase
     use RefreshDatabase;
 
     public $postRoute = null;
+
     public $admin = null;
 
     public function setup(): void

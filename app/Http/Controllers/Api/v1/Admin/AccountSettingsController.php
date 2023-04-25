@@ -11,7 +11,6 @@ class AccountSettingsController extends Controller
     /**
      * Update the general settings of the admin user.
      *
-     * @param \App\Http\Requests\v1\Admin\GeneralSettingsRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function general(GeneralSettingsRequest $request)
