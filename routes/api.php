@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\Admin\AuthController;
 use App\Http\Controllers\Api\v1\Admin\GenerateController;
 use App\Http\Controllers\Api\v1\Admin\PasswordController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\v1\Admin\AccountSettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +33,7 @@ Route::name('v1_admin')->prefix('/v1/admin')->group(function () {
 
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('/logout', [AuthController::class, 'logout'])->name('.logout');
+
+        Route::post('/account-settings/general', [AccountSettingsController::class, 'general'])->name('.accountSettings.general');
     });
 });
