@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\v1\Admin\AccountSettingsController;
 use App\Http\Controllers\Api\v1\Admin\AuthController;
+use App\Http\Controllers\Api\v1\Admin\CategoriesController;
 use App\Http\Controllers\Api\v1\Admin\GenerateController;
 use App\Http\Controllers\Api\v1\Admin\PasswordController;
 use Illuminate\Http\Request;
@@ -36,5 +37,13 @@ Route::name('v1_admin')->prefix('/v1/admin')->group(function () {
 
         Route::post('/account-settings/general', [AccountSettingsController::class, 'general'])->name('.accountSettings.general');
         Route::post('/account-settings/change-password', [AccountSettingsController::class, 'changePassword'])->name('.accountSettings.changePassword');
+
+        Route::prefix('categories')->name('.categories')->group(function () {
+            Route::get('/', [CategoriesController::class, 'index']);
+            Route::post('/', [CategoriesController::class, 'store'])->name('.store');
+            Route::get('/{id}', [CategoriesController::class, 'show'])->name('.show');
+            Route::put('/{id}', [CategoriesController::class, 'update'])->name('.update');
+            Route::delete('/{id}', [CategoriesController::class, 'destroy'])->name('.destroy');
+        });
     });
 });

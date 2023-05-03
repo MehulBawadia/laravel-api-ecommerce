@@ -28,6 +28,23 @@ abstract class TestCase extends BaseTestCase
     }
 
     /**
+     * Send a put request in the JSON format.
+     *
+     * @param  string  $url
+     * @param  array  $data
+     * @param  array  $headers
+     * @return \Illuminate\Testing\TestResponse
+     */
+    public function putJsonPayload($url, $data = [], $headers = [])
+    {
+        $allHeaders = array_merge([
+            'Accept' => 'application/json',
+        ], $headers);
+
+        return $this->putJson($url, $data, $allHeaders);
+    }
+
+    /**
      * Create a user for testing.
      *
      * @param  array  $data
