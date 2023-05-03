@@ -2,9 +2,9 @@
 
 namespace Tests\Feature\Admin\Categories;
 
-use Tests\TestCase;
 use App\Models\Category;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class AddCategoryTest extends TestCase
 {
@@ -71,7 +71,7 @@ class AddCategoryTest extends TestCase
     public function test_name_must_not_be_greater_than_100_characters()
     {
         $payload = $this->preparePayload([
-            'name' => 'Sint voluptate nulla nisi nostrud qui veniam id.Commodo id dolore commodo excepteur ullamco ullamco qui proident cupidatat anim. Sit exercitation culpa est ea ad.'
+            'name' => 'Sint voluptate nulla nisi nostrud qui veniam id.Commodo id dolore commodo excepteur ullamco ullamco qui proident cupidatat anim. Sit exercitation culpa est ea ad.',
         ]);
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
@@ -97,7 +97,7 @@ class AddCategoryTest extends TestCase
     public function test_description_must_not_be_greater_than_255_characters()
     {
         $payload = $this->preparePayload([
-            'description' => 'Ipsum occaecat enim incididunt duis quis excepteur aliqua nostrud voluptate amet cillum magna. Cupidatat cupidatat fugiat consequat labore aliquip fugiat ad ea sint. Non eu quis voluptate sint tempor sint cillum occaecat occaecat aliquip duis eu sint exercitation. Cupidatat aliqua ipsum exercitation veniam nostrud.'
+            'description' => 'Ipsum occaecat enim incididunt duis quis excepteur aliqua nostrud voluptate amet cillum magna. Cupidatat cupidatat fugiat consequat labore aliquip fugiat ad ea sint. Non eu quis voluptate sint tempor sint cillum occaecat occaecat aliquip duis eu sint exercitation. Cupidatat aliqua ipsum exercitation veniam nostrud.',
         ]);
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
@@ -123,7 +123,7 @@ class AddCategoryTest extends TestCase
     public function test_meta_title_must_not_be_greater_than_80_characters()
     {
         $payload = $this->preparePayload([
-            'meta_title' => 'Ipsum occaecat enim incididunt duis quis excepteur aliqua nostrud voluptate amet cillum magna.'
+            'meta_title' => 'Ipsum occaecat enim incididunt duis quis excepteur aliqua nostrud voluptate amet cillum magna.',
         ]);
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
@@ -137,7 +137,7 @@ class AddCategoryTest extends TestCase
     public function test_meta_description_field_is_required()
     {
         $payload = $this->preparePayload([
-            'meta_description' => ''
+            'meta_description' => '',
         ]);
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
@@ -151,7 +151,7 @@ class AddCategoryTest extends TestCase
     public function test_meta_description_must_not_be_greater_than_180_characters()
     {
         $payload = $this->preparePayload([
-            'meta_description' => 'Enim do labore ullamco veniam in magna nulla incididunt id excepteur veniam. Commodo veniam minim elit eu anim laborum ad culpa id enim tempor occaecat do elit. Sunt aute eiusmod fugiat id elit duis in voluptate fugiat culpa amet.'
+            'meta_description' => 'Enim do labore ullamco veniam in magna nulla incididunt id excepteur veniam. Commodo veniam minim elit eu anim laborum ad culpa id enim tempor occaecat do elit. Sunt aute eiusmod fugiat id elit duis in voluptate fugiat culpa amet.',
         ]);
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
@@ -165,7 +165,7 @@ class AddCategoryTest extends TestCase
     public function test_meta_keywords_must_not_be_greater_than_255_characters()
     {
         $payload = $this->preparePayload([
-            'meta_keywords' => 'Exercitation ea ea pariatur tempor non commodo officia deserunt esse officia consectetur. Reprehenderit labore fugiat duis exercitation labore cupidatat in excepteur. Duis tempor dolor commodo et laborum fugiat nostrud exercitation irure non dolor voluptate irure qui. Nulla velit laborum ex duis.'
+            'meta_keywords' => 'Exercitation ea ea pariatur tempor non commodo officia deserunt esse officia consectetur. Reprehenderit labore fugiat duis exercitation labore cupidatat in excepteur. Duis tempor dolor commodo et laborum fugiat nostrud exercitation irure non dolor voluptate irure qui. Nulla velit laborum ex duis.',
         ]);
         $response = $this->postJsonPayload($this->postRoute, $payload);
 

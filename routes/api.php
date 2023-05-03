@@ -1,12 +1,12 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\v1\Admin\AccountSettingsController;
 use App\Http\Controllers\Api\v1\Admin\AuthController;
+use App\Http\Controllers\Api\v1\Admin\CategoriesController;
 use App\Http\Controllers\Api\v1\Admin\GenerateController;
 use App\Http\Controllers\Api\v1\Admin\PasswordController;
-use App\Http\Controllers\Api\v1\Admin\CategoriesController;
-use App\Http\Controllers\Api\v1\Admin\AccountSettingsController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api\v1\Admin;
 
-use App\Models\Category;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\v1\Admin\Categories\AddCategoryRequest;
 use App\Http\Requests\v1\Admin\Categories\UpdateCategoryRequest;
+use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 class CategoriesController extends Controller
 {
@@ -27,7 +27,6 @@ class CategoriesController extends Controller
     /**
      * Store a new category.
      *
-     * @param \App\Http\Requests\v1\Admin\Categories\AddCategoryRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(AddCategoryRequest $request)
@@ -53,7 +52,7 @@ class CategoriesController extends Controller
     /**
      * Fetch the details about the given category id.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
@@ -71,8 +70,7 @@ class CategoriesController extends Controller
     /**
      * Update the category details of the given id.
      *
-     * @param  int $id
-     * @param  \App\Http\Requests\v1\Admin\Categories\UpdateCategoryRequest $request
+     * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
     public function update($id, UpdateCategoryRequest $request)
@@ -103,7 +101,7 @@ class CategoriesController extends Controller
     /**
      * Delete the category details of the given id.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)

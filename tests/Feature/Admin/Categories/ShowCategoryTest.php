@@ -2,9 +2,9 @@
 
 namespace Tests\Feature\Admin\Categories;
 
-use Tests\TestCase;
 use App\Models\Category;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class ShowCategoryTest extends TestCase
 {
@@ -13,6 +13,7 @@ class ShowCategoryTest extends TestCase
     public $getRoute = null;
 
     public $admin = null;
+
     public $category = null;
 
     public function setup(): void
