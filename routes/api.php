@@ -47,12 +47,12 @@ Route::name('v1_admin')->prefix('/v1/admin')->group(function () {
             Route::delete('/{id}', [CategoriesController::class, 'destroy'])->name('.destroy');
         });
 
-        Route::prefix('tags')->name('.tags')->group(function () {
-            Route::get('/', [TagsController::class, 'index']);
-            Route::post('/', [TagsController::class, 'store'])->name('.store');
-            Route::get('/{id}', [TagsController::class, 'show'])->name('.show');
-            Route::put('/{id}', [TagsController::class, 'update'])->name('.update');
-            Route::delete('/{id}', [TagsController::class, 'destroy'])->name('.destroy');
+        Route::prefix('tags')->name('.tags')->controller(TagsController::class)->group(function () {
+            Route::get('/', 'index');
+            Route::post('/', 'store')->name('.store');
+            Route::get('/{id}', 'show')->name('.show');
+            Route::put('/{id}', 'update')->name('.update');
+            Route::delete('/{id}', 'destroy')->name('.destroy');
         });
     });
 });
