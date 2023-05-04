@@ -20,7 +20,7 @@ class DeleteTagTest extends TestCase
     {
         parent::setUp();
 
-        $this->admin = $this->signInAdmin(['first_name' => 'Super', 'last_name' => 'Administrator']);
+        $this->admin = $this->signInAdmin();
         $this->tag = Tag::factory()->create(
             $this->preparePayload()
         );

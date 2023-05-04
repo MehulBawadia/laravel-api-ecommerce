@@ -18,7 +18,7 @@ class TagsTest extends TestCase
     {
         parent::setUp();
 
-        $this->admin = $this->signInAdmin(['first_name' => 'Super', 'last_name' => 'Administrator']);
+        $this->admin = $this->signInAdmin();
 
         $this->getRoute = route('v1_admin.tags');
     }
