@@ -68,7 +68,13 @@ abstract class TestCase extends BaseTestCase
      */
     public function signInAdmin($data = [])
     {
-        $user = $this->createUser($data);
+        $payload = array_merge([
+            'first_name' => 'Super',
+            'last_name' => 'Administrator',
+            'email' => 'admin@example.com',
+            'password' => bcrypt('Password'),
+        ], $data);
+        $user = $this->createUser($payload);
 
         Sanctum::actingAs($user, ['*']);
 
