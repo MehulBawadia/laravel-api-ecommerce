@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\v1\Admin\AccountSettingsController;
 use App\Http\Controllers\Api\v1\Admin\AuthController;
+use App\Http\Controllers\Api\v1\Admin\BrandsController;
 use App\Http\Controllers\Api\v1\Admin\CategoriesController;
 use App\Http\Controllers\Api\v1\Admin\GenerateController;
 use App\Http\Controllers\Api\v1\Admin\PasswordController;
@@ -48,6 +49,13 @@ Route::name('v1_admin')->prefix('/v1/admin')->group(function () {
         });
 
         Route::prefix('tags')->name('.tags')->controller(TagsController::class)->group(function () {
+            Route::get('/', 'index');
+            Route::post('/', 'store')->name('.store');
+            Route::get('/{id}', 'show')->name('.show');
+            Route::put('/{id}', 'update')->name('.update');
+            Route::delete('/{id}', 'destroy')->name('.destroy');
+        });
+        Route::prefix('brands')->name('.brands')->controller(BrandsController::class)->group(function () {
             Route::get('/', 'index');
             Route::post('/', 'store')->name('.store');
             Route::get('/{id}', 'show')->name('.show');
