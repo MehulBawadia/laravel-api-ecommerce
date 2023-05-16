@@ -8,7 +8,7 @@ endpoints:
     metadata:
       groupName: 'Administrator Endpoints'
       groupDescription: ''
-      subgroup: ''
+      subgroup: 'Admin Authentication'
       subgroupDescription: ''
       title: 'Genreate the administrator'
       description: |-
@@ -28,47 +28,131 @@ endpoints:
         name: first_name
         description: ''
         required: true
-        example: dolor
+        example: quis
         type: string
         custom: []
       last_name:
         name: last_name
         description: ''
         required: true
-        example: aut
+        example: minima
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: barton.meda@example.net
+        example: carmela27@example.net
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: 'oax3[#v"U~_43$Vfkn'
+        example: 'U{hw`PGVVR;'
         type: string
         custom: []
       confirm_password:
         name: confirm_password
         description: 'The value and <code>password</code> must match.'
         required: true
-        example: impedit
+        example: quibusdam
         type: string
         custom: []
     cleanBodyParameters:
-      first_name: dolor
-      last_name: aut
-      email: barton.meda@example.net
-      password: 'oax3[#v"U~_43$Vfkn'
-      confirm_password: impedit
+      first_name: quis
+      last_name: minima
+      email: carmela27@example.net
+      password: 'U{hw`PGVVR;'
+      confirm_password: quibusdam
     fileParameters: []
     responses: []
     responseFields: []
     auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/admin/login
+    metadata:
+      groupName: 'Administrator Endpoints'
+      groupDescription: ''
+      subgroup: 'Admin Authentication'
+      subgroupDescription: 'The login and logout endpoints of the admin panel.'
+      title: Login
+      description: |-
+        Login the administrator, and generate the token.
+        This token will be used for further requests in the admin panel.
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: augustine.paucek@example.net
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: 'Y{+64M&_J'
+        type: string
+        custom: []
+    cleanBodyParameters:
+      email: augustine.paucek@example.net
+      password: 'Y{+64M&_J'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/admin/logout
+    metadata:
+      groupName: 'Administrator Endpoints'
+      groupDescription: ''
+      subgroup: 'Admin Authentication'
+      subgroupDescription: 'The login and logout endpoints of the admin panel.'
+      title: Logout
+      description: |-
+        Logout the administrator user. When they log out, all the tokens
+        related to them will also get deleted.
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer a6P3vkd14V8c5abDgfE6heZ'
     controller: null
     method: null
     route: null

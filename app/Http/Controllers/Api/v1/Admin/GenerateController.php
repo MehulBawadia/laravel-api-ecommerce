@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * @group Administrator Endpoints
+ *
+ * @subgroup Admin Authentication
  */
 class GenerateController extends Controller
 {

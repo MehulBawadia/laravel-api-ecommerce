@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel E-Commerce API",
-        "_postman_id": "f81eb483-37ea-4c68-955b-52692189a90f",
+        "_postman_id": "d5b0afa8-5f40-4aa0-9e32-846920701df5",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -20,35 +20,97 @@
             "description": "",
             "item": [
                 {
-                    "name": "Genreate the administrator",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/generate",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/generate"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
+                    "name": "Admin Authentication",
+                    "description": "The login and logout endpoints of the admin panel.",
+                    "item": [
+                        {
+                            "name": "Genreate the administrator",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/generate",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/generate"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"first_name\":\"quis\",\"last_name\":\"minima\",\"email\":\"carmela27@example.net\",\"password\":\"U{hw`PGVVR;\",\"confirm_password\":\"quibusdam\"}"
+                                },
+                                "description": "API to generate the super administrator. It is only a one-time call\nin the entire lifetime of the application.",
+                                "auth": {
+                                    "type": "noauth"
+                                }
                             },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"first_name\":\"dolor\",\"last_name\":\"aut\",\"email\":\"barton.meda@example.net\",\"password\":\"oax3[#v\\\"U~_43$Vfkn\",\"confirm_password\":\"impedit\"}"
+                            "response": []
                         },
-                        "description": "API to generate the super administrator. It is only a one-time call\nin the entire lifetime of the application.",
-                        "auth": {
-                            "type": "noauth"
+                        {
+                            "name": "Login",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/login",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/login"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"email\":\"augustine.paucek@example.net\",\"password\":\"Y{+64M&_J\"}"
+                                },
+                                "description": "Login the administrator, and generate the token.\nThis token will be used for further requests in the admin panel.",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Logout",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/logout",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/logout"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Logout the administrator user. When they log out, all the tokens\nrelated to them will also get deleted."
+                            },
+                            "response": []
                         }
-                    },
-                    "response": []
+                    ]
                 }
             ]
         },
@@ -102,34 +164,6 @@
                     ]
                 },
                 {
-                    "name": "Auth the administrator",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/login",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/login"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"email\":\"rgaylord@example.org\",\"password\":\"fri=X\\\/\"}"
-                        },
-                        "description": ""
-                    },
-                    "response": []
-                },
-                {
                     "name": "Send the password reset link to the given email address.",
                     "request": {
                         "url": {
@@ -151,7 +185,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"terrance.toy@example.com\"}"
+                            "raw": "{\"email\":\"ayden.zboncak@example.com\"}"
                         },
                         "description": ""
                     },
@@ -179,33 +213,8 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"sarai30@example.org\",\"token\":\"qui\",\"new_password\":\"quisquam\",\"repeat_new_password\":\"rerum\"}"
+                            "raw": "{\"email\":\"igaylord@example.com\",\"token\":\"voluptatem\",\"new_password\":\"facere\",\"repeat_new_password\":\"odit\"}"
                         },
-                        "description": ""
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Logout the administator.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/logout",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/logout"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
                         "description": ""
                     },
                     "response": []
@@ -232,7 +241,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"first_name\":\"porro\",\"last_name\":\"illum\",\"email\":\"igibson@example.com\"}"
+                            "raw": "{\"first_name\":\"unde\",\"last_name\":\"repellat\",\"email\":\"ed36@example.net\"}"
                         },
                         "description": ""
                     },
@@ -260,7 +269,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"current_password\":\"placeat\",\"new_password\":\"amet\",\"new_password_confirmation\":\"cum\"}"
+                            "raw": "{\"current_password\":\"a\",\"new_password\":\"omnis\",\"new_password_confirmation\":\"nobis\"}"
                         },
                         "description": ""
                     },
@@ -333,7 +342,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"agdpizquyyjugnodmpiuhdxp\",\"description\":\"Et hic in animi atque.\",\"meta_title\":\"xvzlmxcggz\",\"meta_description\":\"kdytutolqgbndokgydn\",\"meta_keywords\":\"ghovcmjjcloxkfrwlhxfkuuop\"}"
+                            "raw": "{\"name\":\"zpgctxrsyfltb\",\"description\":\"Autem tempore possimus non eos quisquam asperiores necessitatibus.\",\"meta_title\":\"txcdfhek\",\"meta_description\":\"rsfgrkx\",\"meta_keywords\":\"ofspscvb\"}"
                         },
                         "description": ""
                     },
@@ -351,7 +360,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "7",
+                                    "value": "19",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -404,7 +413,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "3",
+                                    "value": "12",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -422,7 +431,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"kbonilftomntmvxc\",\"description\":\"Illum exercitationem aliquam ut dolor repellendus.\",\"meta_title\":\"tuhbjhcctffgijeqayzimtprk\",\"meta_description\":\"lfilm\",\"meta_keywords\":\"jl\"}"
+                            "raw": "{\"name\":\"sr\",\"description\":\"Quod nostrum odio maxime eius vero.\",\"meta_title\":\"btuimfnfcvedgkjkh\",\"meta_description\":\"vavukq\",\"meta_keywords\":\"zmxewlmtpdcohimbvngqemy\"}"
                         },
                         "description": ""
                     },
@@ -440,7 +449,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "10",
+                                    "value": "18",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -528,7 +537,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"twpxfoppzojfc\",\"description\":\"Quis natus omnis quo molestias.\",\"meta_title\":\"dhpdxkxmnbbbavgbae\",\"meta_description\":\"bcjcwmvbbx\",\"meta_keywords\":\"dfdzokpx\"}"
+                            "raw": "{\"name\":\"dmcfxvpvlimlekfyhut\",\"description\":\"Excepturi qui sed neque atque quas in commodi repellat.\",\"meta_title\":\"knab\",\"meta_description\":\"pztysyno\",\"meta_keywords\":\"sdwaeqrdfapfqbjto\"}"
                         },
                         "description": ""
                     },
@@ -546,7 +555,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "16",
+                                    "value": "7",
                                     "description": "The ID of the tag."
                                 }
                             ]
@@ -599,7 +608,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "9",
+                                    "value": "3",
                                     "description": "The ID of the tag."
                                 }
                             ]
@@ -617,7 +626,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"c\",\"description\":\"Dignissimos quia nemo quia.\",\"meta_title\":\"fxoiyvraszkvrfepzbcbrec\",\"meta_description\":\"olfsrqridn\",\"meta_keywords\":\"nxucxekfumytxkboyfjxlbi\"}"
+                            "raw": "{\"name\":\"yoegjrcezcyvfozqnyol\",\"description\":\"Ex est dolorem assumenda ipsam ab quia quo ducimus.\",\"meta_title\":\"zvnehtixx\",\"meta_description\":\"npzdhfedwelvcjbdjp\",\"meta_keywords\":\"vogkfyzo\"}"
                         },
                         "description": ""
                     },
@@ -635,7 +644,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "3",
+                                    "value": "6",
                                     "description": "The ID of the tag."
                                 }
                             ]
@@ -723,7 +732,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"ymx\",\"description\":\"Omnis possimus ipsum voluptatem aut aspernatur.\",\"meta_title\":\"xhlkqogjwrrdoh\",\"meta_description\":\"uuximgsss\",\"meta_keywords\":\"bijayqywwgdacyw\"}"
+                            "raw": "{\"name\":\"lrtnzkyy\",\"description\":\"At vitae beatae repudiandae sed et.\",\"meta_title\":\"htjttlvukoevijdz\",\"meta_description\":\"emphlfyergnut\",\"meta_keywords\":\"zhtwkwibgvojuzsfibjqbp\"}"
                         },
                         "description": ""
                     },
@@ -741,7 +750,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "6",
+                                    "value": "9",
                                     "description": "The ID of the brand."
                                 }
                             ]
@@ -794,7 +803,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "14",
+                                    "value": "6",
                                     "description": "The ID of the brand."
                                 }
                             ]
@@ -812,7 +821,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"nape\",\"description\":\"Quia aut voluptatum quia et beatae consectetur doloribus dolore.\",\"meta_title\":\"prvgpopdhyhkpwkdnllgwnxg\",\"meta_description\":\"xzdo\",\"meta_keywords\":\"hnvyx\"}"
+                            "raw": "{\"name\":\"iufbbsxmf\",\"description\":\"Labore minima qui tempora voluptate exercitationem.\",\"meta_title\":\"jusah\",\"meta_description\":\"xckwptcycpshj\",\"meta_keywords\":\"rczfypbzdkanyzznwill\"}"
                         },
                         "description": ""
                     },

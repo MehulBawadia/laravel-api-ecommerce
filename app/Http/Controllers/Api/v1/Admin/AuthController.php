@@ -8,10 +8,22 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * @group Administrator Endpoints
+ *
+ * @subgroup Admin Authentication
+ *
+ * @subgroupDescription  The login and logout endpoints of the admin panel.
+ */
 class AuthController extends Controller
 {
     /**
-     * Auth the administrator
+     * Login
+     *
+     * Login the administrator, and generate the token.
+     * This token will be used for further requests in the admin panel.
+     *
+     * @unauthenticated
      *
      * @return void
      */
@@ -41,8 +53,12 @@ class AuthController extends Controller
     }
 
     /**
-     * Logout the administator.
+     * Logout
      *
+     * Logout the administrator user. When they log out, all the tokens
+     * related to them will also get deleted.
+     *
+     * @authenticated
      *
      * @return \Illuminate\Http\JsonResponse
      */
