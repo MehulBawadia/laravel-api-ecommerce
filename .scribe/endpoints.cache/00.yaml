@@ -41,57 +41,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 5v1e6dZkgDchbaaEV64f3P8'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/v1/admin/login
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Auth the administrator'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      email:
-        name: email
-        description: 'Must be a valid email address.'
-        required: true
-        example: rgaylord@example.org
-        type: string
-        custom: []
-      password:
-        name: password
-        description: ''
-        required: true
-        example: fri=X/
-        type: string
-        custom: []
-    cleanBodyParameters:
-      email: rgaylord@example.org
-      password: fri=X/
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer aaDcf66kbhV18gP5Ze3vdE4'
+      - 'Bearer 68ka3Vg4bvfachZ15Ped6DE'
     controller: null
     method: null
     route: null
@@ -122,18 +72,18 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: terrance.toy@example.com
+        example: ayden.zboncak@example.com
         type: string
         custom: []
     cleanBodyParameters:
-      email: terrance.toy@example.com
+      email: ayden.zboncak@example.com
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer cbg6VkD46a1dPZf5evEha38'
+      - 'Bearer ved8Daha3V6bfZcg4kE16P5'
     controller: null
     method: null
     route: null
@@ -164,76 +114,42 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: sarai30@example.org
+        example: igaylord@example.com
         type: string
         custom: []
       token:
         name: token
         description: ''
         required: true
-        example: qui
+        example: voluptatem
         type: string
         custom: []
       new_password:
         name: new_password
         description: ''
         required: true
-        example: quisquam
+        example: facere
         type: string
         custom: []
       repeat_new_password:
         name: repeat_new_password
         description: 'The value and <code>new_password</code> must match.'
         required: true
-        example: rerum
+        example: odit
         type: string
         custom: []
     cleanBodyParameters:
-      email: sarai30@example.org
-      token: qui
-      new_password: quisquam
-      repeat_new_password: rerum
+      email: igaylord@example.com
+      token: voluptatem
+      new_password: facere
+      repeat_new_password: odit
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer cPkaadgb3e6E615h4fZDV8v'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/v1/admin/logout
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Logout the administator.'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer k665be1aDv3acdfhVZg8EP4'
+      - 'Bearer 6g1kD4b8ZdaEf3VcPve56ha'
     controller: null
     method: null
     route: null
@@ -264,34 +180,34 @@ endpoints:
         name: first_name
         description: ''
         required: true
-        example: porro
+        example: unde
         type: string
         custom: []
       last_name:
         name: last_name
         description: ''
         required: true
-        example: illum
+        example: repellat
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: igibson@example.com
+        example: ed36@example.net
         type: string
         custom: []
     cleanBodyParameters:
-      first_name: porro
-      last_name: illum
-      email: igibson@example.com
+      first_name: unde
+      last_name: repellat
+      email: ed36@example.net
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer DPa41beVg86dfcEhv5kZa63'
+      - 'Bearer chaf35468ebda6VZkP1EvgD'
     controller: null
     method: null
     route: null
@@ -322,34 +238,34 @@ endpoints:
         name: current_password
         description: ''
         required: true
-        example: placeat
+        example: a
         type: string
         custom: []
       new_password:
         name: new_password
         description: ''
         required: true
-        example: amet
+        example: omnis
         type: string
         custom: []
       new_password_confirmation:
         name: new_password_confirmation
         description: ''
         required: true
-        example: cum
+        example: nobis
         type: string
         custom: []
     cleanBodyParameters:
-      current_password: placeat
-      new_password: amet
-      new_password_confirmation: cum
+      current_password: a
+      new_password: omnis
+      new_password_confirmation: nobis
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 5h16afdVkb34EZ8DcgPa6ev'
+      - 'Bearer 4vkaDf1a6Z35hcVEg6edPb8'
     controller: null
     method: null
     route: null
@@ -392,7 +308,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer g4h6a83bvkDe1cdafPVE6Z5'
+      - 'Bearer gdVbeE6ca83Zakv6PDf514h'
     controller: null
     method: null
     route: null
@@ -423,50 +339,50 @@ endpoints:
         name: name
         description: 'Must not be greater than 100 characters.'
         required: true
-        example: agdpizquyyjugnodmpiuhdxp
+        example: zpgctxrsyfltb
         type: string
         custom: []
       description:
         name: description
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: 'Et hic in animi atque.'
+        example: 'Autem tempore possimus non eos quisquam asperiores necessitatibus.'
         type: string
         custom: []
       meta_title:
         name: meta_title
         description: 'Must not be greater than 80 characters.'
         required: true
-        example: xvzlmxcggz
+        example: txcdfhek
         type: string
         custom: []
       meta_description:
         name: meta_description
         description: 'Must not be greater than 180 characters.'
         required: true
-        example: kdytutolqgbndokgydn
+        example: rsfgrkx
         type: string
         custom: []
       meta_keywords:
         name: meta_keywords
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: ghovcmjjcloxkfrwlhxfkuuop
+        example: ofspscvb
         type: string
         custom: []
     cleanBodyParameters:
-      name: agdpizquyyjugnodmpiuhdxp
-      description: 'Et hic in animi atque.'
-      meta_title: xvzlmxcggz
-      meta_description: kdytutolqgbndokgydn
-      meta_keywords: ghovcmjjcloxkfrwlhxfkuuop
+      name: zpgctxrsyfltb
+      description: 'Autem tempore possimus non eos quisquam asperiores necessitatibus.'
+      meta_title: txcdfhek
+      meta_description: rsfgrkx
+      meta_keywords: ofspscvb
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer hkfVea3Dcg4ab518ZP6v6dE'
+      - 'Bearer bcD4aa5dg6h6Z3efE1vPV8k'
     controller: null
     method: null
     route: null
@@ -493,11 +409,11 @@ endpoints:
         name: id
         description: 'The ID of the category.'
         required: true
-        example: 7
+        example: 19
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 7
+      id: 19
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -517,7 +433,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer dP83hea5Zv4cgkEV61af6bD'
+      - 'Bearer eg1a4akbvdV65chPZ6fD38E'
     controller: null
     method: null
     route: null
@@ -544,11 +460,11 @@ endpoints:
         name: id
         description: 'The ID of the category.'
         required: true
-        example: 3
+        example: 12
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 3
+      id: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -556,50 +472,50 @@ endpoints:
         name: name
         description: 'Must not be greater than 100 characters.'
         required: true
-        example: kbonilftomntmvxc
+        example: sr
         type: string
         custom: []
       description:
         name: description
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: 'Illum exercitationem aliquam ut dolor repellendus.'
+        example: 'Quod nostrum odio maxime eius vero.'
         type: string
         custom: []
       meta_title:
         name: meta_title
         description: 'Must not be greater than 80 characters.'
         required: true
-        example: tuhbjhcctffgijeqayzimtprk
+        example: btuimfnfcvedgkjkh
         type: string
         custom: []
       meta_description:
         name: meta_description
         description: 'Must not be greater than 180 characters.'
         required: true
-        example: lfilm
+        example: vavukq
         type: string
         custom: []
       meta_keywords:
         name: meta_keywords
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: jl
+        example: zmxewlmtpdcohimbvngqemy
         type: string
         custom: []
     cleanBodyParameters:
-      name: kbonilftomntmvxc
-      description: 'Illum exercitationem aliquam ut dolor repellendus.'
-      meta_title: tuhbjhcctffgijeqayzimtprk
-      meta_description: lfilm
-      meta_keywords: jl
+      name: sr
+      description: 'Quod nostrum odio maxime eius vero.'
+      meta_title: btuimfnfcvedgkjkh
+      meta_description: vavukq
+      meta_keywords: zmxewlmtpdcohimbvngqemy
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 5ga1heZav4cbfDd636V8EkP'
+      - 'Bearer 68ck1b54dfgeP6DaZhaV3Ev'
     controller: null
     method: null
     route: null
@@ -626,11 +542,11 @@ endpoints:
         name: id
         description: 'The ID of the category.'
         required: true
-        example: 10
+        example: 18
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 10
+      id: 18
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -641,7 +557,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 4b6ZhD65dEaae8Vv1fg3cPk'
+      - 'Bearer fd6e3aZb4g6h15VPak8DcvE'
     controller: null
     method: null
     route: null
@@ -684,7 +600,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer hDaZEcb5gaP6vVe684kf1d3'
+      - 'Bearer a31EfZab65ghevP6Dcd48kV'
     controller: null
     method: null
     route: null
@@ -715,50 +631,50 @@ endpoints:
         name: name
         description: 'Must not be greater than 100 characters.'
         required: true
-        example: twpxfoppzojfc
+        example: dmcfxvpvlimlekfyhut
         type: string
         custom: []
       description:
         name: description
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: 'Quis natus omnis quo molestias.'
+        example: 'Excepturi qui sed neque atque quas in commodi repellat.'
         type: string
         custom: []
       meta_title:
         name: meta_title
         description: 'Must not be greater than 80 characters.'
         required: true
-        example: dhpdxkxmnbbbavgbae
+        example: knab
         type: string
         custom: []
       meta_description:
         name: meta_description
         description: 'Must not be greater than 180 characters.'
         required: true
-        example: bcjcwmvbbx
+        example: pztysyno
         type: string
         custom: []
       meta_keywords:
         name: meta_keywords
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: dfdzokpx
+        example: sdwaeqrdfapfqbjto
         type: string
         custom: []
     cleanBodyParameters:
-      name: twpxfoppzojfc
-      description: 'Quis natus omnis quo molestias.'
-      meta_title: dhpdxkxmnbbbavgbae
-      meta_description: bcjcwmvbbx
-      meta_keywords: dfdzokpx
+      name: dmcfxvpvlimlekfyhut
+      description: 'Excepturi qui sed neque atque quas in commodi repellat.'
+      meta_title: knab
+      meta_description: pztysyno
+      meta_keywords: sdwaeqrdfapfqbjto
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 3EkZa1Vdcafh64D8g6Pbev5'
+      - 'Bearer vb4Vc6dPhZa8EkD6f35ae1g'
     controller: null
     method: null
     route: null
@@ -785,11 +701,11 @@ endpoints:
         name: id
         description: 'The ID of the tag.'
         required: true
-        example: 16
+        example: 7
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 16
+      id: 7
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -809,7 +725,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer a38g4Vh6cDE65d1fZkbPaev'
+      - 'Bearer dZDb8aeVhg654EPk1cf36av'
     controller: null
     method: null
     route: null
@@ -836,11 +752,11 @@ endpoints:
         name: id
         description: 'The ID of the tag.'
         required: true
-        example: 9
+        example: 3
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 9
+      id: 3
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -848,50 +764,50 @@ endpoints:
         name: name
         description: 'Must not be greater than 100 characters.'
         required: true
-        example: c
+        example: yoegjrcezcyvfozqnyol
         type: string
         custom: []
       description:
         name: description
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: 'Dignissimos quia nemo quia.'
+        example: 'Ex est dolorem assumenda ipsam ab quia quo ducimus.'
         type: string
         custom: []
       meta_title:
         name: meta_title
         description: 'Must not be greater than 80 characters.'
         required: true
-        example: fxoiyvraszkvrfepzbcbrec
+        example: zvnehtixx
         type: string
         custom: []
       meta_description:
         name: meta_description
         description: 'Must not be greater than 180 characters.'
         required: true
-        example: olfsrqridn
+        example: npzdhfedwelvcjbdjp
         type: string
         custom: []
       meta_keywords:
         name: meta_keywords
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: nxucxekfumytxkboyfjxlbi
+        example: vogkfyzo
         type: string
         custom: []
     cleanBodyParameters:
-      name: c
-      description: 'Dignissimos quia nemo quia.'
-      meta_title: fxoiyvraszkvrfepzbcbrec
-      meta_description: olfsrqridn
-      meta_keywords: nxucxekfumytxkboyfjxlbi
+      name: yoegjrcezcyvfozqnyol
+      description: 'Ex est dolorem assumenda ipsam ab quia quo ducimus.'
+      meta_title: zvnehtixx
+      meta_description: npzdhfedwelvcjbdjp
+      meta_keywords: vogkfyzo
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 64b5fE1D6P8Vke3Zdvahgca'
+      - 'Bearer VhPgD8k4dvface6a5bZ136E'
     controller: null
     method: null
     route: null
@@ -918,11 +834,11 @@ endpoints:
         name: id
         description: 'The ID of the tag.'
         required: true
-        example: 3
+        example: 6
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 3
+      id: 6
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -933,7 +849,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 6dEPvaecgb3a1VkDZ86hf45'
+      - 'Bearer 8P4de6hbv6gaEck13Z5afVD'
     controller: null
     method: null
     route: null
@@ -976,7 +892,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer fk68gE51a3VPcDdhbea4vZ6'
+      - 'Bearer gPac8eDb6advfk61hV354ZE'
     controller: null
     method: null
     route: null
@@ -1007,50 +923,50 @@ endpoints:
         name: name
         description: 'Must not be greater than 100 characters.'
         required: true
-        example: ymx
+        example: lrtnzkyy
         type: string
         custom: []
       description:
         name: description
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: 'Omnis possimus ipsum voluptatem aut aspernatur.'
+        example: 'At vitae beatae repudiandae sed et.'
         type: string
         custom: []
       meta_title:
         name: meta_title
         description: 'Must not be greater than 80 characters.'
         required: true
-        example: xhlkqogjwrrdoh
+        example: htjttlvukoevijdz
         type: string
         custom: []
       meta_description:
         name: meta_description
         description: 'Must not be greater than 180 characters.'
         required: true
-        example: uuximgsss
+        example: emphlfyergnut
         type: string
         custom: []
       meta_keywords:
         name: meta_keywords
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: bijayqywwgdacyw
+        example: zhtwkwibgvojuzsfibjqbp
         type: string
         custom: []
     cleanBodyParameters:
-      name: ymx
-      description: 'Omnis possimus ipsum voluptatem aut aspernatur.'
-      meta_title: xhlkqogjwrrdoh
-      meta_description: uuximgsss
-      meta_keywords: bijayqywwgdacyw
+      name: lrtnzkyy
+      description: 'At vitae beatae repudiandae sed et.'
+      meta_title: htjttlvukoevijdz
+      meta_description: emphlfyergnut
+      meta_keywords: zhtwkwibgvojuzsfibjqbp
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer afvDP46ba1kdEhgZ8ce3V65'
+      - 'Bearer 1a586Ecv3d4hfgkVDe6abZP'
     controller: null
     method: null
     route: null
@@ -1077,11 +993,11 @@ endpoints:
         name: id
         description: 'The ID of the brand.'
         required: true
-        example: 6
+        example: 9
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 6
+      id: 9
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1101,7 +1017,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer v6ck5a8Vdeghbf614P3EZDa'
+      - 'Bearer Pag3dfv6ha615kDeZcV84Eb'
     controller: null
     method: null
     route: null
@@ -1128,11 +1044,11 @@ endpoints:
         name: id
         description: 'The ID of the brand.'
         required: true
-        example: 14
+        example: 6
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 14
+      id: 6
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -1140,50 +1056,50 @@ endpoints:
         name: name
         description: 'Must not be greater than 100 characters.'
         required: true
-        example: nape
+        example: iufbbsxmf
         type: string
         custom: []
       description:
         name: description
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: 'Quia aut voluptatum quia et beatae consectetur doloribus dolore.'
+        example: 'Labore minima qui tempora voluptate exercitationem.'
         type: string
         custom: []
       meta_title:
         name: meta_title
         description: 'Must not be greater than 80 characters.'
         required: true
-        example: prvgpopdhyhkpwkdnllgwnxg
+        example: jusah
         type: string
         custom: []
       meta_description:
         name: meta_description
         description: 'Must not be greater than 180 characters.'
         required: true
-        example: xzdo
+        example: xckwptcycpshj
         type: string
         custom: []
       meta_keywords:
         name: meta_keywords
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: hnvyx
+        example: rczfypbzdkanyzznwill
         type: string
         custom: []
     cleanBodyParameters:
-      name: nape
-      description: 'Quia aut voluptatum quia et beatae consectetur doloribus dolore.'
-      meta_title: prvgpopdhyhkpwkdnllgwnxg
-      meta_description: xzdo
-      meta_keywords: hnvyx
+      name: iufbbsxmf
+      description: 'Labore minima qui tempora voluptate exercitationem.'
+      meta_title: jusah
+      meta_description: xckwptcycpshj
+      meta_keywords: rczfypbzdkanyzznwill
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer ca6hVkv15d3Dag6Z84EePfb'
+      - 'Bearer 5h38e6VE1fkcba6Zd4PvgDa'
     controller: null
     method: null
     route: null
@@ -1225,7 +1141,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer da86f35PekgE1abD4VZ6chv'
+      - 'Bearer Eae366cfPb8a5dDg1ZVvhk4'
     controller: null
     method: null
     route: null
