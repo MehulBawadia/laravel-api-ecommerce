@@ -1,0 +1,819 @@
+openapi: 3.0.3
+info:
+  title: 'Laravel E-Commerce API'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8000'
+paths:
+  /api/v1/admin/generate:
+    post:
+      summary: 'Genreate the administrator'
+      operationId: genreateTheAdministrator
+      description: "API to generate the super administrator. It is only a one-time call\nin the entire lifetime of the application."
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Administrator Endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: ''
+                  example: dolor
+                last_name:
+                  type: string
+                  description: ''
+                  example: aut
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: barton.meda@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: 'oax3[#v"U~_43$Vfkn'
+                confirm_password:
+                  type: string
+                  description: 'The value and <code>password</code> must match.'
+                  example: impedit
+              required:
+                - first_name
+                - last_name
+                - email
+                - password
+                - confirm_password
+      security: []
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+  /api/v1/admin/login:
+    post:
+      summary: 'Auth the administrator'
+      operationId: authTheAdministrator
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: rgaylord@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: fri=X/
+              required:
+                - email
+                - password
+  /api/v1/admin/forgot-password:
+    post:
+      summary: 'Send the password reset link to the given email address.'
+      operationId: sendThePasswordResetLinkToTheGivenEmailAddress
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: terrance.toy@example.com
+              required:
+                - email
+  /api/v1/admin/reset-password:
+    post:
+      summary: "Reset the user's password with the new password."
+      operationId: resetTheUsersPasswordWithTheNewPassword
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: sarai30@example.org
+                token:
+                  type: string
+                  description: ''
+                  example: qui
+                new_password:
+                  type: string
+                  description: ''
+                  example: quisquam
+                repeat_new_password:
+                  type: string
+                  description: 'The value and <code>new_password</code> must match.'
+                  example: rerum
+              required:
+                - email
+                - token
+                - new_password
+                - repeat_new_password
+  /api/v1/admin/logout:
+    post:
+      summary: 'Logout the administator.'
+      operationId: logoutTheAdministator
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+  /api/v1/admin/account-settings/general:
+    post:
+      summary: 'Update the general settings of the admin user.'
+      operationId: updateTheGeneralSettingsOfTheAdminUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: ''
+                  example: porro
+                last_name:
+                  type: string
+                  description: ''
+                  example: illum
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: igibson@example.com
+              required:
+                - first_name
+                - last_name
+                - email
+  /api/v1/admin/account-settings/change-password:
+    post:
+      summary: "Change the admin user's password."
+      operationId: changeTheAdminUsersPassword
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                current_password:
+                  type: string
+                  description: ''
+                  example: placeat
+                new_password:
+                  type: string
+                  description: ''
+                  example: amet
+                new_password_confirmation:
+                  type: string
+                  description: ''
+                  example: cum
+              required:
+                - current_password
+                - new_password
+                - new_password_confirmation
+  /api/v1/admin/categories:
+    get:
+      summary: 'Get and paginate the categories.'
+      operationId: getAndPaginateTheCategories
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    post:
+      summary: 'Store a new category.'
+      operationId: storeANewCategory
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: agdpizquyyjugnodmpiuhdxp
+                description:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'Et hic in animi atque.'
+                meta_title:
+                  type: string
+                  description: 'Must not be greater than 80 characters.'
+                  example: xvzlmxcggz
+                meta_description:
+                  type: string
+                  description: 'Must not be greater than 180 characters.'
+                  example: kdytutolqgbndokgydn
+                meta_keywords:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ghovcmjjcloxkfrwlhxfkuuop
+              required:
+                - name
+                - description
+                - meta_title
+                - meta_description
+  '/api/v1/admin/categories/{id}':
+    get:
+      summary: 'Fetch the details about the given category id.'
+      operationId: fetchTheDetailsAboutTheGivenCategoryId
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    put:
+      summary: 'Update the category details of the given id.'
+      operationId: updateTheCategoryDetailsOfTheGivenId
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: kbonilftomntmvxc
+                description:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'Illum exercitationem aliquam ut dolor repellendus.'
+                meta_title:
+                  type: string
+                  description: 'Must not be greater than 80 characters.'
+                  example: tuhbjhcctffgijeqayzimtprk
+                meta_description:
+                  type: string
+                  description: 'Must not be greater than 180 characters.'
+                  example: lfilm
+                meta_keywords:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: jl
+              required:
+                - name
+                - description
+                - meta_title
+                - meta_description
+    delete:
+      summary: 'Delete the category details of the given id.'
+      operationId: deleteTheCategoryDetailsOfTheGivenId
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the category.'
+        example: 7
+        required: true
+        schema:
+          type: integer
+  /api/v1/admin/tags:
+    get:
+      summary: 'Get and paginate the tags.'
+      operationId: getAndPaginateTheTags
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    post:
+      summary: 'Store a new Tag.'
+      operationId: storeANewTag
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: twpxfoppzojfc
+                description:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'Quis natus omnis quo molestias.'
+                meta_title:
+                  type: string
+                  description: 'Must not be greater than 80 characters.'
+                  example: dhpdxkxmnbbbavgbae
+                meta_description:
+                  type: string
+                  description: 'Must not be greater than 180 characters.'
+                  example: bcjcwmvbbx
+                meta_keywords:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: dfdzokpx
+              required:
+                - name
+                - description
+                - meta_title
+                - meta_description
+  '/api/v1/admin/tags/{id}':
+    get:
+      summary: 'Fetch the details about the given tag id.'
+      operationId: fetchTheDetailsAboutTheGivenTagId
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    put:
+      summary: 'Update the tag details of the given id.'
+      operationId: updateTheTagDetailsOfTheGivenId
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: c
+                description:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'Dignissimos quia nemo quia.'
+                meta_title:
+                  type: string
+                  description: 'Must not be greater than 80 characters.'
+                  example: fxoiyvraszkvrfepzbcbrec
+                meta_description:
+                  type: string
+                  description: 'Must not be greater than 180 characters.'
+                  example: olfsrqridn
+                meta_keywords:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: nxucxekfumytxkboyfjxlbi
+              required:
+                - name
+                - description
+                - meta_title
+                - meta_description
+    delete:
+      summary: 'Delete the tag details of the given id.'
+      operationId: deleteTheTagDetailsOfTheGivenId
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the tag.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  /api/v1/admin/brands:
+    get:
+      summary: 'Get and paginate the brands.'
+      operationId: getAndPaginateTheBrands
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    post:
+      summary: 'Store a new Brand.'
+      operationId: storeANewBrand
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: ymx
+                description:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'Omnis possimus ipsum voluptatem aut aspernatur.'
+                meta_title:
+                  type: string
+                  description: 'Must not be greater than 80 characters.'
+                  example: xhlkqogjwrrdoh
+                meta_description:
+                  type: string
+                  description: 'Must not be greater than 180 characters.'
+                  example: uuximgsss
+                meta_keywords:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: bijayqywwgdacyw
+              required:
+                - name
+                - description
+                - meta_title
+                - meta_description
+  '/api/v1/admin/brands/{id}':
+    get:
+      summary: 'Fetch the details about the given brand id.'
+      operationId: fetchTheDetailsAboutTheGivenBrandId
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    put:
+      summary: 'Update the brand details of the given id.'
+      operationId: updateTheBrandDetailsOfTheGivenId
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: nape
+                description:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'Quia aut voluptatum quia et beatae consectetur doloribus dolore.'
+                meta_title:
+                  type: string
+                  description: 'Must not be greater than 80 characters.'
+                  example: prvgpopdhyhkpwkdnllgwnxg
+                meta_description:
+                  type: string
+                  description: 'Must not be greater than 180 characters.'
+                  example: xzdo
+                meta_keywords:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: hnvyx
+              required:
+                - name
+                - description
+                - meta_title
+                - meta_description
+    delete:
+      summary: 'Delete the brand details of the given id.'
+      operationId: deleteTheBrandDetailsOfTheGivenId
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the brand.'
+        example: 6
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: 'Administrator Endpoints'
+    description: ''
+  -
+    name: Endpoints
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

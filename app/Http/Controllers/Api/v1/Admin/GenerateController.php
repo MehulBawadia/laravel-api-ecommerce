@@ -7,10 +7,18 @@ use App\Http\Requests\v1\Admin\GenerateRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * @group Administrator Endpoints
+ */
 class GenerateController extends Controller
 {
     /**
      * Genreate the administrator
+     *
+     * API to generate the super administrator. It is only a one-time call
+     * in the entire lifetime of the application.
+     *
+     * @unauthenticated
      *
      * @return void
      */
