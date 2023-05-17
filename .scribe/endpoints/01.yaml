@@ -8,7 +8,7 @@ endpoints:
     metadata:
       groupName: 'Administrator Endpoints'
       groupDescription: ''
-      subgroup: 'Admin Authentication'
+      subgroup: Authentication
       subgroupDescription: ''
       title: 'Genreate the administrator'
       description: |-
@@ -28,43 +28,43 @@ endpoints:
         name: first_name
         description: ''
         required: true
-        example: quis
+        example: sit
         type: string
         custom: []
       last_name:
         name: last_name
         description: ''
         required: true
-        example: minima
+        example: qui
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: carmela27@example.net
+        example: matilda33@example.org
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: 'U{hw`PGVVR;'
+        example: ^7g2JVERo
         type: string
         custom: []
       confirm_password:
         name: confirm_password
         description: 'The value and <code>password</code> must match.'
         required: true
-        example: quibusdam
+        example: quae
         type: string
         custom: []
     cleanBodyParameters:
-      first_name: quis
-      last_name: minima
-      email: carmela27@example.net
-      password: 'U{hw`PGVVR;'
-      confirm_password: quibusdam
+      first_name: sit
+      last_name: qui
+      email: matilda33@example.org
+      password: ^7g2JVERo
+      confirm_password: quae
     fileParameters: []
     responses: []
     responseFields: []
@@ -80,7 +80,7 @@ endpoints:
     metadata:
       groupName: 'Administrator Endpoints'
       groupDescription: ''
-      subgroup: 'Admin Authentication'
+      subgroup: Authentication
       subgroupDescription: 'The login and logout endpoints of the admin panel.'
       title: Login
       description: |-
@@ -100,19 +100,19 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: augustine.paucek@example.net
+        example: babbott@example.com
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: 'Y{+64M&_J'
+        example: 'X*i:{3}t6xoe)mE{HGNo'
         type: string
         custom: []
     cleanBodyParameters:
-      email: augustine.paucek@example.net
-      password: 'Y{+64M&_J'
+      email: babbott@example.com
+      password: 'X*i:{3}t6xoe)mE{HGNo'
     fileParameters: []
     responses: []
     responseFields: []
@@ -128,7 +128,7 @@ endpoints:
     metadata:
       groupName: 'Administrator Endpoints'
       groupDescription: ''
-      subgroup: 'Admin Authentication'
+      subgroup: Authentication
       subgroupDescription: 'The login and logout endpoints of the admin panel.'
       title: Logout
       description: |-
@@ -152,7 +152,155 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer a6P3vkd14V8c5abDgfE6heZ'
+      - 'Bearer hV4eP5Z8Dafkgca3vbd6E61'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/admin/account-settings/general
+    metadata:
+      groupName: 'Administrator Endpoints'
+      groupDescription: ''
+      subgroup: 'Account Settings'
+      subgroupDescription: 'The endpoints related to the administrator account.'
+      title: 'General Settings'
+      description: 'Update the general settings of the admin user.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      first_name:
+        name: first_name
+        description: 'The first name of the admin user.'
+        required: true
+        example: John
+        type: string
+        custom: []
+      last_name:
+        name: last_name
+        description: 'The last name of the admin user.'
+        required: true
+        example: Doe
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'The email of the admin user.'
+        required: true
+        example: johndoe@example.com
+        type: string
+        custom: []
+    cleanBodyParameters:
+      first_name: John
+      last_name: Doe
+      email: johndoe@example.com
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |
+          {
+              "status": "success",
+              "message": "General Settings updated successfully.",
+              "data": {
+                  "id": 1,
+                  "first_name": "John",
+                  "last_name": "Doe",
+                  "email": "johndoe@example.com",
+                  "created_at": "2023-05-17T00:00:00.000000Z",
+                  "updated_at": "2023-05-17T00:00:00.000000Z",
+                  "deleted_at": null
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Zb8kPDdch4EVgf1v6ea365a'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/admin/account-settings/change-password
+    metadata:
+      groupName: 'Administrator Endpoints'
+      groupDescription: ''
+      subgroup: 'Account Settings'
+      subgroupDescription: 'The endpoints related to the administrator account.'
+      title: 'Change Password'
+      description: |-
+        Update the password of the currently authenticated admin user.
+        It will be updated only when the current password is matched.
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      current_password:
+        name: current_password
+        description: "The admin user's current password."
+        required: true
+        example: Pa$$w0rd
+        type: string
+        custom: []
+      new_password:
+        name: new_password
+        description: 'The new password.'
+        required: true
+        example: Secret
+        type: string
+        custom: []
+      new_password_confirmation:
+        name: new_password_confirmation
+        description: 'Confirm the new password, should match new_password.'
+        required: true
+        example: Secret
+        type: string
+        custom: []
+    cleanBodyParameters:
+      current_password: Pa$$w0rd
+      new_password: Secret
+      new_password_confirmation: Secret
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |
+          {
+              "status": "success",
+              "message": "Password updated successfully.",
+              "data": []
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 4EvafPZ6a16ghbDVkd538ec'
     controller: null
     method: null
     route: null
