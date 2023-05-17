@@ -26,23 +26,23 @@ paths:
                 first_name:
                   type: string
                   description: ''
-                  example: sit
+                  example: enim
                 last_name:
                   type: string
                   description: ''
-                  example: qui
+                  example: eum
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: matilda33@example.org
+                  example: melany14@example.net
                 password:
                   type: string
                   description: ''
-                  example: ^7g2JVERo
+                  example: "s+'+o@IAch"
                 confirm_password:
                   type: string
                   description: 'The value and <code>password</code> must match.'
-                  example: quae
+                  example: culpa
               required:
                 - first_name
                 - last_name
@@ -69,11 +69,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: babbott@example.com
+                  example: luisa.lind@example.org
                 password:
                   type: string
                   description: ''
-                  example: 'X*i:{3}t6xoe)mE{HGNo'
+                  example: 'Y/(gLUWOD-,`E6q#cF?'
               required:
                 - email
                 - password
@@ -294,7 +294,7 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: karina83@example.net
+                  example: anabel.donnelly@example.com
               required:
                 - email
   /api/v1/admin/reset-password:
@@ -323,19 +323,19 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: mabelle.klein@example.com
+                  example: isabella.stoltenberg@example.org
                 token:
                   type: string
                   description: ''
-                  example: at
+                  example: explicabo
                 new_password:
                   type: string
                   description: ''
-                  example: ipsam
+                  example: sed
                 repeat_new_password:
                   type: string
                   description: 'The value and <code>new_password</code> must match.'
-                  example: ut
+                  example: excepturi
               required:
                 - email
                 - token
@@ -394,23 +394,23 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 100 characters.'
-                  example: elcvzcgikambhhfifshojcom
+                  example: xgugvpmjynyjcpnvxhdydz
                 description:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: 'Quis ut incidunt quasi voluptates tempora voluptatem eligendi officiis.'
+                  example: 'Quibusdam blanditiis ducimus ea maxime aut dolores doloribus.'
                 meta_title:
                   type: string
                   description: 'Must not be greater than 80 characters.'
-                  example: dlwjdtbgeheaezqjljdkme
+                  example: bpuqbizl
                 meta_description:
                   type: string
                   description: 'Must not be greater than 180 characters.'
-                  example: hleoqvfhqhwmnktgv
+                  example: id
                 meta_keywords:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: s
+                  example: wdcvdpiegkzaig
               required:
                 - name
                 - description
@@ -469,23 +469,23 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 100 characters.'
-                  example: wjramtu
+                  example: zxodiomtogblr
                 description:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: 'Mollitia quibusdam deserunt assumenda fuga reprehenderit voluptas vero.'
+                  example: 'Magni consectetur ut fugiat sapiente natus.'
                 meta_title:
                   type: string
                   description: 'Must not be greater than 80 characters.'
-                  example: dggoowbaaqsifp
+                  example: rmf
                 meta_description:
                   type: string
                   description: 'Must not be greater than 180 characters.'
-                  example: hikafcips
+                  example: agzfdeeodg
                 meta_keywords:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: fbj
+                  example: ydhgfwrr
               required:
                 - name
                 - description
@@ -511,7 +511,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the category.'
-        example: 16
+        example: 11
         required: true
         schema:
           type: integer
@@ -568,23 +568,23 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 100 characters.'
-                  example: cvxicrrxubaaqhvfa
+                  example: nwvgrzdx
                 description:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: 'Dolor dolor fuga qui minus porro laudantium.'
+                  example: 'Mollitia cum nostrum itaque eum.'
                 meta_title:
                   type: string
                   description: 'Must not be greater than 80 characters.'
-                  example: q
+                  example: vbfvaa
                 meta_description:
                   type: string
                   description: 'Must not be greater than 180 characters.'
-                  example: yyeynnukbqzmvjcdzfyhvi
+                  example: clfxasvygyfxxnjovofczgo
                 meta_keywords:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: xin
+                  example: q
               required:
                 - name
                 - description
@@ -643,23 +643,23 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 100 characters.'
-                  example: jpwknnmxnjn
+                  example: kuvsiymatgnxvcjo
                 description:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: 'Natus minima delectus consequatur tempore esse.'
+                  example: 'Rerum aut qui qui itaque voluptatem.'
                 meta_title:
                   type: string
                   description: 'Must not be greater than 80 characters.'
-                  example: seuxzjy
+                  example: erd
                 meta_description:
                   type: string
                   description: 'Must not be greater than 180 characters.'
-                  example: qkisrfvnfwxeqafxvfwajb
+                  example: loujsmyrwzetwpnpf
                 meta_keywords:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: nvsshfykltj
+                  example: pphlgnlxcjcikbolhqjm
               required:
                 - name
                 - description
@@ -685,7 +685,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the tag.'
-        example: 8
+        example: 2
         required: true
         schema:
           type: integer
@@ -742,23 +742,23 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 100 characters.'
-                  example: xdqueoqlyppqmswegayawm
+                  example: viyjptlecjw
                 description:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: 'Minus aperiam exercitationem est odio.'
+                  example: 'Dolorem non repellendus atque.'
                 meta_title:
                   type: string
                   description: 'Must not be greater than 80 characters.'
-                  example: wj
+                  example: sqqmrhucepmum
                 meta_description:
                   type: string
                   description: 'Must not be greater than 180 characters.'
-                  example: bmdpsfow
+                  example: d
                 meta_keywords:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: qlvqsvfgnyhsocqqwu
+                  example: gpplvboei
               required:
                 - name
                 - description
@@ -817,23 +817,23 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 100 characters.'
-                  example: ffepwyrzjddvhzemjfwwho
+                  example: lthqvtgiqg
                 description:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: 'Voluptas aut eos sequi molestiae.'
+                  example: 'Voluptatem nisi corrupti error a ducimus harum alias ipsam.'
                 meta_title:
                   type: string
                   description: 'Must not be greater than 80 characters.'
-                  example: huyukqcvfgmbzmjlmcldxw
+                  example: yfuwktpwbs
                 meta_description:
                   type: string
                   description: 'Must not be greater than 180 characters.'
-                  example: nousdwimlxjhrdgkevrksu
+                  example: yueneaydagclohmjdhcwdtvni
                 meta_keywords:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: bpypxdratsttdzcl
+                  example: sahgqeanldwqsfaz
               required:
                 - name
                 - description
@@ -859,7 +859,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the brand.'
-        example: 2
+        example: 18
         required: true
         schema:
           type: integer
