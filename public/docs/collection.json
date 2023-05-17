@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel E-Commerce API",
-        "_postman_id": "ad37019f-30bf-4b8b-80ee-77d8f52d12c8",
+        "_postman_id": "52e04114-a190-4d4c-a3cf-5fef05c3c8e1",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -45,7 +45,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"first_name\":\"enim\",\"last_name\":\"eum\",\"email\":\"melany14@example.net\",\"password\":\"s+'+o@IAch\",\"confirm_password\":\"culpa\"}"
+                                    "raw": "{\"first_name\":\"qui\",\"last_name\":\"inventore\",\"email\":\"pagac.adriana@example.com\",\"password\":\"-T<,\\\\a|8`P)$5RCt@~CM\",\"confirm_password\":\"eveniet\"}"
                                 },
                                 "description": "API to generate the super administrator. It is only a one-time call\nin the entire lifetime of the application.",
                                 "auth": {
@@ -76,7 +76,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"email\":\"luisa.lind@example.org\",\"password\":\"Y\\\/(gLUWOD-,`E6q#cF?\"}"
+                                    "raw": "{\"email\":\"thiel.gertrude@example.net\",\"password\":\"'4VXl'\\\"\\\\h:3x0#87oN9A\"}"
                                 },
                                 "description": "Login the administrator, and generate the token.\nThis token will be used for further requests in the admin panel.",
                                 "auth": {
@@ -261,7 +261,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"anabel.donnelly@example.com\"}"
+                            "raw": "{\"email\":\"gerhold.electa@example.com\"}"
                         },
                         "description": ""
                     },
@@ -289,7 +289,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"isabella.stoltenberg@example.org\",\"token\":\"explicabo\",\"new_password\":\"sed\",\"repeat_new_password\":\"excepturi\"}"
+                            "raw": "{\"email\":\"quitzon.abbey@example.org\",\"token\":\"dolorem\",\"new_password\":\"et\",\"repeat_new_password\":\"eum\"}"
                         },
                         "description": ""
                     },
@@ -362,7 +362,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"xgugvpmjynyjcpnvxhdydz\",\"description\":\"Quibusdam blanditiis ducimus ea maxime aut dolores doloribus.\",\"meta_title\":\"bpuqbizl\",\"meta_description\":\"id\",\"meta_keywords\":\"wdcvdpiegkzaig\"}"
+                            "raw": "{\"name\":\"qlqgqiznsaxkjcvwgnzlqa\",\"description\":\"Vero velit recusandae nobis deserunt excepturi cupiditate sequi.\",\"meta_title\":\"uojlnoezfbkcjqzmjmtnfuvun\",\"meta_description\":\"qsdeesskvkhe\",\"meta_keywords\":\"gspkncrfuymrbmrfpdntdl\"}"
                         },
                         "description": ""
                     },
@@ -380,7 +380,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "11",
+                                    "value": "4",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -433,7 +433,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "19",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -451,7 +451,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"zxodiomtogblr\",\"description\":\"Magni consectetur ut fugiat sapiente natus.\",\"meta_title\":\"rmf\",\"meta_description\":\"agzfdeeodg\",\"meta_keywords\":\"ydhgfwrr\"}"
+                            "raw": "{\"name\":\"ooathlesdtndoh\",\"description\":\"Facilis saepe voluptas quia at.\",\"meta_title\":\"fpmimeopwxlchtvn\",\"meta_description\":\"ptjrurnfhbuxhesvrtnrp\",\"meta_keywords\":\"gwrmoivkncrxyt\"}"
                         },
                         "description": ""
                     },
@@ -469,7 +469,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "10",
+                                    "value": "8",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -557,7 +557,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"nwvgrzdx\",\"description\":\"Mollitia cum nostrum itaque eum.\",\"meta_title\":\"vbfvaa\",\"meta_description\":\"clfxasvygyfxxnjovofczgo\",\"meta_keywords\":\"q\"}"
+                            "raw": "{\"name\":\"otohalcsnwybb\",\"description\":\"Nesciunt sit quia enim assumenda dolorum.\",\"meta_title\":\"dtguumqfyovchnyfdfmfzej\",\"meta_description\":\"pmmkzywmeveclknqfjlqrsm\",\"meta_keywords\":\"cqkumqonpznjmctpgjeg\"}"
                         },
                         "description": ""
                     },
@@ -575,7 +575,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "2",
+                                    "value": "4",
                                     "description": "The ID of the tag."
                                 }
                             ]
@@ -628,7 +628,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "20",
+                                    "value": "6",
                                     "description": "The ID of the tag."
                                 }
                             ]
@@ -646,7 +646,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"kuvsiymatgnxvcjo\",\"description\":\"Rerum aut qui qui itaque voluptatem.\",\"meta_title\":\"erd\",\"meta_description\":\"loujsmyrwzetwpnpf\",\"meta_keywords\":\"pphlgnlxcjcikbolhqjm\"}"
+                            "raw": "{\"name\":\"hqgmlmrfeeisxqzbafusqbddw\",\"description\":\"Sunt ut vel delectus enim eveniet.\",\"meta_title\":\"had\",\"meta_description\":\"mit\",\"meta_keywords\":\"gpx\"}"
                         },
                         "description": ""
                     },
@@ -664,7 +664,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "10",
+                                    "value": "18",
                                     "description": "The ID of the tag."
                                 }
                             ]
@@ -752,7 +752,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"viyjptlecjw\",\"description\":\"Dolorem non repellendus atque.\",\"meta_title\":\"sqqmrhucepmum\",\"meta_description\":\"d\",\"meta_keywords\":\"gpplvboei\"}"
+                            "raw": "{\"name\":\"miui\",\"description\":\"Voluptas sit non occaecati quo dolores quo atque nulla.\",\"meta_title\":\"xlewyiorpffsef\",\"meta_description\":\"whgcmsnkqvih\",\"meta_keywords\":\"vbzxxgarbqfu\"}"
                         },
                         "description": ""
                     },
@@ -770,7 +770,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "18",
+                                    "value": "17",
                                     "description": "The ID of the brand."
                                 }
                             ]
@@ -823,7 +823,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "17",
+                                    "value": "10",
                                     "description": "The ID of the brand."
                                 }
                             ]
@@ -841,7 +841,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"lthqvtgiqg\",\"description\":\"Voluptatem nisi corrupti error a ducimus harum alias ipsam.\",\"meta_title\":\"yfuwktpwbs\",\"meta_description\":\"yueneaydagclohmjdhcwdtvni\",\"meta_keywords\":\"sahgqeanldwqsfaz\"}"
+                            "raw": "{\"name\":\"ziokohzjgsvwxrcnx\",\"description\":\"Porro eius ipsam similique omnis quia nam enim.\",\"meta_title\":\"h\",\"meta_description\":\"ukjrmggeeyzm\",\"meta_keywords\":\"wlenyxombjsnjnnvq\"}"
                         },
                         "description": ""
                     },
@@ -859,7 +859,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "6",
+                                    "value": "7",
                                     "description": "The ID of the brand."
                                 }
                             ]
