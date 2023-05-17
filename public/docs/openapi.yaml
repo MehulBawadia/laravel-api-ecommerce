@@ -26,23 +26,23 @@ paths:
                 first_name:
                   type: string
                   description: ''
-                  example: quis
+                  example: sit
                 last_name:
                   type: string
                   description: ''
-                  example: minima
+                  example: qui
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: carmela27@example.net
+                  example: matilda33@example.org
                 password:
                   type: string
                   description: ''
-                  example: 'U{hw`PGVVR;'
+                  example: ^7g2JVERo
                 confirm_password:
                   type: string
                   description: 'The value and <code>password</code> must match.'
-                  example: quibusdam
+                  example: quae
               required:
                 - first_name
                 - last_name
@@ -69,11 +69,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: augustine.paucek@example.net
+                  example: babbott@example.com
                 password:
                   type: string
                   description: ''
-                  example: 'Y{+64M&_J'
+                  example: 'X*i:{3}t6xoe)mE{HGNo'
               required:
                 - email
                 - password
@@ -94,6 +94,152 @@ paths:
       responses: {  }
       tags:
         - 'Administrator Endpoints'
+  /api/v1/admin/account-settings/general:
+    post:
+      summary: 'General Settings'
+      operationId: generalSettings
+      description: 'Update the general settings of the admin user.'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: 'General Settings updated successfully.'
+                  data:
+                    id: 1
+                    first_name: John
+                    last_name: Doe
+                    email: johndoe@example.com
+                    created_at: '2023-05-17T00:00:00.000000Z'
+                    updated_at: '2023-05-17T00:00:00.000000Z'
+                    deleted_at: null
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: 'General Settings updated successfully.'
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      first_name:
+                        type: string
+                        example: John
+                      last_name:
+                        type: string
+                        example: Doe
+                      email:
+                        type: string
+                        example: johndoe@example.com
+                      created_at:
+                        type: string
+                        example: '2023-05-17T00:00:00.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2023-05-17T00:00:00.000000Z'
+                      deleted_at:
+                        type: string
+                        example: null
+      tags:
+        - 'Administrator Endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'The first name of the admin user.'
+                  example: John
+                last_name:
+                  type: string
+                  description: 'The last name of the admin user.'
+                  example: Doe
+                email:
+                  type: string
+                  description: 'The email of the admin user.'
+                  example: johndoe@example.com
+              required:
+                - first_name
+                - last_name
+                - email
+  /api/v1/admin/account-settings/change-password:
+    post:
+      summary: 'Change Password'
+      operationId: changePassword
+      description: "Update the password of the currently authenticated admin user.\nIt will be updated only when the current password is matched."
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: 'Password updated successfully.'
+                  data: []
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: 'Password updated successfully.'
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - 'Administrator Endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                current_password:
+                  type: string
+                  description: "The admin user's current password."
+                  example: Pa$$w0rd
+                new_password:
+                  type: string
+                  description: 'The new password.'
+                  example: Secret
+                new_password_confirmation:
+                  type: string
+                  description: 'Confirm the new password, should match new_password.'
+                  example: Secret
+              required:
+                - current_password
+                - new_password
+                - new_password_confirmation
   /api/user:
     get:
       summary: ''
@@ -148,7 +294,7 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: ayden.zboncak@example.com
+                  example: karina83@example.net
               required:
                 - email
   /api/v1/admin/reset-password:
@@ -177,102 +323,24 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: igaylord@example.com
+                  example: mabelle.klein@example.com
                 token:
                   type: string
                   description: ''
-                  example: voluptatem
+                  example: at
                 new_password:
                   type: string
                   description: ''
-                  example: facere
+                  example: ipsam
                 repeat_new_password:
                   type: string
                   description: 'The value and <code>new_password</code> must match.'
-                  example: odit
+                  example: ut
               required:
                 - email
                 - token
                 - new_password
                 - repeat_new_password
-  /api/v1/admin/account-settings/general:
-    post:
-      summary: 'Update the general settings of the admin user.'
-      operationId: updateTheGeneralSettingsOfTheAdminUser
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                first_name:
-                  type: string
-                  description: ''
-                  example: unde
-                last_name:
-                  type: string
-                  description: ''
-                  example: repellat
-                email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: ed36@example.net
-              required:
-                - first_name
-                - last_name
-                - email
-  /api/v1/admin/account-settings/change-password:
-    post:
-      summary: "Change the admin user's password."
-      operationId: changeTheAdminUsersPassword
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                current_password:
-                  type: string
-                  description: ''
-                  example: a
-                new_password:
-                  type: string
-                  description: ''
-                  example: omnis
-                new_password_confirmation:
-                  type: string
-                  description: ''
-                  example: nobis
-              required:
-                - current_password
-                - new_password
-                - new_password_confirmation
   /api/v1/admin/categories:
     get:
       summary: 'Get and paginate the categories.'
@@ -326,23 +394,23 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 100 characters.'
-                  example: zpgctxrsyfltb
+                  example: elcvzcgikambhhfifshojcom
                 description:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: 'Autem tempore possimus non eos quisquam asperiores necessitatibus.'
+                  example: 'Quis ut incidunt quasi voluptates tempora voluptatem eligendi officiis.'
                 meta_title:
                   type: string
                   description: 'Must not be greater than 80 characters.'
-                  example: txcdfhek
+                  example: dlwjdtbgeheaezqjljdkme
                 meta_description:
                   type: string
                   description: 'Must not be greater than 180 characters.'
-                  example: rsfgrkx
+                  example: hleoqvfhqhwmnktgv
                 meta_keywords:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: ofspscvb
+                  example: s
               required:
                 - name
                 - description
@@ -401,23 +469,23 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 100 characters.'
-                  example: sr
+                  example: wjramtu
                 description:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: 'Quod nostrum odio maxime eius vero.'
+                  example: 'Mollitia quibusdam deserunt assumenda fuga reprehenderit voluptas vero.'
                 meta_title:
                   type: string
                   description: 'Must not be greater than 80 characters.'
-                  example: btuimfnfcvedgkjkh
+                  example: dggoowbaaqsifp
                 meta_description:
                   type: string
                   description: 'Must not be greater than 180 characters.'
-                  example: vavukq
+                  example: hikafcips
                 meta_keywords:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: zmxewlmtpdcohimbvngqemy
+                  example: fbj
               required:
                 - name
                 - description
@@ -443,7 +511,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the category.'
-        example: 19
+        example: 16
         required: true
         schema:
           type: integer
@@ -500,23 +568,23 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 100 characters.'
-                  example: dmcfxvpvlimlekfyhut
+                  example: cvxicrrxubaaqhvfa
                 description:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: 'Excepturi qui sed neque atque quas in commodi repellat.'
+                  example: 'Dolor dolor fuga qui minus porro laudantium.'
                 meta_title:
                   type: string
                   description: 'Must not be greater than 80 characters.'
-                  example: knab
+                  example: q
                 meta_description:
                   type: string
                   description: 'Must not be greater than 180 characters.'
-                  example: pztysyno
+                  example: yyeynnukbqzmvjcdzfyhvi
                 meta_keywords:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: sdwaeqrdfapfqbjto
+                  example: xin
               required:
                 - name
                 - description
@@ -575,23 +643,23 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 100 characters.'
-                  example: yoegjrcezcyvfozqnyol
+                  example: jpwknnmxnjn
                 description:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: 'Ex est dolorem assumenda ipsam ab quia quo ducimus.'
+                  example: 'Natus minima delectus consequatur tempore esse.'
                 meta_title:
                   type: string
                   description: 'Must not be greater than 80 characters.'
-                  example: zvnehtixx
+                  example: seuxzjy
                 meta_description:
                   type: string
                   description: 'Must not be greater than 180 characters.'
-                  example: npzdhfedwelvcjbdjp
+                  example: qkisrfvnfwxeqafxvfwajb
                 meta_keywords:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: vogkfyzo
+                  example: nvsshfykltj
               required:
                 - name
                 - description
@@ -617,7 +685,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the tag.'
-        example: 7
+        example: 8
         required: true
         schema:
           type: integer
@@ -674,23 +742,23 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 100 characters.'
-                  example: lrtnzkyy
+                  example: xdqueoqlyppqmswegayawm
                 description:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: 'At vitae beatae repudiandae sed et.'
+                  example: 'Minus aperiam exercitationem est odio.'
                 meta_title:
                   type: string
                   description: 'Must not be greater than 80 characters.'
-                  example: htjttlvukoevijdz
+                  example: wj
                 meta_description:
                   type: string
                   description: 'Must not be greater than 180 characters.'
-                  example: emphlfyergnut
+                  example: bmdpsfow
                 meta_keywords:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: zhtwkwibgvojuzsfibjqbp
+                  example: qlvqsvfgnyhsocqqwu
               required:
                 - name
                 - description
@@ -749,23 +817,23 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 100 characters.'
-                  example: iufbbsxmf
+                  example: ffepwyrzjddvhzemjfwwho
                 description:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: 'Labore minima qui tempora voluptate exercitationem.'
+                  example: 'Voluptas aut eos sequi molestiae.'
                 meta_title:
                   type: string
                   description: 'Must not be greater than 80 characters.'
-                  example: jusah
+                  example: huyukqcvfgmbzmjlmcldxw
                 meta_description:
                   type: string
                   description: 'Must not be greater than 180 characters.'
-                  example: xckwptcycpshj
+                  example: nousdwimlxjhrdgkevrksu
                 meta_keywords:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: rczfypbzdkanyzznwill
+                  example: bpypxdratsttdzcl
               required:
                 - name
                 - description
@@ -791,7 +859,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the brand.'
-        example: 9
+        example: 2
         required: true
         schema:
           type: integer

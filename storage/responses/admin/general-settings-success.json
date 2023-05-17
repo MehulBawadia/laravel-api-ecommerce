@@ -1,0 +1,13 @@
+{
+    "status": "success",
+    "message": "General Settings updated successfully.",
+    "data": {
+        "id": 1,
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "johndoe@example.com",
+        "created_at": "2023-05-17T00:00:00.000000Z",
+        "updated_at": "2023-05-17T00:00:00.000000Z",
+        "deleted_at": null
+    }
+}

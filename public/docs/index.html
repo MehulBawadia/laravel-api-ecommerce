@@ -71,10 +71,10 @@
                     <a href="#administrator-endpoints">Administrator Endpoints</a>
                 </li>
                                     <ul id="tocify-subheader-administrator-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="administrator-endpoints-admin-authentication">
-                                <a href="#administrator-endpoints-admin-authentication">Admin Authentication</a>
+                                                    <li class="tocify-item level-2" data-unique="administrator-endpoints-authentication">
+                                <a href="#administrator-endpoints-authentication">Authentication</a>
                             </li>
-                                                            <ul id="tocify-subheader-administrator-endpoints-admin-authentication" class="tocify-subheader">
+                                                            <ul id="tocify-subheader-administrator-endpoints-authentication" class="tocify-subheader">
                                                                             <li class="tocify-item level-3" data-unique="administrator-endpoints-POSTapi-v1-admin-generate">
                                             <a href="#administrator-endpoints-POSTapi-v1-admin-generate">Genreate the administrator</a>
                                         </li>
@@ -83,6 +83,17 @@
                                         </li>
                                                                             <li class="tocify-item level-3" data-unique="administrator-endpoints-POSTapi-v1-admin-logout">
                                             <a href="#administrator-endpoints-POSTapi-v1-admin-logout">Logout</a>
+                                        </li>
+                                                                    </ul>
+                                                                                <li class="tocify-item level-2" data-unique="administrator-endpoints-account-settings">
+                                <a href="#administrator-endpoints-account-settings">Account Settings</a>
+                            </li>
+                                                            <ul id="tocify-subheader-administrator-endpoints-account-settings" class="tocify-subheader">
+                                                                            <li class="tocify-item level-3" data-unique="administrator-endpoints-POSTapi-v1-admin-account-settings-general">
+                                            <a href="#administrator-endpoints-POSTapi-v1-admin-account-settings-general">General Settings</a>
+                                        </li>
+                                                                            <li class="tocify-item level-3" data-unique="administrator-endpoints-POSTapi-v1-admin-account-settings-change-password">
+                                            <a href="#administrator-endpoints-POSTapi-v1-admin-account-settings-change-password">Change Password</a>
                                         </li>
                                                                     </ul>
                                                                         </ul>
@@ -100,12 +111,6 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-admin-reset-password">
                                 <a href="#endpoints-POSTapi-v1-admin-reset-password">Reset the user's password with the new password.</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-admin-account-settings-general">
-                                <a href="#endpoints-POSTapi-v1-admin-account-settings-general">Update the general settings of the admin user.</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-admin-account-settings-change-password">
-                                <a href="#endpoints-POSTapi-v1-admin-account-settings-change-password">Change the admin user's password.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-admin-categories">
                                 <a href="#endpoints-GETapi-v1-admin-categories">Get and paginate the categories.</a>
@@ -163,7 +168,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: May 16, 2023</li>
+        <li>Last updated: May 17, 2023</li>
     </ul>
 </div>
 
@@ -187,7 +192,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
     
 
-                        <h2 id="administrator-endpoints-admin-authentication">Admin Authentication</h2>
+                        <h2 id="administrator-endpoints-authentication">Authentication</h2>
                                         <p>
                     <p>The login and logout endpoints of the admin panel.</p>
                 </p>
@@ -209,11 +214,11 @@ in the entire lifetime of the application.</p>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"first_name\": \"quis\",
-    \"last_name\": \"minima\",
-    \"email\": \"carmela27@example.net\",
-    \"password\": \"U{hw`PGVVR;\",
-    \"confirm_password\": \"quibusdam\"
+    \"first_name\": \"sit\",
+    \"last_name\": \"qui\",
+    \"email\": \"matilda33@example.org\",
+    \"password\": \"^7g2JVERo\",
+    \"confirm_password\": \"quae\"
 }"
 </code></pre></div>
 
@@ -229,11 +234,11 @@ const headers = {
 };
 
 let body = {
-    "first_name": "quis",
-    "last_name": "minima",
-    "email": "carmela27@example.net",
-    "password": "U{hw`PGVVR;",
-    "confirm_password": "quibusdam"
+    "first_name": "sit",
+    "last_name": "qui",
+    "email": "matilda33@example.org",
+    "password": "^7g2JVERo",
+    "confirm_password": "quae"
 };
 
 fetch(url, {
@@ -322,10 +327,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="first_name"                data-endpoint="POSTapi-v1-admin-generate"
-               value="quis"
+               value="sit"
                data-component="body">
     <br>
-<p>Example: <code>quis</code></p>
+<p>Example: <code>sit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
@@ -333,10 +338,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="last_name"                data-endpoint="POSTapi-v1-admin-generate"
-               value="minima"
+               value="qui"
                data-component="body">
     <br>
-<p>Example: <code>minima</code></p>
+<p>Example: <code>qui</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -344,10 +349,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="email"                data-endpoint="POSTapi-v1-admin-generate"
-               value="carmela27@example.net"
+               value="matilda33@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>carmela27@example.net</code></p>
+<p>Must be a valid email address. Example: <code>matilda33@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -355,10 +360,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-v1-admin-generate"
-               value="U{hw`PGVVR;"
+               value="^7g2JVERo"
                data-component="body">
     <br>
-<p>Example: <code>U{hw</code>PGVVR;`</p>
+<p>Example: <code>^7g2JVERo</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>confirm_password</code></b>&nbsp;&nbsp;
@@ -366,10 +371,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="confirm_password"                data-endpoint="POSTapi-v1-admin-generate"
-               value="quibusdam"
+               value="quae"
                data-component="body">
     <br>
-<p>The value and <code>password</code> must match. Example: <code>quibusdam</code></p>
+<p>The value and <code>password</code> must match. Example: <code>quae</code></p>
         </div>
         </form>
 
@@ -391,8 +396,8 @@ This token will be used for further requests in the admin panel.</p>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"augustine.paucek@example.net\",
-    \"password\": \"Y{+64M&amp;_J\"
+    \"email\": \"babbott@example.com\",
+    \"password\": \"X*i:{3}t6xoe)mE{HGNo\"
 }"
 </code></pre></div>
 
@@ -408,8 +413,8 @@ const headers = {
 };
 
 let body = {
-    "email": "augustine.paucek@example.net",
-    "password": "Y{+64M&amp;_J"
+    "email": "babbott@example.com",
+    "password": "X*i:{3}t6xoe)mE{HGNo"
 };
 
 fetch(url, {
@@ -498,10 +503,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="email"                data-endpoint="POSTapi-v1-admin-login"
-               value="augustine.paucek@example.net"
+               value="babbott@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>augustine.paucek@example.net</code></p>
+<p>Must be a valid email address. Example: <code>babbott@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -509,10 +514,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-v1-admin-login"
-               value="Y{+64M&_J"
+               value="X*i:{3}t6xoe)mE{HGNo"
                data-component="body">
     <br>
-<p>Example: <code>Y{+64M&amp;_J</code></p>
+<p>Example: <code>X*i:{3}t6xoe)mE{HGNo</code></p>
         </div>
         </form>
 
@@ -638,6 +643,379 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>application/json</code></p>
             </div>
                         </form>
+
+                                <h2 id="administrator-endpoints-account-settings">Account Settings</h2>
+                                        <p>
+                    <p>The endpoints related to the administrator account.</p>
+                </p>
+                                        <h2 id="administrator-endpoints-POSTapi-v1-admin-account-settings-general">General Settings</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Update the general settings of the admin user.</p>
+
+<span id="example-requests-POSTapi-v1-admin-account-settings-general">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/v1/admin/account-settings/general" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"first_name\": \"John\",
+    \"last_name\": \"Doe\",
+    \"email\": \"johndoe@example.com\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/admin/account-settings/general"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "johndoe@example.com"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-admin-account-settings-general">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;General Settings updated successfully.&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;first_name&quot;: &quot;John&quot;,
+        &quot;last_name&quot;: &quot;Doe&quot;,
+        &quot;email&quot;: &quot;johndoe@example.com&quot;,
+        &quot;created_at&quot;: &quot;2023-05-17T00:00:00.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-05-17T00:00:00.000000Z&quot;,
+        &quot;deleted_at&quot;: null
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-admin-account-settings-general" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-admin-account-settings-general"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-admin-account-settings-general"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-admin-account-settings-general" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-admin-account-settings-general">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-admin-account-settings-general" data-method="POST"
+      data-path="api/v1/admin/account-settings/general"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-admin-account-settings-general', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-admin-account-settings-general"
+                    onclick="tryItOut('POSTapi-v1-admin-account-settings-general');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-admin-account-settings-general"
+                    onclick="cancelTryOut('POSTapi-v1-admin-account-settings-general');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-admin-account-settings-general"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/admin/account-settings/general</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-admin-account-settings-general"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-v1-admin-account-settings-general"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-v1-admin-account-settings-general"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>first_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="first_name"                data-endpoint="POSTapi-v1-admin-account-settings-general"
+               value="John"
+               data-component="body">
+    <br>
+<p>The first name of the admin user. Example: <code>John</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="last_name"                data-endpoint="POSTapi-v1-admin-account-settings-general"
+               value="Doe"
+               data-component="body">
+    <br>
+<p>The last name of the admin user. Example: <code>Doe</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="email"                data-endpoint="POSTapi-v1-admin-account-settings-general"
+               value="johndoe@example.com"
+               data-component="body">
+    <br>
+<p>The email of the admin user. Example: <code>johndoe@example.com</code></p>
+        </div>
+        </form>
+
+                    <h2 id="administrator-endpoints-POSTapi-v1-admin-account-settings-change-password">Change Password</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Update the password of the currently authenticated admin user.
+It will be updated only when the current password is matched.</p>
+
+<span id="example-requests-POSTapi-v1-admin-account-settings-change-password">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/v1/admin/account-settings/change-password" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"current_password\": \"Pa$$w0rd\",
+    \"new_password\": \"Secret\",
+    \"new_password_confirmation\": \"Secret\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/v1/admin/account-settings/change-password"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "current_password": "Pa$$w0rd",
+    "new_password": "Secret",
+    "new_password_confirmation": "Secret"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-admin-account-settings-change-password">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;Password updated successfully.&quot;,
+    &quot;data&quot;: []
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-admin-account-settings-change-password" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-admin-account-settings-change-password"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-admin-account-settings-change-password"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-admin-account-settings-change-password" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-admin-account-settings-change-password">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-admin-account-settings-change-password" data-method="POST"
+      data-path="api/v1/admin/account-settings/change-password"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-admin-account-settings-change-password', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-admin-account-settings-change-password"
+                    onclick="tryItOut('POSTapi-v1-admin-account-settings-change-password');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-admin-account-settings-change-password"
+                    onclick="cancelTryOut('POSTapi-v1-admin-account-settings-change-password');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-admin-account-settings-change-password"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/admin/account-settings/change-password</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-admin-account-settings-change-password"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-v1-admin-account-settings-change-password"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-v1-admin-account-settings-change-password"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>current_password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="current_password"                data-endpoint="POSTapi-v1-admin-account-settings-change-password"
+               value="Pa$$w0rd"
+               data-component="body">
+    <br>
+<p>The admin user's current password. Example: <code>Pa$$w0rd</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>new_password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="new_password"                data-endpoint="POSTapi-v1-admin-account-settings-change-password"
+               value="Secret"
+               data-component="body">
+    <br>
+<p>The new password. Example: <code>Secret</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>new_password_confirmation</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="new_password_confirmation"                data-endpoint="POSTapi-v1-admin-account-settings-change-password"
+               value="Secret"
+               data-component="body">
+    <br>
+<p>Confirm the new password, should match new_password. Example: <code>Secret</code></p>
+        </div>
+        </form>
 
                 <h1 id="endpoints">Endpoints</h1>
 
@@ -800,7 +1178,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"ayden.zboncak@example.com\"
+    \"email\": \"karina83@example.net\"
 }"
 </code></pre></div>
 
@@ -817,7 +1195,7 @@ const headers = {
 };
 
 let body = {
-    "email": "ayden.zboncak@example.com"
+    "email": "karina83@example.net"
 };
 
 fetch(url, {
@@ -917,10 +1295,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="email"                data-endpoint="POSTapi-v1-admin-forgot-password"
-               value="ayden.zboncak@example.com"
+               value="karina83@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>ayden.zboncak@example.com</code></p>
+<p>Must be a valid email address. Example: <code>karina83@example.net</code></p>
         </div>
         </form>
 
@@ -943,10 +1321,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"igaylord@example.com\",
-    \"token\": \"voluptatem\",
-    \"new_password\": \"facere\",
-    \"repeat_new_password\": \"odit\"
+    \"email\": \"mabelle.klein@example.com\",
+    \"token\": \"at\",
+    \"new_password\": \"ipsam\",
+    \"repeat_new_password\": \"ut\"
 }"
 </code></pre></div>
 
@@ -963,10 +1341,10 @@ const headers = {
 };
 
 let body = {
-    "email": "igaylord@example.com",
-    "token": "voluptatem",
-    "new_password": "facere",
-    "repeat_new_password": "odit"
+    "email": "mabelle.klein@example.com",
+    "token": "at",
+    "new_password": "ipsam",
+    "repeat_new_password": "ut"
 };
 
 fetch(url, {
@@ -1066,10 +1444,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="email"                data-endpoint="POSTapi-v1-admin-reset-password"
-               value="igaylord@example.com"
+               value="mabelle.klein@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>igaylord@example.com</code></p>
+<p>Must be a valid email address. Example: <code>mabelle.klein@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>token</code></b>&nbsp;&nbsp;
@@ -1077,10 +1455,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="token"                data-endpoint="POSTapi-v1-admin-reset-password"
-               value="voluptatem"
+               value="at"
                data-component="body">
     <br>
-<p>Example: <code>voluptatem</code></p>
+<p>Example: <code>at</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>new_password</code></b>&nbsp;&nbsp;
@@ -1088,10 +1466,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="new_password"                data-endpoint="POSTapi-v1-admin-reset-password"
-               value="facere"
+               value="ipsam"
                data-component="body">
     <br>
-<p>Example: <code>facere</code></p>
+<p>Example: <code>ipsam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>repeat_new_password</code></b>&nbsp;&nbsp;
@@ -1099,348 +1477,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="repeat_new_password"                data-endpoint="POSTapi-v1-admin-reset-password"
-               value="odit"
+               value="ut"
                data-component="body">
     <br>
-<p>The value and <code>new_password</code> must match. Example: <code>odit</code></p>
-        </div>
-        </form>
-
-                    <h2 id="endpoints-POSTapi-v1-admin-account-settings-general">Update the general settings of the admin user.</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-POSTapi-v1-admin-account-settings-general">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/v1/admin/account-settings/general" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"first_name\": \"unde\",
-    \"last_name\": \"repellat\",
-    \"email\": \"ed36@example.net\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/admin/account-settings/general"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "first_name": "unde",
-    "last_name": "repellat",
-    "email": "ed36@example.net"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-admin-account-settings-general">
-</span>
-<span id="execution-results-POSTapi-v1-admin-account-settings-general" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-admin-account-settings-general"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-admin-account-settings-general"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-admin-account-settings-general" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-admin-account-settings-general">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-v1-admin-account-settings-general" data-method="POST"
-      data-path="api/v1/admin/account-settings/general"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-admin-account-settings-general', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-admin-account-settings-general"
-                    onclick="tryItOut('POSTapi-v1-admin-account-settings-general');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-admin-account-settings-general"
-                    onclick="cancelTryOut('POSTapi-v1-admin-account-settings-general');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-admin-account-settings-general"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/admin/account-settings/general</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-admin-account-settings-general"
-               value="Bearer {YOUR_AUTH_KEY}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="POSTapi-v1-admin-account-settings-general"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Accept"                data-endpoint="POSTapi-v1-admin-account-settings-general"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>first_name</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="first_name"                data-endpoint="POSTapi-v1-admin-account-settings-general"
-               value="unde"
-               data-component="body">
-    <br>
-<p>Example: <code>unde</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="last_name"                data-endpoint="POSTapi-v1-admin-account-settings-general"
-               value="repellat"
-               data-component="body">
-    <br>
-<p>Example: <code>repellat</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="email"                data-endpoint="POSTapi-v1-admin-account-settings-general"
-               value="ed36@example.net"
-               data-component="body">
-    <br>
-<p>Must be a valid email address. Example: <code>ed36@example.net</code></p>
-        </div>
-        </form>
-
-                    <h2 id="endpoints-POSTapi-v1-admin-account-settings-change-password">Change the admin user&#039;s password.</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-POSTapi-v1-admin-account-settings-change-password">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/v1/admin/account-settings/change-password" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"current_password\": \"a\",
-    \"new_password\": \"omnis\",
-    \"new_password_confirmation\": \"nobis\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/admin/account-settings/change-password"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "current_password": "a",
-    "new_password": "omnis",
-    "new_password_confirmation": "nobis"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-admin-account-settings-change-password">
-</span>
-<span id="execution-results-POSTapi-v1-admin-account-settings-change-password" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-admin-account-settings-change-password"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-admin-account-settings-change-password"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-admin-account-settings-change-password" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-admin-account-settings-change-password">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-v1-admin-account-settings-change-password" data-method="POST"
-      data-path="api/v1/admin/account-settings/change-password"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-admin-account-settings-change-password', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-admin-account-settings-change-password"
-                    onclick="tryItOut('POSTapi-v1-admin-account-settings-change-password');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-admin-account-settings-change-password"
-                    onclick="cancelTryOut('POSTapi-v1-admin-account-settings-change-password');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-admin-account-settings-change-password"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/admin/account-settings/change-password</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-admin-account-settings-change-password"
-               value="Bearer {YOUR_AUTH_KEY}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="POSTapi-v1-admin-account-settings-change-password"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Accept"                data-endpoint="POSTapi-v1-admin-account-settings-change-password"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>current_password</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="current_password"                data-endpoint="POSTapi-v1-admin-account-settings-change-password"
-               value="a"
-               data-component="body">
-    <br>
-<p>Example: <code>a</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>new_password</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="new_password"                data-endpoint="POSTapi-v1-admin-account-settings-change-password"
-               value="omnis"
-               data-component="body">
-    <br>
-<p>Example: <code>omnis</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>new_password_confirmation</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="new_password_confirmation"                data-endpoint="POSTapi-v1-admin-account-settings-change-password"
-               value="nobis"
-               data-component="body">
-    <br>
-<p>Example: <code>nobis</code></p>
+<p>The value and <code>new_password</code> must match. Example: <code>ut</code></p>
         </div>
         </form>
 
@@ -1601,11 +1641,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"zpgctxrsyfltb\",
-    \"description\": \"Autem tempore possimus non eos quisquam asperiores necessitatibus.\",
-    \"meta_title\": \"txcdfhek\",
-    \"meta_description\": \"rsfgrkx\",
-    \"meta_keywords\": \"ofspscvb\"
+    \"name\": \"elcvzcgikambhhfifshojcom\",
+    \"description\": \"Quis ut incidunt quasi voluptates tempora voluptatem eligendi officiis.\",
+    \"meta_title\": \"dlwjdtbgeheaezqjljdkme\",
+    \"meta_description\": \"hleoqvfhqhwmnktgv\",
+    \"meta_keywords\": \"s\"
 }"
 </code></pre></div>
 
@@ -1622,11 +1662,11 @@ const headers = {
 };
 
 let body = {
-    "name": "zpgctxrsyfltb",
-    "description": "Autem tempore possimus non eos quisquam asperiores necessitatibus.",
-    "meta_title": "txcdfhek",
-    "meta_description": "rsfgrkx",
-    "meta_keywords": "ofspscvb"
+    "name": "elcvzcgikambhhfifshojcom",
+    "description": "Quis ut incidunt quasi voluptates tempora voluptatem eligendi officiis.",
+    "meta_title": "dlwjdtbgeheaezqjljdkme",
+    "meta_description": "hleoqvfhqhwmnktgv",
+    "meta_keywords": "s"
 };
 
 fetch(url, {
@@ -1726,10 +1766,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-v1-admin-categories"
-               value="zpgctxrsyfltb"
+               value="elcvzcgikambhhfifshojcom"
                data-component="body">
     <br>
-<p>Must not be greater than 100 characters. Example: <code>zpgctxrsyfltb</code></p>
+<p>Must not be greater than 100 characters. Example: <code>elcvzcgikambhhfifshojcom</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -1737,10 +1777,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="description"                data-endpoint="POSTapi-v1-admin-categories"
-               value="Autem tempore possimus non eos quisquam asperiores necessitatibus."
+               value="Quis ut incidunt quasi voluptates tempora voluptatem eligendi officiis."
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>Autem tempore possimus non eos quisquam asperiores necessitatibus.</code></p>
+<p>Must not be greater than 255 characters. Example: <code>Quis ut incidunt quasi voluptates tempora voluptatem eligendi officiis.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -1748,10 +1788,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="meta_title"                data-endpoint="POSTapi-v1-admin-categories"
-               value="txcdfhek"
+               value="dlwjdtbgeheaezqjljdkme"
                data-component="body">
     <br>
-<p>Must not be greater than 80 characters. Example: <code>txcdfhek</code></p>
+<p>Must not be greater than 80 characters. Example: <code>dlwjdtbgeheaezqjljdkme</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -1759,10 +1799,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="meta_description"                data-endpoint="POSTapi-v1-admin-categories"
-               value="rsfgrkx"
+               value="hleoqvfhqhwmnktgv"
                data-component="body">
     <br>
-<p>Must not be greater than 180 characters. Example: <code>rsfgrkx</code></p>
+<p>Must not be greater than 180 characters. Example: <code>hleoqvfhqhwmnktgv</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_keywords</code></b>&nbsp;&nbsp;
@@ -1770,10 +1810,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="meta_keywords"                data-endpoint="POSTapi-v1-admin-categories"
-               value="ofspscvb"
+               value="s"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>ofspscvb</code></p>
+<p>Must not be greater than 255 characters. Example: <code>s</code></p>
         </div>
         </form>
 
@@ -1791,7 +1831,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/admin/categories/19" \
+    --get "http://localhost:8000/api/v1/admin/categories/16" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1799,7 +1839,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/admin/categories/19"
+    "http://localhost:8000/api/v1/admin/categories/16"
 );
 
 const headers = {
@@ -1920,10 +1960,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                name="id"                data-endpoint="GETapi-v1-admin-categories--id-"
-               value="19"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the category. Example: <code>19</code></p>
+<p>The ID of the category. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -1941,23 +1981,23 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/v1/admin/categories/12" \
+    "http://localhost:8000/api/v1/admin/categories/19" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"sr\",
-    \"description\": \"Quod nostrum odio maxime eius vero.\",
-    \"meta_title\": \"btuimfnfcvedgkjkh\",
-    \"meta_description\": \"vavukq\",
-    \"meta_keywords\": \"zmxewlmtpdcohimbvngqemy\"
+    \"name\": \"wjramtu\",
+    \"description\": \"Mollitia quibusdam deserunt assumenda fuga reprehenderit voluptas vero.\",
+    \"meta_title\": \"dggoowbaaqsifp\",
+    \"meta_description\": \"hikafcips\",
+    \"meta_keywords\": \"fbj\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/admin/categories/12"
+    "http://localhost:8000/api/v1/admin/categories/19"
 );
 
 const headers = {
@@ -1967,11 +2007,11 @@ const headers = {
 };
 
 let body = {
-    "name": "sr",
-    "description": "Quod nostrum odio maxime eius vero.",
-    "meta_title": "btuimfnfcvedgkjkh",
-    "meta_description": "vavukq",
-    "meta_keywords": "zmxewlmtpdcohimbvngqemy"
+    "name": "wjramtu",
+    "description": "Mollitia quibusdam deserunt assumenda fuga reprehenderit voluptas vero.",
+    "meta_title": "dggoowbaaqsifp",
+    "meta_description": "hikafcips",
+    "meta_keywords": "fbj"
 };
 
 fetch(url, {
@@ -2071,10 +2111,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                name="id"                data-endpoint="PUTapi-v1-admin-categories--id-"
-               value="12"
+               value="19"
                data-component="url">
     <br>
-<p>The ID of the category. Example: <code>12</code></p>
+<p>The ID of the category. Example: <code>19</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2083,10 +2123,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="PUTapi-v1-admin-categories--id-"
-               value="sr"
+               value="wjramtu"
                data-component="body">
     <br>
-<p>Must not be greater than 100 characters. Example: <code>sr</code></p>
+<p>Must not be greater than 100 characters. Example: <code>wjramtu</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2094,10 +2134,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="description"                data-endpoint="PUTapi-v1-admin-categories--id-"
-               value="Quod nostrum odio maxime eius vero."
+               value="Mollitia quibusdam deserunt assumenda fuga reprehenderit voluptas vero."
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>Quod nostrum odio maxime eius vero.</code></p>
+<p>Must not be greater than 255 characters. Example: <code>Mollitia quibusdam deserunt assumenda fuga reprehenderit voluptas vero.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -2105,10 +2145,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="meta_title"                data-endpoint="PUTapi-v1-admin-categories--id-"
-               value="btuimfnfcvedgkjkh"
+               value="dggoowbaaqsifp"
                data-component="body">
     <br>
-<p>Must not be greater than 80 characters. Example: <code>btuimfnfcvedgkjkh</code></p>
+<p>Must not be greater than 80 characters. Example: <code>dggoowbaaqsifp</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -2116,10 +2156,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="meta_description"                data-endpoint="PUTapi-v1-admin-categories--id-"
-               value="vavukq"
+               value="hikafcips"
                data-component="body">
     <br>
-<p>Must not be greater than 180 characters. Example: <code>vavukq</code></p>
+<p>Must not be greater than 180 characters. Example: <code>hikafcips</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_keywords</code></b>&nbsp;&nbsp;
@@ -2127,10 +2167,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="meta_keywords"                data-endpoint="PUTapi-v1-admin-categories--id-"
-               value="zmxewlmtpdcohimbvngqemy"
+               value="fbj"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>zmxewlmtpdcohimbvngqemy</code></p>
+<p>Must not be greater than 255 characters. Example: <code>fbj</code></p>
         </div>
         </form>
 
@@ -2148,7 +2188,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/v1/admin/categories/18" \
+    "http://localhost:8000/api/v1/admin/categories/20" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2156,7 +2196,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/admin/categories/18"
+    "http://localhost:8000/api/v1/admin/categories/20"
 );
 
 const headers = {
@@ -2261,10 +2301,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                name="id"                data-endpoint="DELETEapi-v1-admin-categories--id-"
-               value="18"
+               value="20"
                data-component="url">
     <br>
-<p>The ID of the category. Example: <code>18</code></p>
+<p>The ID of the category. Example: <code>20</code></p>
             </div>
                     </form>
 
@@ -2425,11 +2465,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"dmcfxvpvlimlekfyhut\",
-    \"description\": \"Excepturi qui sed neque atque quas in commodi repellat.\",
-    \"meta_title\": \"knab\",
-    \"meta_description\": \"pztysyno\",
-    \"meta_keywords\": \"sdwaeqrdfapfqbjto\"
+    \"name\": \"cvxicrrxubaaqhvfa\",
+    \"description\": \"Dolor dolor fuga qui minus porro laudantium.\",
+    \"meta_title\": \"q\",
+    \"meta_description\": \"yyeynnukbqzmvjcdzfyhvi\",
+    \"meta_keywords\": \"xin\"
 }"
 </code></pre></div>
 
@@ -2446,11 +2486,11 @@ const headers = {
 };
 
 let body = {
-    "name": "dmcfxvpvlimlekfyhut",
-    "description": "Excepturi qui sed neque atque quas in commodi repellat.",
-    "meta_title": "knab",
-    "meta_description": "pztysyno",
-    "meta_keywords": "sdwaeqrdfapfqbjto"
+    "name": "cvxicrrxubaaqhvfa",
+    "description": "Dolor dolor fuga qui minus porro laudantium.",
+    "meta_title": "q",
+    "meta_description": "yyeynnukbqzmvjcdzfyhvi",
+    "meta_keywords": "xin"
 };
 
 fetch(url, {
@@ -2550,10 +2590,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-v1-admin-tags"
-               value="dmcfxvpvlimlekfyhut"
+               value="cvxicrrxubaaqhvfa"
                data-component="body">
     <br>
-<p>Must not be greater than 100 characters. Example: <code>dmcfxvpvlimlekfyhut</code></p>
+<p>Must not be greater than 100 characters. Example: <code>cvxicrrxubaaqhvfa</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2561,10 +2601,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="description"                data-endpoint="POSTapi-v1-admin-tags"
-               value="Excepturi qui sed neque atque quas in commodi repellat."
+               value="Dolor dolor fuga qui minus porro laudantium."
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>Excepturi qui sed neque atque quas in commodi repellat.</code></p>
+<p>Must not be greater than 255 characters. Example: <code>Dolor dolor fuga qui minus porro laudantium.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -2572,10 +2612,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="meta_title"                data-endpoint="POSTapi-v1-admin-tags"
-               value="knab"
+               value="q"
                data-component="body">
     <br>
-<p>Must not be greater than 80 characters. Example: <code>knab</code></p>
+<p>Must not be greater than 80 characters. Example: <code>q</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -2583,10 +2623,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="meta_description"                data-endpoint="POSTapi-v1-admin-tags"
-               value="pztysyno"
+               value="yyeynnukbqzmvjcdzfyhvi"
                data-component="body">
     <br>
-<p>Must not be greater than 180 characters. Example: <code>pztysyno</code></p>
+<p>Must not be greater than 180 characters. Example: <code>yyeynnukbqzmvjcdzfyhvi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_keywords</code></b>&nbsp;&nbsp;
@@ -2594,10 +2634,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="meta_keywords"                data-endpoint="POSTapi-v1-admin-tags"
-               value="sdwaeqrdfapfqbjto"
+               value="xin"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>sdwaeqrdfapfqbjto</code></p>
+<p>Must not be greater than 255 characters. Example: <code>xin</code></p>
         </div>
         </form>
 
@@ -2615,7 +2655,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/admin/tags/7" \
+    --get "http://localhost:8000/api/v1/admin/tags/8" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2623,7 +2663,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/admin/tags/7"
+    "http://localhost:8000/api/v1/admin/tags/8"
 );
 
 const headers = {
@@ -2744,10 +2784,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                name="id"                data-endpoint="GETapi-v1-admin-tags--id-"
-               value="7"
+               value="8"
                data-component="url">
     <br>
-<p>The ID of the tag. Example: <code>7</code></p>
+<p>The ID of the tag. Example: <code>8</code></p>
             </div>
                     </form>
 
@@ -2765,23 +2805,23 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/v1/admin/tags/3" \
+    "http://localhost:8000/api/v1/admin/tags/15" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"yoegjrcezcyvfozqnyol\",
-    \"description\": \"Ex est dolorem assumenda ipsam ab quia quo ducimus.\",
-    \"meta_title\": \"zvnehtixx\",
-    \"meta_description\": \"npzdhfedwelvcjbdjp\",
-    \"meta_keywords\": \"vogkfyzo\"
+    \"name\": \"jpwknnmxnjn\",
+    \"description\": \"Natus minima delectus consequatur tempore esse.\",
+    \"meta_title\": \"seuxzjy\",
+    \"meta_description\": \"qkisrfvnfwxeqafxvfwajb\",
+    \"meta_keywords\": \"nvsshfykltj\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/admin/tags/3"
+    "http://localhost:8000/api/v1/admin/tags/15"
 );
 
 const headers = {
@@ -2791,11 +2831,11 @@ const headers = {
 };
 
 let body = {
-    "name": "yoegjrcezcyvfozqnyol",
-    "description": "Ex est dolorem assumenda ipsam ab quia quo ducimus.",
-    "meta_title": "zvnehtixx",
-    "meta_description": "npzdhfedwelvcjbdjp",
-    "meta_keywords": "vogkfyzo"
+    "name": "jpwknnmxnjn",
+    "description": "Natus minima delectus consequatur tempore esse.",
+    "meta_title": "seuxzjy",
+    "meta_description": "qkisrfvnfwxeqafxvfwajb",
+    "meta_keywords": "nvsshfykltj"
 };
 
 fetch(url, {
@@ -2895,10 +2935,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                name="id"                data-endpoint="PUTapi-v1-admin-tags--id-"
-               value="3"
+               value="15"
                data-component="url">
     <br>
-<p>The ID of the tag. Example: <code>3</code></p>
+<p>The ID of the tag. Example: <code>15</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2907,10 +2947,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="PUTapi-v1-admin-tags--id-"
-               value="yoegjrcezcyvfozqnyol"
+               value="jpwknnmxnjn"
                data-component="body">
     <br>
-<p>Must not be greater than 100 characters. Example: <code>yoegjrcezcyvfozqnyol</code></p>
+<p>Must not be greater than 100 characters. Example: <code>jpwknnmxnjn</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2918,10 +2958,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="description"                data-endpoint="PUTapi-v1-admin-tags--id-"
-               value="Ex est dolorem assumenda ipsam ab quia quo ducimus."
+               value="Natus minima delectus consequatur tempore esse."
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>Ex est dolorem assumenda ipsam ab quia quo ducimus.</code></p>
+<p>Must not be greater than 255 characters. Example: <code>Natus minima delectus consequatur tempore esse.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -2929,10 +2969,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="meta_title"                data-endpoint="PUTapi-v1-admin-tags--id-"
-               value="zvnehtixx"
+               value="seuxzjy"
                data-component="body">
     <br>
-<p>Must not be greater than 80 characters. Example: <code>zvnehtixx</code></p>
+<p>Must not be greater than 80 characters. Example: <code>seuxzjy</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -2940,10 +2980,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="meta_description"                data-endpoint="PUTapi-v1-admin-tags--id-"
-               value="npzdhfedwelvcjbdjp"
+               value="qkisrfvnfwxeqafxvfwajb"
                data-component="body">
     <br>
-<p>Must not be greater than 180 characters. Example: <code>npzdhfedwelvcjbdjp</code></p>
+<p>Must not be greater than 180 characters. Example: <code>qkisrfvnfwxeqafxvfwajb</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_keywords</code></b>&nbsp;&nbsp;
@@ -2951,10 +2991,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="meta_keywords"                data-endpoint="PUTapi-v1-admin-tags--id-"
-               value="vogkfyzo"
+               value="nvsshfykltj"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>vogkfyzo</code></p>
+<p>Must not be greater than 255 characters. Example: <code>nvsshfykltj</code></p>
         </div>
         </form>
 
@@ -2972,7 +3012,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/v1/admin/tags/6" \
+    "http://localhost:8000/api/v1/admin/tags/20" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2980,7 +3020,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/admin/tags/6"
+    "http://localhost:8000/api/v1/admin/tags/20"
 );
 
 const headers = {
@@ -3085,10 +3125,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                name="id"                data-endpoint="DELETEapi-v1-admin-tags--id-"
-               value="6"
+               value="20"
                data-component="url">
     <br>
-<p>The ID of the tag. Example: <code>6</code></p>
+<p>The ID of the tag. Example: <code>20</code></p>
             </div>
                     </form>
 
@@ -3249,11 +3289,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"lrtnzkyy\",
-    \"description\": \"At vitae beatae repudiandae sed et.\",
-    \"meta_title\": \"htjttlvukoevijdz\",
-    \"meta_description\": \"emphlfyergnut\",
-    \"meta_keywords\": \"zhtwkwibgvojuzsfibjqbp\"
+    \"name\": \"xdqueoqlyppqmswegayawm\",
+    \"description\": \"Minus aperiam exercitationem est odio.\",
+    \"meta_title\": \"wj\",
+    \"meta_description\": \"bmdpsfow\",
+    \"meta_keywords\": \"qlvqsvfgnyhsocqqwu\"
 }"
 </code></pre></div>
 
@@ -3270,11 +3310,11 @@ const headers = {
 };
 
 let body = {
-    "name": "lrtnzkyy",
-    "description": "At vitae beatae repudiandae sed et.",
-    "meta_title": "htjttlvukoevijdz",
-    "meta_description": "emphlfyergnut",
-    "meta_keywords": "zhtwkwibgvojuzsfibjqbp"
+    "name": "xdqueoqlyppqmswegayawm",
+    "description": "Minus aperiam exercitationem est odio.",
+    "meta_title": "wj",
+    "meta_description": "bmdpsfow",
+    "meta_keywords": "qlvqsvfgnyhsocqqwu"
 };
 
 fetch(url, {
@@ -3374,10 +3414,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-v1-admin-brands"
-               value="lrtnzkyy"
+               value="xdqueoqlyppqmswegayawm"
                data-component="body">
     <br>
-<p>Must not be greater than 100 characters. Example: <code>lrtnzkyy</code></p>
+<p>Must not be greater than 100 characters. Example: <code>xdqueoqlyppqmswegayawm</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -3385,10 +3425,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="description"                data-endpoint="POSTapi-v1-admin-brands"
-               value="At vitae beatae repudiandae sed et."
+               value="Minus aperiam exercitationem est odio."
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>At vitae beatae repudiandae sed et.</code></p>
+<p>Must not be greater than 255 characters. Example: <code>Minus aperiam exercitationem est odio.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -3396,10 +3436,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="meta_title"                data-endpoint="POSTapi-v1-admin-brands"
-               value="htjttlvukoevijdz"
+               value="wj"
                data-component="body">
     <br>
-<p>Must not be greater than 80 characters. Example: <code>htjttlvukoevijdz</code></p>
+<p>Must not be greater than 80 characters. Example: <code>wj</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -3407,10 +3447,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="meta_description"                data-endpoint="POSTapi-v1-admin-brands"
-               value="emphlfyergnut"
+               value="bmdpsfow"
                data-component="body">
     <br>
-<p>Must not be greater than 180 characters. Example: <code>emphlfyergnut</code></p>
+<p>Must not be greater than 180 characters. Example: <code>bmdpsfow</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_keywords</code></b>&nbsp;&nbsp;
@@ -3418,10 +3458,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="meta_keywords"                data-endpoint="POSTapi-v1-admin-brands"
-               value="zhtwkwibgvojuzsfibjqbp"
+               value="qlvqsvfgnyhsocqqwu"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>zhtwkwibgvojuzsfibjqbp</code></p>
+<p>Must not be greater than 255 characters. Example: <code>qlvqsvfgnyhsocqqwu</code></p>
         </div>
         </form>
 
@@ -3439,7 +3479,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/admin/brands/9" \
+    --get "http://localhost:8000/api/v1/admin/brands/2" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3447,7 +3487,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/admin/brands/9"
+    "http://localhost:8000/api/v1/admin/brands/2"
 );
 
 const headers = {
@@ -3568,10 +3608,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                name="id"                data-endpoint="GETapi-v1-admin-brands--id-"
-               value="9"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the brand. Example: <code>9</code></p>
+<p>The ID of the brand. Example: <code>2</code></p>
             </div>
                     </form>
 
@@ -3589,23 +3629,23 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/v1/admin/brands/6" \
+    "http://localhost:8000/api/v1/admin/brands/20" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"iufbbsxmf\",
-    \"description\": \"Labore minima qui tempora voluptate exercitationem.\",
-    \"meta_title\": \"jusah\",
-    \"meta_description\": \"xckwptcycpshj\",
-    \"meta_keywords\": \"rczfypbzdkanyzznwill\"
+    \"name\": \"ffepwyrzjddvhzemjfwwho\",
+    \"description\": \"Voluptas aut eos sequi molestiae.\",
+    \"meta_title\": \"huyukqcvfgmbzmjlmcldxw\",
+    \"meta_description\": \"nousdwimlxjhrdgkevrksu\",
+    \"meta_keywords\": \"bpypxdratsttdzcl\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/admin/brands/6"
+    "http://localhost:8000/api/v1/admin/brands/20"
 );
 
 const headers = {
@@ -3615,11 +3655,11 @@ const headers = {
 };
 
 let body = {
-    "name": "iufbbsxmf",
-    "description": "Labore minima qui tempora voluptate exercitationem.",
-    "meta_title": "jusah",
-    "meta_description": "xckwptcycpshj",
-    "meta_keywords": "rczfypbzdkanyzznwill"
+    "name": "ffepwyrzjddvhzemjfwwho",
+    "description": "Voluptas aut eos sequi molestiae.",
+    "meta_title": "huyukqcvfgmbzmjlmcldxw",
+    "meta_description": "nousdwimlxjhrdgkevrksu",
+    "meta_keywords": "bpypxdratsttdzcl"
 };
 
 fetch(url, {
@@ -3719,10 +3759,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                name="id"                data-endpoint="PUTapi-v1-admin-brands--id-"
-               value="6"
+               value="20"
                data-component="url">
     <br>
-<p>The ID of the brand. Example: <code>6</code></p>
+<p>The ID of the brand. Example: <code>20</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3731,10 +3771,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="PUTapi-v1-admin-brands--id-"
-               value="iufbbsxmf"
+               value="ffepwyrzjddvhzemjfwwho"
                data-component="body">
     <br>
-<p>Must not be greater than 100 characters. Example: <code>iufbbsxmf</code></p>
+<p>Must not be greater than 100 characters. Example: <code>ffepwyrzjddvhzemjfwwho</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -3742,10 +3782,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="description"                data-endpoint="PUTapi-v1-admin-brands--id-"
-               value="Labore minima qui tempora voluptate exercitationem."
+               value="Voluptas aut eos sequi molestiae."
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>Labore minima qui tempora voluptate exercitationem.</code></p>
+<p>Must not be greater than 255 characters. Example: <code>Voluptas aut eos sequi molestiae.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_title</code></b>&nbsp;&nbsp;
@@ -3753,10 +3793,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="meta_title"                data-endpoint="PUTapi-v1-admin-brands--id-"
-               value="jusah"
+               value="huyukqcvfgmbzmjlmcldxw"
                data-component="body">
     <br>
-<p>Must not be greater than 80 characters. Example: <code>jusah</code></p>
+<p>Must not be greater than 80 characters. Example: <code>huyukqcvfgmbzmjlmcldxw</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
@@ -3764,10 +3804,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="meta_description"                data-endpoint="PUTapi-v1-admin-brands--id-"
-               value="xckwptcycpshj"
+               value="nousdwimlxjhrdgkevrksu"
                data-component="body">
     <br>
-<p>Must not be greater than 180 characters. Example: <code>xckwptcycpshj</code></p>
+<p>Must not be greater than 180 characters. Example: <code>nousdwimlxjhrdgkevrksu</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_keywords</code></b>&nbsp;&nbsp;
@@ -3775,10 +3815,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="meta_keywords"                data-endpoint="PUTapi-v1-admin-brands--id-"
-               value="rczfypbzdkanyzznwill"
+               value="bpypxdratsttdzcl"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>rczfypbzdkanyzznwill</code></p>
+<p>Must not be greater than 255 characters. Example: <code>bpypxdratsttdzcl</code></p>
         </div>
         </form>
 
@@ -3796,7 +3836,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/v1/admin/brands/11" \
+    "http://localhost:8000/api/v1/admin/brands/5" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3804,7 +3844,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/admin/brands/11"
+    "http://localhost:8000/api/v1/admin/brands/5"
 );
 
 const headers = {
@@ -3909,10 +3949,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                name="id"                data-endpoint="DELETEapi-v1-admin-brands--id-"
-               value="11"
+               value="5"
                data-component="url">
     <br>
-<p>The ID of the brand. Example: <code>11</code></p>
+<p>The ID of the brand. Example: <code>5</code></p>
             </div>
                     </form>
 

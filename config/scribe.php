@@ -323,7 +323,8 @@ INTRO
         'order' => [
             'Administrator Endpoints' => [
                 'POST /admin/generate',
-                'Admin Authentication',
+                'Authentication',
+                'Account Settings',
             ],
             // 'This group will come first',
             // 'This group will come next' => [

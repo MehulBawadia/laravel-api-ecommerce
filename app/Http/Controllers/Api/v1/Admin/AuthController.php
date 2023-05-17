@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 /**
  * @group Administrator Endpoints
  *
- * @subgroup Admin Authentication
+ * @subgroup Authentication
  *
  * @subgroupDescription  The login and logout endpoints of the admin panel.
  */
