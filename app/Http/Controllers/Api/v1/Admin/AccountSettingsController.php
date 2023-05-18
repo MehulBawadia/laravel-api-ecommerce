@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
  * @group Administrator Endpoints
  *
  * @subgroup Account Settings
+ *
  * @subgroupDescription The endpoints related to the administrator account.
  */
 class AccountSettingsController extends Controller
