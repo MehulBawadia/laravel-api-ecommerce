@@ -1,0 +1,179 @@
+{
+    "status": "success",
+    "message": "",
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "name": "Qui Nobis Nisi",
+                "slug": "qui-nobis-nisi",
+                "meta_title": "Qui Nobis Nisi Laravel E-Commerce API",
+                "meta_description": "Qui Nobis Nisi Laravel E-Commerce API",
+                "meta_keywords": "Qui Nobis Nisi Laravel E-Commerce API"
+            },
+            {
+                "id": 2,
+                "name": "Aut Et Quidem",
+                "slug": "aut-et-quidem",
+                "meta_title": "Aut Et Quidem Laravel E-Commerce API",
+                "meta_description": "Aut Et Quidem Laravel E-Commerce API",
+                "meta_keywords": "Aut Et Quidem Laravel E-Commerce API"
+            },
+            {
+                "id": 3,
+                "name": "Nostrum Aut Optio",
+                "slug": "nostrum-aut-optio",
+                "meta_title": "Nostrum Aut Optio Laravel E-Commerce API",
+                "meta_description": "Nostrum Aut Optio Laravel E-Commerce API",
+                "meta_keywords": "Nostrum Aut Optio Laravel E-Commerce API"
+            },
+            {
+                "id": 4,
+                "name": "Perspiciatis Commodi Est",
+                "slug": "perspiciatis-commodi-est",
+                "meta_title": "Perspiciatis Commodi Est Laravel E-Commerce API",
+                "meta_description": "Perspiciatis Commodi Est Laravel E-Commerce API",
+                "meta_keywords": "Perspiciatis Commodi Est Laravel E-Commerce API"
+            },
+            {
+                "id": 5,
+                "name": "Nisi In Eveniet",
+                "slug": "nisi-in-eveniet",
+                "meta_title": "Nisi In Eveniet Laravel E-Commerce API",
+                "meta_description": "Nisi In Eveniet Laravel E-Commerce API",
+                "meta_keywords": "Nisi In Eveniet Laravel E-Commerce API"
+            },
+            {
+                "id": 6,
+                "name": "Possimus Placeat Ad",
+                "slug": "possimus-placeat-ad",
+                "meta_title": "Possimus Placeat Ad Laravel E-Commerce API",
+                "meta_description": "Possimus Placeat Ad Laravel E-Commerce API",
+                "meta_keywords": "Possimus Placeat Ad Laravel E-Commerce API"
+            },
+            {
+                "id": 7,
+                "name": "Maiores Quia Ut",
+                "slug": "maiores-quia-ut",
+                "meta_title": "Maiores Quia Ut Laravel E-Commerce API",
+                "meta_description": "Maiores Quia Ut Laravel E-Commerce API",
+                "meta_keywords": "Maiores Quia Ut Laravel E-Commerce API"
+            },
+            {
+                "id": 8,
+                "name": "Qui Repellat Molestias",
+                "slug": "qui-repellat-molestias",
+                "meta_title": "Qui Repellat Molestias Laravel E-Commerce API",
+                "meta_description": "Qui Repellat Molestias Laravel E-Commerce API",
+                "meta_keywords": "Qui Repellat Molestias Laravel E-Commerce API"
+            },
+            {
+                "id": 9,
+                "name": "Nisi Soluta Nihil",
+                "slug": "nisi-soluta-nihil",
+                "meta_title": "Nisi Soluta Nihil Laravel E-Commerce API",
+                "meta_description": "Nisi Soluta Nihil Laravel E-Commerce API",
+                "meta_keywords": "Nisi Soluta Nihil Laravel E-Commerce API"
+            },
+            {
+                "id": 10,
+                "name": "Esse Placeat Corrupti",
+                "slug": "esse-placeat-corrupti",
+                "meta_title": "Esse Placeat Corrupti Laravel E-Commerce API",
+                "meta_description": "Esse Placeat Corrupti Laravel E-Commerce API",
+                "meta_keywords": "Esse Placeat Corrupti Laravel E-Commerce API"
+            },
+            {
+                "id": 11,
+                "name": "Est Quas Libero",
+                "slug": "est-quas-libero",
+                "meta_title": "Est Quas Libero Laravel E-Commerce API",
+                "meta_description": "Est Quas Libero Laravel E-Commerce API",
+                "meta_keywords": "Est Quas Libero Laravel E-Commerce API"
+            },
+            {
+                "id": 12,
+                "name": "Dolorem Beatae Ipsa",
+                "slug": "dolorem-beatae-ipsa",
+                "meta_title": "Dolorem Beatae Ipsa Laravel E-Commerce API",
+                "meta_description": "Dolorem Beatae Ipsa Laravel E-Commerce API",
+                "meta_keywords": "Dolorem Beatae Ipsa Laravel E-Commerce API"
+            },
+            {
+                "id": 13,
+                "name": "Voluptatem Dolorem Doloremque",
+                "slug": "voluptatem-dolorem-doloremque",
+                "meta_title": "Voluptatem Dolorem Doloremque Laravel E-Commerce API",
+                "meta_description": "Voluptatem Dolorem Doloremque Laravel E-Commerce API",
+                "meta_keywords": "Voluptatem Dolorem Doloremque Laravel E-Commerce API"
+            },
+            {
+                "id": 14,
+                "name": "Necessitatibus Doloribus Beatae",
+                "slug": "necessitatibus-doloribus-beatae",
+                "meta_title": "Necessitatibus Doloribus Beatae Laravel E-Commerce API",
+                "meta_description": "Necessitatibus Doloribus Beatae Laravel E-Commerce API",
+                "meta_keywords": "Necessitatibus Doloribus Beatae Laravel E-Commerce API"
+            },
+            {
+                "id": 15,
+                "name": "Corrupti Eveniet Dolor",
+                "slug": "corrupti-eveniet-dolor",
+                "meta_title": "Corrupti Eveniet Dolor Laravel E-Commerce API",
+                "meta_description": "Corrupti Eveniet Dolor Laravel E-Commerce API",
+                "meta_keywords": "Corrupti Eveniet Dolor Laravel E-Commerce API"
+            },
+            {
+                "id": 16,
+                "name": "Dolorum Commodi Qui",
+                "slug": "dolorum-commodi-qui",
+                "meta_title": "Dolorum Commodi Qui Laravel E-Commerce API",
+                "meta_description": "Dolorum Commodi Qui Laravel E-Commerce API",
+                "meta_keywords": "Dolorum Commodi Qui Laravel E-Commerce API"
+            }
+        ],
+        "first_page_url": "http://localhost:8000/api/v1/admin/categories?page=1",
+        "from": 1,
+        "last_page": 4,
+        "last_page_url": "http://localhost:8000/api/v1/admin/categories?page=4",
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http://localhost:8000/api/v1/admin/categories?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": "http://localhost:8000/api/v1/admin/categories?page=2",
+                "label": "2",
+                "active": false
+            },
+            {
+                "url": "http://localhost:8000/api/v1/admin/categories?page=3",
+                "label": "3",
+                "active": false
+            },
+            {
+                "url": "http://localhost:8000/api/v1/admin/categories?page=4",
+                "label": "4",
+                "active": false
+            },
+            {
+                "url": "http://localhost:8000/api/v1/admin/categories?page=2",
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": "http://localhost:8000/api/v1/admin/categories?page=2",
+        "path": "http://localhost:8000/api/v1/admin/categories",
+        "per_page": 16,
+        "prev_page_url": null,
+        "to": 16,
+        "total": 50
+    }
+}
