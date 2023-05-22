@@ -1,0 +1,195 @@
+{
+    "status": "success",
+    "message": "",
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "name": "Laborum Tempora Maxime",
+                "slug": "laborum-tempora-maxime",
+                "description": "Eos qui esse magnam molestiae dolorem perspiciatis.",
+                "meta_title": "Laborum Tempora Maxime Laravel E-Commerce API",
+                "meta_description": "Laborum Tempora Maxime Laravel E-Commerce API",
+                "meta_keywords": "Laborum Tempora Maxime Laravel E-Commerce API"
+            },
+            {
+                "id": 2,
+                "name": "Officiis Sit Cum",
+                "slug": "officiis-sit-cum",
+                "description": "Dolores optio sapiente voluptatem.",
+                "meta_title": "Officiis Sit Cum Laravel E-Commerce API",
+                "meta_description": "Officiis Sit Cum Laravel E-Commerce API",
+                "meta_keywords": "Officiis Sit Cum Laravel E-Commerce API"
+            },
+            {
+                "id": 3,
+                "name": "Sed Eaque Sapiente",
+                "slug": "sed-eaque-sapiente",
+                "description": "Nostrum est autem ut consectetur.",
+                "meta_title": "Sed Eaque Sapiente Laravel E-Commerce API",
+                "meta_description": "Sed Eaque Sapiente Laravel E-Commerce API",
+                "meta_keywords": "Sed Eaque Sapiente Laravel E-Commerce API"
+            },
+            {
+                "id": 4,
+                "name": "Porro Sunt Et",
+                "slug": "porro-sunt-et",
+                "description": "Consequatur enim eos sed voluptatum eos.",
+                "meta_title": "Porro Sunt Et Laravel E-Commerce API",
+                "meta_description": "Porro Sunt Et Laravel E-Commerce API",
+                "meta_keywords": "Porro Sunt Et Laravel E-Commerce API"
+            },
+            {
+                "id": 5,
+                "name": "Voluptatem Esse Commodi",
+                "slug": "voluptatem-esse-commodi",
+                "description": "Ipsum ullam voluptatem debitis dolorem.",
+                "meta_title": "Voluptatem Esse Commodi Laravel E-Commerce API",
+                "meta_description": "Voluptatem Esse Commodi Laravel E-Commerce API",
+                "meta_keywords": "Voluptatem Esse Commodi Laravel E-Commerce API"
+            },
+            {
+                "id": 6,
+                "name": "Fugit Maiores Voluptas",
+                "slug": "fugit-maiores-voluptas",
+                "description": "Culpa aut sit voluptatem ut et.",
+                "meta_title": "Fugit Maiores Voluptas Laravel E-Commerce API",
+                "meta_description": "Fugit Maiores Voluptas Laravel E-Commerce API",
+                "meta_keywords": "Fugit Maiores Voluptas Laravel E-Commerce API"
+            },
+            {
+                "id": 7,
+                "name": "Et Ex Molestiae",
+                "slug": "et-ex-molestiae",
+                "description": "Asperiores sit et natus.",
+                "meta_title": "Et Ex Molestiae Laravel E-Commerce API",
+                "meta_description": "Et Ex Molestiae Laravel E-Commerce API",
+                "meta_keywords": "Et Ex Molestiae Laravel E-Commerce API"
+            },
+            {
+                "id": 8,
+                "name": "Dicta Est Sunt",
+                "slug": "dicta-est-sunt",
+                "description": "Tenetur eum aperiam non error.",
+                "meta_title": "Dicta Est Sunt Laravel E-Commerce API",
+                "meta_description": "Dicta Est Sunt Laravel E-Commerce API",
+                "meta_keywords": "Dicta Est Sunt Laravel E-Commerce API"
+            },
+            {
+                "id": 9,
+                "name": "Perferendis Earum Facilis",
+                "slug": "perferendis-earum-facilis",
+                "description": "Aut aut molestiae similique commodi nam iure.",
+                "meta_title": "Perferendis Earum Facilis Laravel E-Commerce API",
+                "meta_description": "Perferendis Earum Facilis Laravel E-Commerce API",
+                "meta_keywords": "Perferendis Earum Facilis Laravel E-Commerce API"
+            },
+            {
+                "id": 10,
+                "name": "Vero Aut Architecto",
+                "slug": "vero-aut-architecto",
+                "description": "Delectus dolorem mollitia eius.",
+                "meta_title": "Vero Aut Architecto Laravel E-Commerce API",
+                "meta_description": "Vero Aut Architecto Laravel E-Commerce API",
+                "meta_keywords": "Vero Aut Architecto Laravel E-Commerce API"
+            },
+            {
+                "id": 11,
+                "name": "Nihil Eum Aut",
+                "slug": "nihil-eum-aut",
+                "description": "Voluptatem laboriosam eum error nulla quo facilis.",
+                "meta_title": "Nihil Eum Aut Laravel E-Commerce API",
+                "meta_description": "Nihil Eum Aut Laravel E-Commerce API",
+                "meta_keywords": "Nihil Eum Aut Laravel E-Commerce API"
+            },
+            {
+                "id": 12,
+                "name": "Omnis Optio Ipsam",
+                "slug": "omnis-optio-ipsam",
+                "description": "Rerum eveniet et qui non minima aperiam id.",
+                "meta_title": "Omnis Optio Ipsam Laravel E-Commerce API",
+                "meta_description": "Omnis Optio Ipsam Laravel E-Commerce API",
+                "meta_keywords": "Omnis Optio Ipsam Laravel E-Commerce API"
+            },
+            {
+                "id": 13,
+                "name": "Incidunt Nesciunt Hic",
+                "slug": "incidunt-nesciunt-hic",
+                "description": "Eum nulla laborum eius ut sit hic.",
+                "meta_title": "Incidunt Nesciunt Hic Laravel E-Commerce API",
+                "meta_description": "Incidunt Nesciunt Hic Laravel E-Commerce API",
+                "meta_keywords": "Incidunt Nesciunt Hic Laravel E-Commerce API"
+            },
+            {
+                "id": 14,
+                "name": "Velit Quia Sit",
+                "slug": "velit-quia-sit",
+                "description": "Deleniti voluptatem rerum et necessitatibus voluptas.",
+                "meta_title": "Velit Quia Sit Laravel E-Commerce API",
+                "meta_description": "Velit Quia Sit Laravel E-Commerce API",
+                "meta_keywords": "Velit Quia Sit Laravel E-Commerce API"
+            },
+            {
+                "id": 15,
+                "name": "Omnis Sint Est",
+                "slug": "omnis-sint-est",
+                "description": "Totam quasi velit occaecati non ducimus.",
+                "meta_title": "Omnis Sint Est Laravel E-Commerce API",
+                "meta_description": "Omnis Sint Est Laravel E-Commerce API",
+                "meta_keywords": "Omnis Sint Est Laravel E-Commerce API"
+            },
+            {
+                "id": 16,
+                "name": "Inventore Earum Aliquam",
+                "slug": "inventore-earum-aliquam",
+                "description": "Libero commodi laboriosam ipsam accusantium laborum voluptas.",
+                "meta_title": "Inventore Earum Aliquam Laravel E-Commerce API",
+                "meta_description": "Inventore Earum Aliquam Laravel E-Commerce API",
+                "meta_keywords": "Inventore Earum Aliquam Laravel E-Commerce API"
+            }
+        ],
+        "first_page_url": "http://localhost:8000?page=1",
+        "from": 1,
+        "last_page": 4,
+        "last_page_url": "http://localhost:8000?page=4",
+        "links": [
+            {
+                "url": null,
+                "label": "&amp;laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http://localhost:8000?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": "http://localhost:8000?page=2",
+                "label": "2",
+                "active": false
+            },
+            {
+                "url": "http://localhost:8000?page=3",
+                "label": "3",
+                "active": false
+            },
+            {
+                "url": "http://localhost:8000?page=4",
+                "label": "4",
+                "active": false
+            },
+            {
+                "url": "http://localhost:8000?page=2",
+                "label": "Next &amp;raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": "http://localhost:8000?page=2",
+        "path": "http://localhost:8000",
+        "per_page": 16,
+        "prev_page_url": null,
+        "to": 16,
+        "total": 50
+    }
+}
