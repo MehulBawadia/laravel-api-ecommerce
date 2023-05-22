@@ -8,12 +8,26 @@ use App\Http\Requests\v1\Admin\Brands\UpdateBrandRequest;
 use App\Models\Brand;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * @group Administrator Endpoints
+ *
+ * @subgroup Brands
+ */
 class BrandsController extends Controller
 {
     /**
-     * Get and paginate the brands.
+     * List All brands
      *
-     * @return void
+     * Display all the brands with pagination.
+     * At a time, there are total of 16 records that will be displayed.
+     *
+     * @queryParam page integer The page number. Defaults to 1. Example: 1
+     *
+     * @responseFile storage/responses/admin/brands/list-all.json
+     *
+     * @authenticated
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
@@ -25,7 +39,14 @@ class BrandsController extends Controller
     }
 
     /**
-     * Store a new Brand.
+     * Add new Brand
+     *
+     * Create a new Brand and store it's details.
+     *
+     * @responseFile status=201 storage/responses/admin/brands/created.json
+     * @responseFile status=422 storage/responses/admin/brands/validation-errors.json
+     *
+     * @authenticated
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -50,7 +71,16 @@ class BrandsController extends Controller
     }
 
     /**
-     * Fetch the details about the given brand id.
+     * Get single Brand
+     *
+     * Fetch the details about the given Brand id.
+     *
+     * @urlParam id integer required The id of the Brand. Example: 1
+     *
+     * @responseFile status=200 storage/responses/admin/brands/fetch-single.json
+     * @responseFile status=404 storage/responses/admin/brands/not-found.json
+     *
+     * @authenticated
      *
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
@@ -68,7 +98,17 @@ class BrandsController extends Controller
     }
 
     /**
-     * Update the brand details of the given id.
+     * Update Brand
+     *
+     * Update the Brand details of the given id.
+     *
+     * @urlParam id integer required The id of the Brand. Example: 1
+     *
+     * @responseFile status=200 storage/responses/admin/brands/updated.json
+     * @responseFile status=404 storage/responses/admin/brands/not-found.json
+     * @responseFile status=422 storage/responses/admin/brands/validation-errors.json
+     *
+     * @authenticated
      *
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
@@ -99,7 +139,19 @@ class BrandsController extends Controller
     }
 
     /**
-     * Delete the brand details of the given id.
+     * Delete a Brand
+     *
+     * Delete the Brand details of the given id.
+     * This will soft delete the Brand.
+     * Meaning the record will be present in the database, however,
+     * it won't be available to access.
+     *
+     * @urlParam id integer required The id of the Brand. Example: 1
+     *
+     * @responseFile status=200 storage/responses/admin/brands/deleted.json
+     * @responseFile status=404 storage/responses/admin/brands/not-found.json
+     *
+     * @authenticated
      *
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
