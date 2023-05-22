@@ -9,7 +9,7 @@ class GeneralSettingsTest extends TestCase
 {
     use RefreshDatabase;
 
-    public $postRoute = null;
+    public $putRoute = null;
 
     public $admin = null;
 
@@ -19,7 +19,7 @@ class GeneralSettingsTest extends TestCase
 
         $this->admin = $this->signInAdmin(['first_name' => 'Super', 'last_name' => 'Administrator']);
 
-        $this->postRoute = route('v1_admin.accountSettings.general');
+        $this->putRoute = route('v1_admin.accountSettings.general');
     }
 
     public function test_admin_can_update_general_account_settings()
@@ -33,7 +33,7 @@ class GeneralSettingsTest extends TestCase
             'first_name' => 'Administrator',
             'last_name' => 'Super',
         ]);
-        $response = $this->postJsonPayload($this->postRoute, $payload);
+        $response = $this->putJsonPayload($this->putRoute, $payload);
 
         $response->assertStatus(201);
         $response->assertSeeText('General Settings updated successfully.');
@@ -44,7 +44,7 @@ class GeneralSettingsTest extends TestCase
     public function test_first_name_field_is_required()
     {
         $payload = $this->preparePayload(['first_name' => '']);
-        $response = $this->postJsonPayload($this->postRoute, $payload);
+        $response = $this->putJsonPayload($this->putRoute, $payload);
 
         $response->assertStatus(422);
         $response->assertUnprocessable();
@@ -56,7 +56,7 @@ class GeneralSettingsTest extends TestCase
     public function test_last_name_field_is_required()
     {
         $payload = $this->preparePayload(['last_name' => '']);
-        $response = $this->postJsonPayload($this->postRoute, $payload);
+        $response = $this->putJsonPayload($this->putRoute, $payload);
 
         $response->assertStatus(422);
         $response->assertUnprocessable();
@@ -68,7 +68,7 @@ class GeneralSettingsTest extends TestCase
     public function test_email_field_is_required()
     {
         $payload = $this->preparePayload(['email' => '']);
-        $response = $this->postJsonPayload($this->postRoute, $payload);
+        $response = $this->putJsonPayload($this->putRoute, $payload);
 
         $response->assertStatus(422);
         $response->assertUnprocessable();
@@ -80,7 +80,7 @@ class GeneralSettingsTest extends TestCase
     public function test_email_must_be_valid_email_address()
     {
         $payload = $this->preparePayload(['email' => 'admin@$%^&.com']);
-        $response = $this->postJsonPayload($this->postRoute, $payload);
+        $response = $this->putJsonPayload($this->putRoute, $payload);
 
         $response->assertStatus(422);
         $response->assertUnprocessable();
