@@ -19,7 +19,7 @@ class ChangePasswordTest extends TestCase
 
         $this->admin = $this->signInAdmin(['first_name' => 'Super', 'last_name' => 'Administrator']);
 
-        $this->postRoute = route('v1_admin.accountSettings.changePassword');
+        $this->putRoute = route('v1_admin.accountSettings.changePassword');
     }
 
     public function test_admin_may_change_their_password()
@@ -27,7 +27,7 @@ class ChangePasswordTest extends TestCase
         $this->withoutExceptionHandling();
 
         $payload = $this->preparePayload();
-        $response = $this->postJsonPayload($this->postRoute, $payload);
+        $response = $this->putJsonPayload($this->putRoute, $payload);
 
         $response->assertStatus(201);
         $response->assertSeeText('Password updated successfully.');
@@ -36,7 +36,7 @@ class ChangePasswordTest extends TestCase
     public function test_current_password_field_is_required()
     {
         $payload = $this->preparePayload(['current_password' => '']);
-        $response = $this->postJsonPayload($this->postRoute, $payload);
+        $response = $this->putJsonPayload($this->putRoute, $payload);
 
         $response->assertStatus(422);
         $response->assertUnprocessable();
@@ -48,7 +48,7 @@ class ChangePasswordTest extends TestCase
     public function test_current_password_must_be_a_valid_password()
     {
         $payload = $this->preparePayload(['current_password' => 'Secret']);
-        $response = $this->postJsonPayload($this->postRoute, $payload);
+        $response = $this->putJsonPayload($this->putRoute, $payload);
 
         $response->assertStatus(422);
         $response->assertUnprocessable();
@@ -60,7 +60,7 @@ class ChangePasswordTest extends TestCase
     public function test_new_password_field_is_required()
     {
         $payload = $this->preparePayload(['new_password' => '']);
-        $response = $this->postJsonPayload($this->postRoute, $payload);
+        $response = $this->putJsonPayload($this->putRoute, $payload);
 
         $response->assertStatus(422);
         $response->assertUnprocessable();
@@ -72,7 +72,7 @@ class ChangePasswordTest extends TestCase
     public function test_confirm_new_password_field_is_required()
     {
         $payload = $this->preparePayload(['new_password_confirmation' => '']);
-        $response = $this->postJsonPayload($this->postRoute, $payload);
+        $response = $this->putJsonPayload($this->putRoute, $payload);
 
         $response->assertStatus(422);
         $response->assertUnprocessable();
