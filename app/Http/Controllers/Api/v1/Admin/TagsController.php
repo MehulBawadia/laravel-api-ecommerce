@@ -8,24 +8,45 @@ use App\Http\Requests\v1\Admin\Tags\UpdateTagRequest;
 use App\Models\Tag;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * @group Administrator Endpoints
+ *
+ * @subgroup Tags
+ */
 class TagsController extends Controller
 {
     /**
-     * Get and paginate the tags.
+     * List All tags
      *
-     * @return void
+     * Display all the tags with pagination.
+     * At a time, there are total of 16 records that will be displayed.
+     *
+     * @queryParam page integer The page number. Defaults to 1. Example: 1
+     *
+     * @responseFile storage/responses/admin/tags/list-all.json
+     *
+     * @authenticated
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
         $tags = Tag::select([
-            'id', 'name', 'slug', 'meta_title', 'meta_description', 'meta_keywords',
+            'id', 'name', 'slug', 'description', 'meta_title', 'meta_description', 'meta_keywords',
         ])->paginate(16);
 
         return $this->successResponse('', $tags);
     }
 
     /**
-     * Store a new Tag.
+     * Add new tag
+     *
+     * Create a new tag and store it's details.
+     *
+     * @responseFile status=201 storage/responses/admin/tags/created.json
+     * @responseFile status=422 storage/responses/admin/tags/validation-errors.json
+     *
+     * @authenticated
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -50,7 +71,16 @@ class TagsController extends Controller
     }
 
     /**
+     * Get single tag
+     *
      * Fetch the details about the given tag id.
+     *
+     * @urlParam id integer required The id of the tag. Example: 1
+     *
+     * @responseFile status=200 storage/responses/admin/tags/fetch-single.json
+     * @responseFile status=404 storage/responses/admin/tags/not-found.json
+     *
+     * @authenticated
      *
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
@@ -58,7 +88,7 @@ class TagsController extends Controller
     public function show($id)
     {
         $tag = Tag::select([
-            'id', 'name', 'meta_title', 'meta_description', 'meta_keywords',
+            'id', 'name', 'description', 'meta_title', 'meta_description', 'meta_keywords',
         ])->find($id);
         if (! $tag) {
             return $this->errorResponse('Tag not found.', [], 404);
@@ -68,7 +98,17 @@ class TagsController extends Controller
     }
 
     /**
+     * Update tag
+     *
      * Update the tag details of the given id.
+     *
+     * @urlParam id integer required The id of the tag. Example: 1
+     *
+     * @responseFile status=200 storage/responses/admin/tags/updated.json
+     * @responseFile status=404 storage/responses/admin/tags/not-found.json
+     * @responseFile status=422 storage/responses/admin/tags/validation-errors.json
+     *
+     * @authenticated
      *
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
@@ -99,7 +139,19 @@ class TagsController extends Controller
     }
 
     /**
+     * Delete a tag
+     *
      * Delete the tag details of the given id.
+     * This will soft delete the tag.
+     * Meaning the record will be present in the database, however,
+     * it won't be available to access.
+     *
+     * @urlParam id integer required The id of the tag. Example: 1
+     *
+     * @responseFile status=200 storage/responses/admin/tags/deleted.json
+     * @responseFile status=404 storage/responses/admin/tags/not-found.json
+     *
+     * @authenticated
      *
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
