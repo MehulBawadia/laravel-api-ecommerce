@@ -23,10 +23,33 @@ class AddProductRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:100',
-            'description' => 'required|string|max:255',
+            'description' => 'required|string',
+            'product_id' => 'required|integer|exists:categories,id',
+            'brand_id' => 'required|integer|exists:brands,id',
+            'rate' => 'required|numeric|min:0.0',
+            'quantity' => 'required|numeric|min:0',
+            'image' => 'required|file|mimes:jpg,jpeg,png,JPG,JPEG,PNG|max:1024',
             'meta_title' => 'required|string|max:80',
             'meta_description' => 'required|string|max:180',
             'meta_keywords' => 'nullable|string|max:255',
+        ];
+    }
+
+    /**
+     * Custom error messages.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'product_id.required' => 'Please select the product.',
+            'product_id.integer' => 'Selected product is invalid.',
+            'product_id.exists' => 'Selected product does not exist.',
+
+            'brand_id.required' => 'Please select the brand.',
+            'brand_id.integer' => 'Selected brand is invalid.',
+            'brand_id.exists' => 'Selected brand does not exist.',
         ];
     }
 
@@ -39,11 +62,30 @@ class AddProductRequest extends FormRequest
     {
         return [
             'name' => [
-                'description' => 'Required. The name of the category, should be unique.',
+                'description' => 'Required. The name of the product.',
                 'example' => 'Gucci',
             ],
+            'category_id' => [
+                'description' => 'Required. The id of category that this product is being added in. Should be positive integer, and should exist in categories table.',
+                'example' => 1,
+            ],
+            'brand_id' => [
+                'description' => 'Required. The id of brand that this product is being added in. Should be positive integer, and should exist in brands table.',
+                'example' => 1,
+            ],
+            'rate' => [
+                'description' => 'Required. The amount of the product that it will be sold to the customers. Should be positive integer, greater than 0.',
+                'example' => 119,
+            ],
+            'quantity' => [
+                'description' => 'Required. The quantity of the product. Should be positive integer, greater than 0.',
+                'example' => 10,
+            ],
+            'image' => [
+                'description' => 'Required. The image of the product. Should be a valid file with a valid extension of either jpg, jpeg, or png. No other image file types are supported at the moment.',
+            ],
             'description' => [
-                'description' => 'Required. The description of the category.',
+                'description' => 'Required. The description of the product.',
                 'example' => 'Gucci clothes made of the best quality materials sold all over the world.',
             ],
             'meta_title' => [
@@ -55,7 +97,7 @@ class AddProductRequest extends FormRequest
                 'example' => 'Gucci clothes made of the best quality materials sold all over the world.',
             ],
             'meta_keywords' => [
-                'description' => 'A comma separated words or phrases related to the category.',
+                'description' => 'A comma separated words or phrases related to the product.',
                 'example' => 'T-shirt, Gucci clothes, best quality tshirt for women',
             ],
         ];

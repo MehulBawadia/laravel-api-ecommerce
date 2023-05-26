@@ -62,6 +62,10 @@ class ProductsController extends Controller
         try {
             $product = Product::create($request->all());
 
+            if ($request->has('image')) {
+                $product->addMediaFromRequest('image')->toMediaCollection('product-images');
+            }
+
             DB::commit();
 
             return $this->successResponse('Product added successfully.', $product, 201);
