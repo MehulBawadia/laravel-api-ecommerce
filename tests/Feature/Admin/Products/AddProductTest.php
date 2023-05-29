@@ -49,7 +49,7 @@ class AddProductTest extends TestCase
         $this->assertEquals(Product::first()->slug, 'product-1');
     }
 
-    public function test_admin_may_upload_a_wicket()
+    public function test_admin_may_upload_an_image()
     {
         $this->withoutExceptionHandling();
 

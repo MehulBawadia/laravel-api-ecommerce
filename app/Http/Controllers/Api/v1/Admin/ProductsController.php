@@ -133,9 +133,16 @@ class ProductsController extends Controller
         try {
             $product->update($request->all());
 
+            $product = $product->fresh();
+
+            if ($request->has('image')) {
+                $product->clearMediaCollection('product-images');
+                $product->addMediaFromRequest('image')->toMediaCollection('product-images');
+            }
+
             DB::commit();
 
-            return $this->successResponse('Product updated successfully.', $product->fresh());
+            return $this->successResponse('Product updated successfully.', $product);
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
