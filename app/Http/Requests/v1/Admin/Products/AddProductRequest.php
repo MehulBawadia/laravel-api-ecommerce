@@ -24,7 +24,7 @@ class AddProductRequest extends FormRequest
         return [
             'name' => 'required|string|max:100',
             'description' => 'required|string',
-            'product_id' => 'required|integer|exists:categories,id',
+            'category_id' => 'required|integer|exists:categories,id',
             'brand_id' => 'required|integer|exists:brands,id',
             'rate' => 'required|numeric|min:0.0',
             'quantity' => 'required|numeric|min:0',
@@ -43,9 +43,9 @@ class AddProductRequest extends FormRequest
     public function messages()
     {
         return [
-            'product_id.required' => 'Please select the product.',
-            'product_id.integer' => 'Selected product is invalid.',
-            'product_id.exists' => 'Selected product does not exist.',
+            'category_id.required' => 'Please select the category.',
+            'category_id.integer' => 'Selected category is invalid.',
+            'category_id.exists' => 'Selected category does not exist.',
 
             'brand_id.required' => 'Please select the brand.',
             'brand_id.integer' => 'Selected brand is invalid.',
