@@ -28,13 +28,13 @@ class DeleteProductTest extends TestCase
         $this->deleteRoute = route('v1_admin.products.destroy', $this->product->id);
     }
 
-    public function test_Product_exists()
+    public function test_product_exists()
     {
         $this->withoutExceptionHandling();
         $this->assertEquals(1, Product::count());
     }
 
-    public function test_admin_can_delete_the_Product()
+    public function test_admin_can_delete_the_product()
     {
         $this->withoutExceptionHandling();
 
@@ -48,7 +48,7 @@ class DeleteProductTest extends TestCase
         $this->assertNotNull(Product::onlyTrashed()->first()->deleted_at);
     }
 
-    public function test_admin_receives_404_error_if_Product_not_found()
+    public function test_admin_receives_404_error_if_product_not_found()
     {
         $this->withoutExceptionHandling();
 
