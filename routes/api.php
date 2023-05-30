@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\v1\Admin\BrandsController;
 use App\Http\Controllers\Api\v1\Admin\CategoriesController;
 use App\Http\Controllers\Api\v1\Admin\GenerateController;
 use App\Http\Controllers\Api\v1\Admin\PasswordController;
+use App\Http\Controllers\Api\v1\Admin\ProductsController;
 use App\Http\Controllers\Api\v1\Admin\TagsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -56,6 +57,14 @@ Route::name('v1_admin')->prefix('/v1/admin')->group(function () {
             Route::delete('/{id}', 'destroy')->name('.destroy');
         });
         Route::prefix('brands')->name('.brands')->controller(BrandsController::class)->group(function () {
+            Route::get('/', 'index');
+            Route::post('/', 'store')->name('.store');
+            Route::get('/{id}', 'show')->name('.show');
+            Route::put('/{id}', 'update')->name('.update');
+            Route::delete('/{id}', 'destroy')->name('.destroy');
+        });
+
+        Route::prefix('products')->name('.products')->controller(ProductsController::class)->group(function () {
             Route::get('/', 'index');
             Route::post('/', 'store')->name('.store');
             Route::get('/{id}', 'show')->name('.show');

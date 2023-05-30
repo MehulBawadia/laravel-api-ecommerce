@@ -1,0 +1,419 @@
+{
+    "status": "success",
+    "message": "",
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "category_id": 52,
+                "brand_id": 51,
+                "name": "Iusto Occaecati Necessitatibus Non Asperiores",
+                "slug": "iusto-occaecati-necessitatibus-non-asperiores",
+                "rate": 64.46,
+                "quantity": 5,
+                "description": "Inventore nihil repellat similique exercitationem. Optio veritatis commodi amet ipsum tempore mollitia. Dolor enim sunt repudiandae nemo eaque suscipit quis. Cum animi quia error vero natus ratione eveniet odio. Est consectetur doloremque qui fugiat recusandae facilis aut reprehenderit.",
+                "meta_title": "Iusto Occaecati Necessitatibus Non Asperiores Laravel E-Commerce API",
+                "meta_description": "Iusto Occaecati Necessitatibus Non Asperiores Laravel E-Commerce API",
+                "meta_keywords": "Iusto Occaecati Necessitatibus Non Asperiores Laravel E-Commerce API",
+                "category": {
+                    "id": 52,
+                    "name": "Natus Beatae Dolorem",
+                    "slug": "natus-beatae-dolorem"
+                },
+                "brand": {
+                    "id": 51,
+                    "name": "Quidem Natus Laboriosam",
+                    "slug": "quidem-natus-laboriosam"
+                }
+            },
+            {
+                "id": 2,
+                "category_id": 53,
+                "brand_id": 52,
+                "name": "Cum Sit Consequatur Sit Eum",
+                "slug": "cum-sit-consequatur-sit-eum",
+                "rate": 469.78,
+                "quantity": 7,
+                "description": "Tempore voluptatem quia aut asperiores. Sit eos doloribus esse. Deleniti ea quod repellat aut officiis doloremque voluptatem aut. Eos quam omnis culpa ut laudantium sit dolores. Qui reiciendis qui sunt et repudiandae.",
+                "meta_title": "Cum Sit Consequatur Sit Eum Laravel E-Commerce API",
+                "meta_description": "Cum Sit Consequatur Sit Eum Laravel E-Commerce API",
+                "meta_keywords": "Cum Sit Consequatur Sit Eum Laravel E-Commerce API",
+                "category": {
+                    "id": 53,
+                    "name": "Sit Numquam Ducimus",
+                    "slug": "sit-numquam-ducimus"
+                },
+                "brand": {
+                    "id": 52,
+                    "name": "Provident Totam Quaerat",
+                    "slug": "provident-totam-quaerat"
+                }
+            },
+            {
+                "id": 3,
+                "category_id": 54,
+                "brand_id": 53,
+                "name": "Veniam Odio Ipsam Enim Quia",
+                "slug": "veniam-odio-ipsam-enim-quia",
+                "rate": 787.46,
+                "quantity": 0,
+                "description": "Rerum itaque qui sint quo dolorem. Quis vel necessitatibus cum aliquid ullam fugit. In consequatur et cumque est et voluptas architecto. Dicta impedit velit quia vel neque culpa voluptatem. Adipisci nesciunt maiores cupiditate enim nihil id tenetur.",
+                "meta_title": "Veniam Odio Ipsam Enim Quia Laravel E-Commerce API",
+                "meta_description": "Veniam Odio Ipsam Enim Quia Laravel E-Commerce API",
+                "meta_keywords": "Veniam Odio Ipsam Enim Quia Laravel E-Commerce API",
+                "category": {
+                    "id": 54,
+                    "name": "Animi Fuga Quisquam",
+                    "slug": "animi-fuga-quisquam"
+                },
+                "brand": {
+                    "id": 53,
+                    "name": "Quia Ut Error",
+                    "slug": "quia-ut-error"
+                }
+            },
+            {
+                "id": 4,
+                "category_id": 55,
+                "brand_id": 54,
+                "name": "Maxime Repellat Perferendis Corrupti Quae",
+                "slug": "maxime-repellat-perferendis-corrupti-quae",
+                "rate": 144.82,
+                "quantity": 8,
+                "description": "Rem ratione qui consectetur non. Velit dolor quia ad omnis consequatur. Velit soluta esse sunt aspernatur. Sed labore aut soluta est iure dicta est. Molestias aut earum quo.",
+                "meta_title": "Maxime Repellat Perferendis Corrupti Quae Laravel E-Commerce API",
+                "meta_description": "Maxime Repellat Perferendis Corrupti Quae Laravel E-Commerce API",
+                "meta_keywords": "Maxime Repellat Perferendis Corrupti Quae Laravel E-Commerce API",
+                "category": {
+                    "id": 55,
+                    "name": "Velit Animi Labore",
+                    "slug": "velit-animi-labore"
+                },
+                "brand": {
+                    "id": 54,
+                    "name": "Ipsum Libero Tenetur",
+                    "slug": "ipsum-libero-tenetur"
+                }
+            },
+            {
+                "id": 5,
+                "category_id": 56,
+                "brand_id": 55,
+                "name": "Non Perspiciatis Dignissimos Nesciunt Libero",
+                "slug": "non-perspiciatis-dignissimos-nesciunt-libero",
+                "rate": 896.54,
+                "quantity": 6,
+                "description": "Fugit et sed aperiam sit quas libero harum. Quam quae eos quis nobis. Est dignissimos esse in unde ipsum. Sed asperiores rerum reiciendis architecto enim fugiat omnis et. Nihil facilis qui aut culpa.",
+                "meta_title": "Non Perspiciatis Dignissimos Nesciunt Libero Laravel E-Commerce API",
+                "meta_description": "Non Perspiciatis Dignissimos Nesciunt Libero Laravel E-Commerce API",
+                "meta_keywords": "Non Perspiciatis Dignissimos Nesciunt Libero Laravel E-Commerce API",
+                "category": {
+                    "id": 56,
+                    "name": "Consequatur Sapiente Dolores",
+                    "slug": "consequatur-sapiente-dolores"
+                },
+                "brand": {
+                    "id": 55,
+                    "name": "Voluptatem Ad Dicta",
+                    "slug": "voluptatem-ad-dicta"
+                }
+            },
+            {
+                "id": 6,
+                "category_id": 57,
+                "brand_id": 56,
+                "name": "Explicabo Impedit Officiis Voluptas Cum",
+                "slug": "explicabo-impedit-officiis-voluptas-cum",
+                "rate": 832.42,
+                "quantity": 8,
+                "description": "Nulla ut ab ipsum molestiae dolor sit. Nam esse ab temporibus nam ad. Illo a beatae sequi. Enim similique sit aliquid eum quae omnis adipisci. Cum accusantium vel quam illum voluptates.",
+                "meta_title": "Explicabo Impedit Officiis Voluptas Cum Laravel E-Commerce API",
+                "meta_description": "Explicabo Impedit Officiis Voluptas Cum Laravel E-Commerce API",
+                "meta_keywords": "Explicabo Impedit Officiis Voluptas Cum Laravel E-Commerce API",
+                "category": {
+                    "id": 57,
+                    "name": "Suscipit Exercitationem Accusantium",
+                    "slug": "suscipit-exercitationem-accusantium"
+                },
+                "brand": {
+                    "id": 56,
+                    "name": "Totam Harum Voluptatem",
+                    "slug": "totam-harum-voluptatem"
+                }
+            },
+            {
+                "id": 7,
+                "category_id": 58,
+                "brand_id": 57,
+                "name": "Iure Quis Est Repellendus Quia",
+                "slug": "iure-quis-est-repellendus-quia",
+                "rate": 345.94,
+                "quantity": 2,
+                "description": "Voluptas omnis incidunt quia nisi dolor quia magnam. Ea qui libero corporis eos. Qui architecto minus dolore quas atque. Adipisci consequuntur et a dolorem alias consequatur quas. Fuga voluptatibus maiores et minima.",
+                "meta_title": "Iure Quis Est Repellendus Quia Laravel E-Commerce API",
+                "meta_description": "Iure Quis Est Repellendus Quia Laravel E-Commerce API",
+                "meta_keywords": "Iure Quis Est Repellendus Quia Laravel E-Commerce API",
+                "category": {
+                    "id": 58,
+                    "name": "Aspernatur Quis Accusantium",
+                    "slug": "aspernatur-quis-accusantium"
+                },
+                "brand": {
+                    "id": 57,
+                    "name": "Expedita Aut Et",
+                    "slug": "expedita-aut-et"
+                }
+            },
+            {
+                "id": 8,
+                "category_id": 59,
+                "brand_id": 58,
+                "name": "Omnis Est Quisquam Et Occaecati",
+                "slug": "omnis-est-quisquam-et-occaecati",
+                "rate": 568.97,
+                "quantity": 8,
+                "description": "Vero eaque non sint repudiandae ipsum. Vitae culpa quo porro placeat. Amet similique aliquid exercitationem eum. Vero nostrum doloremque occaecati. At ut laudantium quaerat qui exercitationem explicabo dolores.",
+                "meta_title": "Omnis Est Quisquam Et Occaecati Laravel E-Commerce API",
+                "meta_description": "Omnis Est Quisquam Et Occaecati Laravel E-Commerce API",
+                "meta_keywords": "Omnis Est Quisquam Et Occaecati Laravel E-Commerce API",
+                "category": {
+                    "id": 59,
+                    "name": "Nihil Unde Mollitia",
+                    "slug": "nihil-unde-mollitia"
+                },
+                "brand": {
+                    "id": 58,
+                    "name": "Nihil Praesentium Dicta",
+                    "slug": "nihil-praesentium-dicta"
+                }
+            },
+            {
+                "id": 9,
+                "category_id": 60,
+                "brand_id": 59,
+                "name": "A Assumenda Eaque Aperiam Omnis",
+                "slug": "a-assumenda-eaque-aperiam-omnis",
+                "rate": 204.36,
+                "quantity": 4,
+                "description": "Possimus non ullam fugiat. Error culpa eveniet aut ipsum harum quia voluptate. Perspiciatis consequuntur asperiores magni aspernatur libero. A ut fuga quas iure ab. Recusandae ut ad dolores voluptas cupiditate odio voluptatem.",
+                "meta_title": "A Assumenda Eaque Aperiam Omnis Laravel E-Commerce API",
+                "meta_description": "A Assumenda Eaque Aperiam Omnis Laravel E-Commerce API",
+                "meta_keywords": "A Assumenda Eaque Aperiam Omnis Laravel E-Commerce API",
+                "category": {
+                    "id": 60,
+                    "name": "Error Consectetur Minus",
+                    "slug": "error-consectetur-minus"
+                },
+                "brand": {
+                    "id": 59,
+                    "name": "Mollitia Nam Quas",
+                    "slug": "mollitia-nam-quas"
+                }
+            },
+            {
+                "id": 10,
+                "category_id": 61,
+                "brand_id": 60,
+                "name": "Ratione Consequatur At Et Est",
+                "slug": "ratione-consequatur-at-et-est",
+                "rate": 862.41,
+                "quantity": 4,
+                "description": "Et laborum repellat ipsam voluptatibus repellendus. Libero deleniti ut impedit ut iusto assumenda aut. Corporis et quia quis officiis. Illo eveniet velit necessitatibus fuga modi velit quo et. Dolores doloremque aut deserunt maiores.",
+                "meta_title": "Ratione Consequatur At Et Est Laravel E-Commerce API",
+                "meta_description": "Ratione Consequatur At Et Est Laravel E-Commerce API",
+                "meta_keywords": "Ratione Consequatur At Et Est Laravel E-Commerce API",
+                "category": {
+                    "id": 61,
+                    "name": "Fugit Facere Dolore",
+                    "slug": "fugit-facere-dolore"
+                },
+                "brand": {
+                    "id": 60,
+                    "name": "Qui Vel Ipsam",
+                    "slug": "qui-vel-ipsam"
+                }
+            },
+            {
+                "id": 11,
+                "category_id": 62,
+                "brand_id": 61,
+                "name": "Qui Doloremque Nulla Voluptatem Sequi",
+                "slug": "qui-doloremque-nulla-voluptatem-sequi",
+                "rate": 177.09,
+                "quantity": 7,
+                "description": "Amet consequatur vel dolor quas quibusdam. Officiis repudiandae reprehenderit et voluptatem perspiciatis impedit. Quasi omnis ipsam eos. Eum sit earum incidunt. Est quod nisi quidem magnam aut quia.",
+                "meta_title": "Qui Doloremque Nulla Voluptatem Sequi Laravel E-Commerce API",
+                "meta_description": "Qui Doloremque Nulla Voluptatem Sequi Laravel E-Commerce API",
+                "meta_keywords": "Qui Doloremque Nulla Voluptatem Sequi Laravel E-Commerce API",
+                "category": {
+                    "id": 62,
+                    "name": "Sint Qui Est",
+                    "slug": "sint-qui-est"
+                },
+                "brand": {
+                    "id": 61,
+                    "name": "Ut Ut Tempore",
+                    "slug": "ut-ut-tempore"
+                }
+            },
+            {
+                "id": 12,
+                "category_id": 63,
+                "brand_id": 62,
+                "name": "Earum Impedit Illo Illum Beatae",
+                "slug": "earum-impedit-illo-illum-beatae",
+                "rate": 742.87,
+                "quantity": 7,
+                "description": "Tempore quos consequatur nam unde sed ex quisquam. Asperiores cumque quo explicabo id mollitia ut accusamus. Aut ut aspernatur veritatis excepturi ex veniam. Fugit dolore quod est necessitatibus in tempora quo. Autem et tempora culpa sunt.",
+                "meta_title": "Earum Impedit Illo Illum Beatae Laravel E-Commerce API",
+                "meta_description": "Earum Impedit Illo Illum Beatae Laravel E-Commerce API",
+                "meta_keywords": "Earum Impedit Illo Illum Beatae Laravel E-Commerce API",
+                "category": {
+                    "id": 63,
+                    "name": "Error Pariatur Ut",
+                    "slug": "error-pariatur-ut"
+                },
+                "brand": {
+                    "id": 62,
+                    "name": "Qui Fuga Iste",
+                    "slug": "qui-fuga-iste"
+                }
+            },
+            {
+                "id": 13,
+                "category_id": 64,
+                "brand_id": 63,
+                "name": "Eum Culpa Ab Sunt Quo",
+                "slug": "eum-culpa-ab-sunt-quo",
+                "rate": 964.1,
+                "quantity": 6,
+                "description": "Sit reprehenderit quasi aperiam aliquid est. Provident aut consequatur dolore quia eum et aut. Sit incidunt reprehenderit dolorum quisquam voluptatem. Officiis soluta aliquam quos deleniti. Qui labore doloribus dolores culpa.",
+                "meta_title": "Eum Culpa Ab Sunt Quo Laravel E-Commerce API",
+                "meta_description": "Eum Culpa Ab Sunt Quo Laravel E-Commerce API",
+                "meta_keywords": "Eum Culpa Ab Sunt Quo Laravel E-Commerce API",
+                "category": {
+                    "id": 64,
+                    "name": "Velit Eos Esse",
+                    "slug": "velit-eos-esse"
+                },
+                "brand": {
+                    "id": 63,
+                    "name": "Dolorem Cum Culpa",
+                    "slug": "dolorem-cum-culpa"
+                }
+            },
+            {
+                "id": 14,
+                "category_id": 65,
+                "brand_id": 64,
+                "name": "Non Sed Consectetur Molestiae Qui",
+                "slug": "non-sed-consectetur-molestiae-qui",
+                "rate": 756.76,
+                "quantity": 5,
+                "description": "Impedit laboriosam dignissimos tenetur qui. Ut at sunt cum consequatur. Nisi quo quibusdam quo quo. Ut harum qui accusamus vel unde quia. Laboriosam cum repellat est magnam numquam voluptatem consequatur labore.",
+                "meta_title": "Non Sed Consectetur Molestiae Qui Laravel E-Commerce API",
+                "meta_description": "Non Sed Consectetur Molestiae Qui Laravel E-Commerce API",
+                "meta_keywords": "Non Sed Consectetur Molestiae Qui Laravel E-Commerce API",
+                "category": {
+                    "id": 65,
+                    "name": "Est Voluptatibus Nobis",
+                    "slug": "est-voluptatibus-nobis"
+                },
+                "brand": {
+                    "id": 64,
+                    "name": "Et Voluptatibus Molestiae",
+                    "slug": "et-voluptatibus-molestiae"
+                }
+            },
+            {
+                "id": 15,
+                "category_id": 66,
+                "brand_id": 65,
+                "name": "Tempora Voluptas Asperiores Ut Quis",
+                "slug": "tempora-voluptas-asperiores-ut-quis",
+                "rate": 212.04,
+                "quantity": 1,
+                "description": "Debitis harum ullam suscipit ullam ut eum sint neque. Omnis aliquid natus voluptatem explicabo. Nam velit id eos fugiat. Fuga debitis voluptate necessitatibus vel repudiandae. Asperiores debitis quia dolor molestiae.",
+                "meta_title": "Tempora Voluptas Asperiores Ut Quis Laravel E-Commerce API",
+                "meta_description": "Tempora Voluptas Asperiores Ut Quis Laravel E-Commerce API",
+                "meta_keywords": "Tempora Voluptas Asperiores Ut Quis Laravel E-Commerce API",
+                "category": {
+                    "id": 66,
+                    "name": "Officia Eligendi Officia",
+                    "slug": "officia-eligendi-officia"
+                },
+                "brand": {
+                    "id": 65,
+                    "name": "Enim Ad Et",
+                    "slug": "enim-ad-et"
+                }
+            },
+            {
+                "id": 16,
+                "category_id": 67,
+                "brand_id": 66,
+                "name": "Ea Repellendus Autem Culpa Quasi",
+                "slug": "ea-repellendus-autem-culpa-quasi",
+                "rate": 417.03,
+                "quantity": 1,
+                "description": "Illo ea voluptate est. Soluta et mollitia repellendus ut. Sapiente tempore quo quia tempora. Aperiam consectetur aut aut sint veritatis atque. Aliquid et qui quas repellendus.",
+                "meta_title": "Ea Repellendus Autem Culpa Quasi Laravel E-Commerce API",
+                "meta_description": "Ea Repellendus Autem Culpa Quasi Laravel E-Commerce API",
+                "meta_keywords": "Ea Repellendus Autem Culpa Quasi Laravel E-Commerce API",
+                "category": {
+                    "id": 67,
+                    "name": "Exercitationem Voluptatem Rerum",
+                    "slug": "exercitationem-voluptatem-rerum"
+                },
+                "brand": {
+                    "id": 66,
+                    "name": "Iste Molestias Earum",
+                    "slug": "iste-molestias-earum"
+                }
+            }
+        ],
+        "first_page_url": "http://localhost:8000?page=1",
+        "from": 1,
+        "last_page": 4,
+        "last_page_url": "http://localhost:8000?page=4",
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http://localhost:8000?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": "http://localhost:8000?page=2",
+                "label": "2",
+                "active": false
+            },
+            {
+                "url": "http://localhost:8000?page=3",
+                "label": "3",
+                "active": false
+            },
+            {
+                "url": "http://localhost:8000?page=4",
+                "label": "4",
+                "active": false
+            },
+            {
+                "url": "http://localhost:8000?page=2",
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": "http://localhost:8000?page=2",
+        "path": "http://localhost:8000",
+        "per_page": 16,
+        "prev_page_url": null,
+        "to": 16,
+        "total": 50
+    }
+}
