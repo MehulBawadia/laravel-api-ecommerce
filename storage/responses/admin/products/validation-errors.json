@@ -1,0 +1,20 @@
+{
+    "message": "The name field is required. (and 3 more errors)",
+    "errors": {
+        "name": [
+            "The name field is required."
+        ],
+        "category_id": [
+            "The category field is required."
+        ],
+        "description": [
+            "The description field is required."
+        ],
+        "meta_title": [
+            "The meta title field is required."
+        ],
+        "meta_description": [
+            "The meta description field is required."
+        ]
+    }
+}
