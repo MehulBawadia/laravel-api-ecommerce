@@ -1,0 +1,20 @@
+{
+    "message": "The first name field is required. (and 4 more errors)",
+    "errors": {
+        "first_name": [
+            "The first name field is required.",
+        ],
+        "last_name": [
+            "The last name field is required.",
+        ],
+        "email": [
+            "The email field is required.",
+        ],
+        "password": [
+            "The password field is required.",
+        ],
+        "confirm_password": [
+            "The confirm password field is required.",
+        ]
+    }
+}

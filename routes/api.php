@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\v1\Admin\GenerateController;
 use App\Http\Controllers\Api\v1\Admin\PasswordController;
 use App\Http\Controllers\Api\v1\Admin\ProductsController;
 use App\Http\Controllers\Api\v1\Admin\TagsController;
+use App\Http\Controllers\Api\v1\Users\Auth\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -72,4 +73,8 @@ Route::name('v1_admin')->prefix('/v1/admin')->group(function () {
             Route::delete('/{id}', 'destroy')->name('.destroy');
         });
     });
+});
+
+Route::name('v1_user')->prefix('v1/user')->group(function () {
+    Route::post('/register', [RegisterController::class, 'store'])->name('.register');
 });
