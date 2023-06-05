@@ -1,0 +1,17 @@
+{
+    "status": "success",
+    "message": "You have logged in successfully.",
+    "data": {
+        "access_token": "2|OgSvziCYlbiRAg1TBu8M6Ed83d0i1gO0Ql4HvBiE",
+        "token_type": "Bearer",
+        "user": {
+            "id": 2,
+            "first_name": "John",
+            "last_name": "Doe",
+            "email": "johndoe@example.com",
+            "created_at": "2023-06-01T14:46:10.000000Z",
+            "updated_at": "2023-06-01T14:46:10.000000Z",
+            "deleted_at": null
+        }
+    }
+}
