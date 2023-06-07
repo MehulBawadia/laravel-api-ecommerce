@@ -1,0 +1,10 @@
+{
+    "status": "success",
+    "message": "Password reset link sent successfully.",
+    "data": {
+        "email": "johndoe@example.com",
+        "token": "PZj7o5NBJmWhmaJ6mAH8zMSOck5vFTlPOuaT",
+        "created_at": "2023-06-07 15:51:40",
+        "reset_password_link": "http://localhost:8000/reset-password/PZj7o5NBJmWhmaJ6mAH8zMSOck5vFTlPOuaT?email=johndoe@example.com"
+    }
+}
