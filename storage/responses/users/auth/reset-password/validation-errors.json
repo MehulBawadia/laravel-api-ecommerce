@@ -1,0 +1,9 @@
+{
+    "message": "The email field is required. (and 3 more errors)",
+    "errors": {
+        "email": ["The email field is required."],
+        "token": ["The token is required."],
+        "new_password": ["The new password field is required."],
+        "repeat_new_password": ["The repeat new password field is required."]
+    }
+}

@@ -24,6 +24,7 @@ class PasswordController extends Controller
      * Send the password reset link to the given email address.
      *
      * @responseFile status=201 storage/responses/users/auth/forgot-password/success.json
+     * @responseFile status=422 storage/responses/users/auth/forgot-password/validation-errors.json
      *
      * @unauthenticated
      *
@@ -66,7 +67,14 @@ class PasswordController extends Controller
     }
 
     /**
+     * Reset password
+     *
      * Reset the user's password with the new password.
+     *
+     * @responseFile status=201 storage/responses/users/auth/reset-password/success.json
+     * @responseFile status=422 storage/responses/users/auth/reset-password/validation-errors.json
+     *
+     * @unauthenticated
      *
      * @return \Illuminate\Http\JsonResponse
      */
