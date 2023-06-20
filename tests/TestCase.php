@@ -80,4 +80,25 @@ abstract class TestCase extends BaseTestCase
 
         return $user;
     }
+
+    /**
+     * Sign in the non-administrator.
+     *
+     * @param  array  $data
+     * @return \App\Models\User
+     */
+    public function signInUser($data = [])
+    {
+        $payload = array_merge([
+            'first_name' => 'User',
+            'last_name' => 'One',
+            'email' => 'userone@example.com',
+            'password' => bcrypt('Password'),
+        ], $data);
+        $user = $this->createUser($payload);
+
+        Sanctum::actingAs($user, ['*']);
+
+        return $user;
+    }
 }

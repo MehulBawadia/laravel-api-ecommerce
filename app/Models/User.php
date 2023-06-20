@@ -44,4 +44,14 @@ class User extends Authenticatable
         'deleted_at' => 'datetime',
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * A user has only one billing address and one shipping address.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function address()
+    {
+        return $this->hasOne(UserAddress::class);
+    }
 }
