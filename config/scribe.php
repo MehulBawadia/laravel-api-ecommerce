@@ -320,11 +320,11 @@ INTRO,
          * Note: you must include the initial '/' when writing an endpoint.
          */
         'order' => [
-            'Administrator Endpoints' => [
+            'Generate Administrator' => [
                 'POST /admin/generate',
-                'Authentication',
-                'Account Settings',
             ],
+            'Common Endpoints',
+            'Administrator Endpoints',
             'User Endpoints',
             // 'This group will come first',
             // 'This group will come next' => [

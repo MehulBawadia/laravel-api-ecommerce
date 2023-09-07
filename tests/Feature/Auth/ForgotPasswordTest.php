@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Feature\Admin;
+namespace Tests\Feature\Auth;
 
-use App\Mail\v1\Admin\ForgotPasswordMail;
+use App\Mail\v1\Auth\ForgotPasswordMail;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Mail;
@@ -19,12 +19,14 @@ class ForgotPasswordTest extends TestCase
     {
         parent::setUp();
 
-        User::factory()->create(['email' => 'admin@example.com', 'password' => bcrypt('Password')]);
+        $this->createUser(['is_admin' => true]);
 
-        $this->postRoute = route('v1_admin.forgotPassword');
+        $this->createUser(['email' => 'user@example.com', 'password' => bcrypt('Password')]);
+
+        $this->postRoute = route('auth.forgotPassword');
     }
 
-    public function test_admin_requests_for_password_reset_link()
+    public function test_admin_or_user_requests_for_password_reset_link()
     {
         $this->withoutExceptionHandling();
 
@@ -36,22 +38,24 @@ class ForgotPasswordTest extends TestCase
         $response->assertSeeText('Password reset link sent successfully.');
 
         $this->assertDatabaseHas('password_reset_tokens', [
-            'email' => 'admin@example.com',
+            'email' => 'user@example.com',
             'created_at' => $createdAt,
         ]);
     }
 
-    public function test_logged_in_admin_cannot_request_password_reset_link()
+    public function test_logged_in_admin_or_user_cannot_request_password_reset_link()
     {
         $this->withoutExceptionHandling();
 
-        Sanctum::actingAs(User::first());
+        Sanctum::actingAs(
+            User::all()->random()
+        );
 
         $response = $this->postJsonPayload($this->postRoute, $this->preparePayload());
         $response->assertStatus(302);
     }
 
-    public function test_admin_receives_the_password_reset_link_via_email()
+    public function test_admin_or_user_receives_the_password_reset_link_via_email()
     {
         Mail::fake();
         $this->withoutExceptionHandling();
@@ -63,18 +67,18 @@ class ForgotPasswordTest extends TestCase
         $response->assertSeeText('Password reset link sent successfully.');
 
         Mail::assertSent(ForgotPasswordMail::class, function (ForgotPasswordMail $mail) {
-            return $mail->hasTo('admin@example.com') &&
+            return $mail->hasTo('user@example.com') &&
                     $mail->hasSubject(config('app.name').': Reset Password Link');
         });
     }
 
-    public function test_admin_reset_password_mail_content()
+    public function test_admin_or_user_reset_password_mail_content()
     {
         $data = [
-            'email' => 'admin@example.com',
+            'email' => 'user@example.com',
             'token' => 'random-string',
             'created_at' => now(),
-            'reset_password_link' => env('APP_FRONTEND_BASE_URL').'/reset-password/random-string?email=admin@example.com',
+            'reset_password_link' => env('APP_FRONTEND_BASE_URL').'/reset-password/random-string?email=user@example.com',
         ];
 
         $mailable = new ForgotPasswordMail($data);
@@ -101,7 +105,7 @@ class ForgotPasswordTest extends TestCase
 
     public function test_email_must_be_valid_email_address()
     {
-        $payload = $this->preparePayload(['email' => 'admin@$%^&.com']);
+        $payload = $this->preparePayload(['email' => 'user@$%^&.com']);
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
         $response->assertStatus(422);
@@ -113,7 +117,7 @@ class ForgotPasswordTest extends TestCase
 
     public function test_email_must_exist_in_the_system()
     {
-        $payload = $this->preparePayload(['email' => 'user@example.com']);
+        $payload = $this->preparePayload(['email' => 'user_not_found@example.com']);
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
         $response->assertStatus(422);
@@ -126,7 +130,7 @@ class ForgotPasswordTest extends TestCase
     protected function preparePayload($data = [])
     {
         return array_merge([
-            'email' => 'admin@example.com',
+            'email' => 'user@example.com',
         ], $data);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Users\Auth;
+namespace Tests\Feature\Auth;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -18,14 +18,14 @@ class ResetPasswordTest extends TestCase
     {
         parent::setUp();
 
-        $this->createUser();
+        $this->createUser(['email' => 'admin@example.com', 'is_admin' => true]);
 
         $this->createUser(['email' => 'user@example.com', 'password' => bcrypt('Password')]);
 
-        $this->postRoute = route('v1_user.resetPassword');
+        $this->postRoute = route('auth.resetPassword');
     }
 
-    public function test_user_resets_their_password()
+    public function test_admin_or_user_resets_their_password()
     {
         $this->withoutExceptionHandling();
 
@@ -46,17 +46,19 @@ class ResetPasswordTest extends TestCase
         $this->assertDatabaseMissing('password_reset_tokens', $data);
     }
 
-    public function test_user_cannot_reset_password_if_already_logged_in()
+    public function test_admin_or_user_cannot_reset_password_if_already_logged_in()
     {
         $this->withoutExceptionHandling();
 
-        Sanctum::actingAs(User::first());
+        Sanctum::actingAs(
+            User::all()->random()
+        );
 
         $response = $this->postJsonPayload($this->postRoute, $this->preparePayload());
         $response->assertStatus(302);
     }
 
-    public function test_user_cannot_reset_password_if_token_has_expired()
+    public function test_admin_or_user_cannot_reset_password_if_token_has_expired()
     {
         $this->withoutExceptionHandling();
 

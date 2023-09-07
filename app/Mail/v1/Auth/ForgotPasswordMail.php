@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Mail\v1\User;
+namespace App\Mail\v1\Auth;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
@@ -40,7 +40,7 @@ class ForgotPasswordMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'mail.v1.user.forgot-password-mail',
+            markdown: 'mail.v1.admin.forgot-password-mail',
             with: $this->data,
         );
     }

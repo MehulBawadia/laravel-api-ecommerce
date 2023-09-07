@@ -73,6 +73,7 @@ abstract class TestCase extends BaseTestCase
             'last_name' => 'Administrator',
             'email' => 'admin@example.com',
             'password' => bcrypt('Password'),
+            'is_admin' => true,
         ], $data);
         $user = $this->createUser($payload);
 

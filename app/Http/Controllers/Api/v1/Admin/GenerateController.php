@@ -8,14 +8,12 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 /**
- * @group Administrator Endpoints
- *
- * @subgroup Authentication
+ * @group Generate Administrator
  */
 class GenerateController extends Controller
 {
     /**
-     * Genreate the administrator
+     * Generate the admin user
      *
      * API to generate the super administrator. It is only a one-time call
      * in the entire lifetime of the application.
