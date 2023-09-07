@@ -1,10 +1,8 @@
 <?php
 
-use App\Http\Controllers\Api\v1\Admin\AccountSettingsController;
 use App\Http\Controllers\Api\v1\Admin\BrandsController;
 use App\Http\Controllers\Api\v1\Admin\CategoriesController;
 use App\Http\Controllers\Api\v1\Admin\GenerateController;
-use App\Http\Controllers\Api\v1\Admin\PasswordController;
 use App\Http\Controllers\Api\v1\Admin\ProductsController;
 use App\Http\Controllers\Api\v1\Admin\TagsController;
 use App\Http\Controllers\Api\v1\Users\Auth\RegisterController;
@@ -30,9 +28,6 @@ Route::name('v1_admin')->prefix('/v1/admin')->group(function () {
     Route::post('/generate', [GenerateController::class, 'store'])->name('.generate');
 
     Route::middleware('auth:sanctum')->group(function () {
-        // Route::put('/account-settings/general', [AccountSettingsController::class, 'general'])->name('.accountSettings.general');
-        // Route::put('/account-settings/change-password', [AccountSettingsController::class, 'changePassword'])->name('.accountSettings.changePassword');
-
         Route::prefix('categories')->name('.categories')->group(function () {
             Route::get('/', [CategoriesController::class, 'index']);
             Route::post('/', [CategoriesController::class, 'store'])->name('.store');
