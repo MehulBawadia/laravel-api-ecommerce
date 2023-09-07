@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Admin\AccountSettings;
+namespace Tests\Feature\AccountSettings;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -11,18 +11,16 @@ class ChangePasswordTest extends TestCase
 
     public $postRoute = null;
 
-    public $admin = null;
-
     public function setup(): void
     {
         parent::setUp();
 
-        $this->admin = $this->signInAdmin(['first_name' => 'Super', 'last_name' => 'Administrator']);
+        $this->signInAdmin();
 
-        $this->putRoute = route('v1_admin.accountSettings.changePassword');
+        $this->putRoute = route('auth.accountSettings.changePassword');
     }
 
-    public function test_admin_may_change_their_password()
+    public function test_admin_or_user_may_change_their_password()
     {
         $this->withoutExceptionHandling();
 
@@ -45,7 +43,7 @@ class ChangePasswordTest extends TestCase
         $this->assertEquals($errors['current_password'][0], 'The current password field is required.');
     }
 
-    public function test_current_password_must_be_a_valid_password()
+    public function test_current_password_must_be_a_correct_password()
     {
         $payload = $this->preparePayload(['current_password' => 'Secret']);
         $response = $this->putJsonPayload($this->putRoute, $payload);

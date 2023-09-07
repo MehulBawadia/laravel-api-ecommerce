@@ -1,11 +1,8 @@
 <?php
 
-use App\Http\Controllers\Api\v1\Admin\AccountSettingsController;
-use App\Http\Controllers\Api\v1\Admin\AuthController;
 use App\Http\Controllers\Api\v1\Admin\BrandsController;
 use App\Http\Controllers\Api\v1\Admin\CategoriesController;
 use App\Http\Controllers\Api\v1\Admin\GenerateController;
-use App\Http\Controllers\Api\v1\Admin\PasswordController;
 use App\Http\Controllers\Api\v1\Admin\ProductsController;
 use App\Http\Controllers\Api\v1\Admin\TagsController;
 use App\Http\Controllers\Api\v1\Users\Auth\RegisterController;
@@ -30,18 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::name('v1_admin')->prefix('/v1/admin')->group(function () {
     Route::post('/generate', [GenerateController::class, 'store'])->name('.generate');
 
-    Route::middleware('guest')->group(function () {
-        Route::post('/login', [AuthController::class, 'login'])->name('.login');
-        Route::post('/forgot-password', [PasswordController::class, 'sendResetLink'])->name('.forgotPassword');
-        Route::post('/reset-password', [PasswordController::class, 'reset'])->name('.resetPassword');
-    });
-
     Route::middleware('auth:sanctum')->group(function () {
-        Route::post('/logout', [AuthController::class, 'logout'])->name('.logout');
-
-        Route::put('/account-settings/general', [AccountSettingsController::class, 'general'])->name('.accountSettings.general');
-        Route::put('/account-settings/change-password', [AccountSettingsController::class, 'changePassword'])->name('.accountSettings.changePassword');
-
         Route::prefix('categories')->name('.categories')->group(function () {
             Route::get('/', [CategoriesController::class, 'index']);
             Route::post('/', [CategoriesController::class, 'store'])->name('.store');

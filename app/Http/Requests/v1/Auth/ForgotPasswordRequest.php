@@ -1,17 +1,19 @@
 <?php
 
-namespace App\Http\Requests\v1\Users\Auth;
+namespace App\Http\Requests\v1\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends FormRequest
+class ForgotPasswordRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return boolean
      */
     public function authorize(): bool
     {
-        return true;
+        return auth()->guest();
     }
 
     /**
@@ -23,7 +25,6 @@ class LoginRequest extends FormRequest
     {
         return [
             'email' => 'required|email:filter|exists:users,email',
-            'password' => 'required|string',
         ];
     }
 
@@ -48,12 +49,8 @@ class LoginRequest extends FormRequest
     {
         return [
             'email' => [
-                'description' => 'Required. The email to log in. Should be a valid email address.',
-                'example' => 'johndoe@example.com',
-            ],
-            'password' => [
-                'description' => 'Required. The password associated with the email',
-                'example' => 'Secret',
+                'description' => 'Required. The email address that you have registered your account with. Should be a valid email address.',
+                'example' => 'userone@example.com',
             ],
         ];
     }

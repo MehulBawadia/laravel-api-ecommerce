@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\Api\v1\Admin;
+namespace App\Http\Controllers\Api\v1\Settings;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\v1\Admin\ChangePasswordRequest;
-use App\Http\Requests\v1\Admin\GeneralSettingsRequest;
+use App\Http\Requests\v1\Settings\ChangePasswordRequest;
+use App\Http\Requests\v1\Settings\GeneralSettingsRequest;
 use Illuminate\Support\Facades\DB;
 
 /**
- * @group Administrator Endpoints
+ * @group Common Endpoints
  *
  * @subgroup Account Settings
  *
- * @subgroupDescription The endpoints related to the administrator account.
+ * @subgroupDescription The endpoints related to the user account of both admin user and non-admin user.
  */
 class AccountSettingsController extends Controller
 {
     /**
      * General Settings
      *
-     * Update the general settings of the admin user.
+     * Update the general settings of the user.
      *
      * @bodyParam first_name string required The first name of the admin user. Example: John
      * @bodyParam last_name string required The last name of the admin user. Example: Doe

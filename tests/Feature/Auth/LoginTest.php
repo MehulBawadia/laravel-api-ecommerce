@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Users\Auth;
+namespace Tests\Feature\Auth;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -15,52 +15,90 @@ class LoginTest extends TestCase
     {
         parent::setUp();
 
-        // Create the administrator for the application
-        $this->createUser();
-
-        // Create a non-admin user
         $this->createUser([
-            'first_name' => 'User',
-            'last_name' => 'One',
-            'email' => 'userone@example.com',
+            'email' => 'admin@example.com',
             'password' => bcrypt('Password'),
+            'is_admin' => true,
         ]);
 
-        $this->postRoute = route('v1_user.login');
+        $this->postRoute = route('auth.login');
+    }
+
+    public function test_admin_can_login_with_proper_credentials()
+    {
+        $this->withoutExceptionHandling();
+
+        $payload = $this->preparePayload(['is_admin' => true]);
+        $response = $this->postJsonPayload($this->postRoute, $payload);
+
+        $response->assertStatus(200);
+        $response->assertSeeText('status');
+        $response->assertSeeText('Administrator logged in successfully.');
+        $response->assertSeeText('access_token');
+        $response->assertSeeText('token_type');
+        $response->assertSeeText('Bearer');
     }
 
     public function test_user_can_login_with_proper_credentials()
     {
         $this->withoutExceptionHandling();
 
-        $payload = $this->preparePayload();
+        $data = [
+            'email' => 'userone@example.com',
+            'is_admin' => false,
+        ];
+
+        $this->createUser($data);
+        $payload = $this->preparePayload($data);
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
         $response->assertStatus(200);
         $response->assertSeeText('status');
-        $response->assertSeeText('You have logged in successfully.');
+        $response->assertSeeText('User logged in successfully.');
         $response->assertSeeText('access_token');
         $response->assertSeeText('token_type');
         $response->assertSeeText('Bearer');
     }
 
-    public function test_user_may_logout()
+    public function test_admin_may_logout()
     {
-        $payload = $this->preparePayload();
+        $payload = $this->preparePayload(['is_admin' => true]);
         $response = $this->postJsonPayload($this->postRoute, $payload);
         $headers = [
             'Accept' => 'application/json',
             'Authorization' => 'Bearer '.$response->json()['data']['access_token'],
         ];
 
-        $response = $this->postJsonPayload(route('v1_user.logout'), [], $headers);
+        $response = $this->postJsonPayload(route('auth.logout'), [], $headers);
         $response->assertJsonFragment([
             'status' => 'success',
-            'message' => 'You have logged out succesfully.',
+            'message' => 'Administrator logged out successfully.',
         ]);
     }
 
-    public function test_user_cannot_login_with_incorrect_credentials()
+    public function test_user_may_logout()
+    {
+        $data = [
+            'email' => 'userone@example.com',
+            'is_admin' => false,
+        ];
+
+        $this->createUser($data);
+        $payload = $this->preparePayload($data);
+        $response = $this->postJsonPayload($this->postRoute, $payload);
+        $headers = [
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer '.$response->json()['data']['access_token'],
+        ];
+
+        $response = $this->postJsonPayload(route('auth.logout'), [], $headers);
+        $response->assertJsonFragment([
+            'status' => 'success',
+            'message' => 'User logged out successfully.',
+        ]);
+    }
+
+    public function test_admin_or_user_cannot_login_with_incorrect_credentials()
     {
         $this->withoutExceptionHandling();
 
@@ -88,7 +126,7 @@ class LoginTest extends TestCase
 
     public function test_email_must_be_valid_email_address()
     {
-        $payload = $this->preparePayload(['email' => 'user@$%^&.com']);
+        $payload = $this->preparePayload(['email' => 'admin@$%^&.com']);
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
         $response->assertStatus(422);
@@ -125,7 +163,7 @@ class LoginTest extends TestCase
     protected function preparePayload($data = [])
     {
         return array_merge([
-            'email' => 'userone@example.com',
+            'email' => 'admin@example.com',
             'password' => 'Password',
         ], $data);
     }

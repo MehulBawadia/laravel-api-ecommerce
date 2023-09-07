@@ -1,30 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\Api\v1\Users\Auth;
+namespace App\Http\Controllers\Api\v1\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\v1\Users\Auth\ForgotPasswordRequest;
-use App\Http\Requests\v1\Users\Auth\ResetPasswordRequest;
-use App\Mail\v1\User\ForgotPasswordMail;
+use App\Http\Requests\v1\Auth\ForgotPasswordRequest;
+use App\Http\Requests\v1\Auth\ResetPasswordRequest;
+use App\Mail\v1\Auth\ForgotPasswordMail;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 /**
- * @group User Endpoints
+ * @group Common Endpoints
  *
- * @subgroup Authentication
+ * @subgroup Password Resetting
+ *
+ * @subgroupDescription The endpoints URL for request password change and resetting the same.
  */
 class PasswordController extends Controller
 {
     /**
-     * Forgot Password
+     * Send Password Reset Link
      *
-     * Send the password reset link to the given email address.
-     *
-     * @responseFile status=201 storage/responses/users/auth/forgot-password/success.json
-     * @responseFile status=422 storage/responses/users/auth/forgot-password/validation-errors.json
+     * Send the password reset link to the provided email address via an E-Mail.
      *
      * @unauthenticated
      *
@@ -32,8 +31,6 @@ class PasswordController extends Controller
      */
     public function sendResetLink(ForgotPasswordRequest $request)
     {
-        DB::beginTransaction();
-
         try {
             $randomString = \Illuminate\Support\Str::random(36);
 
@@ -53,26 +50,20 @@ class PasswordController extends Controller
             Mail::to($request->email)
                 ->send(new ForgotPasswordMail($data));
 
-            DB::commit();
-
             return $this->successResponse('Password reset link sent successfully.', $data, 201);
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
-            DB::rollBack();
-
-            return $this->errorResponse('Could not send password reset link.');
+            return $this->errorResponse('Could not Auth administrator.');
         }
     }
 
     /**
-     * Reset password
+     * Reset Password
      *
-     * Reset the user's password with the new password.
-     *
-     * @responseFile status=201 storage/responses/users/auth/reset-password/success.json
-     * @responseFile status=422 storage/responses/users/auth/reset-password/validation-errors.json
+     * Reset the admin's or the user's password with the new password.
+     * Deletes the record from the database table after resetting.
      *
      * @unauthenticated
      *
