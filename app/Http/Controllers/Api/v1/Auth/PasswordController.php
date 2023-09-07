@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Mail;
 /**
  * @group Common Endpoints
  *
- * The endpoints URL for request password change and resetting the same.
- *
  * @subgroup Password Resetting
+ *
+ * @subgroupDescription The endpoints URL for request password change and resetting the same.
  */
 class PasswordController extends Controller
 {

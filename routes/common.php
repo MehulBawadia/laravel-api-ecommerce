@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\Auth\LoginController;
 use App\Http\Controllers\Api\v1\Auth\PasswordController;
+use App\Http\Controllers\Api\v1\Settings\AccountSettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +25,7 @@ Route::middleware('guest')->name('auth')->group(function () {
 
 Route::middleware('auth:sanctum')->name('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('.logout');
+
+    Route::put('/account-settings/general', [AccountSettingsController::class, 'general'])->name('.accountSettings.general');
+    Route::put('/account-settings/change-password', [AccountSettingsController::class, 'changePassword'])->name('.accountSettings.changePassword');
 });

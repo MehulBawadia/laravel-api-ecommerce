@@ -30,8 +30,8 @@ Route::name('v1_admin')->prefix('/v1/admin')->group(function () {
     Route::post('/generate', [GenerateController::class, 'store'])->name('.generate');
 
     Route::middleware('auth:sanctum')->group(function () {
-        Route::put('/account-settings/general', [AccountSettingsController::class, 'general'])->name('.accountSettings.general');
-        Route::put('/account-settings/change-password', [AccountSettingsController::class, 'changePassword'])->name('.accountSettings.changePassword');
+        // Route::put('/account-settings/general', [AccountSettingsController::class, 'general'])->name('.accountSettings.general');
+        // Route::put('/account-settings/change-password', [AccountSettingsController::class, 'changePassword'])->name('.accountSettings.changePassword');
 
         Route::prefix('categories')->name('.categories')->group(function () {
             Route::get('/', [CategoriesController::class, 'index']);
