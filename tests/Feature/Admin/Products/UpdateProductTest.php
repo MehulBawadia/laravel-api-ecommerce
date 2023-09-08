@@ -49,7 +49,7 @@ class UpdateProductTest extends TestCase
         $payload = $this->preparePayload(['name' => 'New Product']);
         $response = $this->putJsonPayload($this->putRoute, $payload);
 
-        $response->assertSeeText('Product updated successfully.');
+        $response->assertSeeText(__('response.admin.products.success', ['actionType' => 'updated']));
         $this->assertCount(1, Product::all());
         $this->assertEquals($this->product->fresh()->name, 'New Product');
     }

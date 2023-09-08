@@ -68,14 +68,14 @@ class ProductsController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('Product added successfully.', $product, 201);
+            return $this->successResponse(__('response.admin.products.success', ['actionType' => 'added']), $product, 201);
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not add product.');
+            return $this->errorResponse(__('response.admin.products.failed', ['actionType' => 'add']));
         }
     }
 
@@ -99,7 +99,7 @@ class ProductsController extends Controller
         $columns = $this->getSelectColumns();
         $product = Product::select($columns)->find($id);
         if (! $product) {
-            return $this->errorResponse('Product not found.', [], 404);
+            return $this->errorResponse(__('response.admin.products.not_found'), [], 404);
         }
 
         return $this->successResponse('', $product);
@@ -125,7 +125,7 @@ class ProductsController extends Controller
     {
         $product = Product::find($id);
         if (! $product) {
-            return $this->errorResponse('Product not found.', [], 404);
+            return $this->errorResponse(__('response.admin.products.not_found'), [], 404);
         }
 
         DB::beginTransaction();
@@ -142,14 +142,14 @@ class ProductsController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('Product updated successfully.', $product);
+            return $this->successResponse(__('response.admin.products.success', ['actionType' => 'updated']), $product);
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not update product.');
+            return $this->errorResponse(__('response.admin.products.failed', ['actionType' => 'update']));
         }
     }
 
@@ -175,7 +175,7 @@ class ProductsController extends Controller
     {
         $product = Product::find($id);
         if (! $product) {
-            return $this->errorResponse('Product not found.', [], 404);
+            return $this->errorResponse(__('response.admin.products.not_found'), [], 404);
         }
 
         DB::beginTransaction();
@@ -185,14 +185,14 @@ class ProductsController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('Product deleted successfully.');
+            return $this->successResponse(__('response.admin.products.success', ['actionType' => 'deleted']));
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not delete product.');
+            return $this->errorResponse(__('response.admin.products.failed', ['actionType' => 'delete']));
         }
     }
 

@@ -57,5 +57,11 @@ return [
             'not_found' => 'Category not found.',
             'failed' => 'Could not :actionType the category. Try again later.',
         ],
+
+        'products' => [
+            'success' => 'Product :actionType successfully.',
+            'not_found' => 'Product not found.',
+            'failed' => 'Could not :actionType the product. Try again later.',
+        ],
     ],
 ];
