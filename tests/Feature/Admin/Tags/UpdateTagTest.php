@@ -43,7 +43,7 @@ class UpdateTagTest extends TestCase
         $payload = $this->preparePayload(['name' => 'New Tag']);
         $response = $this->putJsonPayload($this->putRoute, $payload);
 
-        $response->assertSeeText('Tag updated successfully.');
+        $response->assertSeeText(__('response.admin.tags.success', ['actionType' => 'updated']));
         $this->assertCount(1, Tag::all());
         $this->assertEquals($this->tag->fresh()->name, 'New Tag');
     }

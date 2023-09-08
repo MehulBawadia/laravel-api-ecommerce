@@ -42,7 +42,7 @@ class DeleteTagTest extends TestCase
 
         $response = $this->deleteJson($this->deleteRoute);
 
-        $response->assertSeeText('Tag deleted successfully.');
+        $response->assertSeeText(__('response.admin.tags.success', ['actionType' => 'deleted']));
         $this->assertCount(0, Tag::all());
         $this->assertEquals(1, Tag::withTrashed()->count());
         $this->assertNotNull(Tag::onlyTrashed()->first()->deleted_at);

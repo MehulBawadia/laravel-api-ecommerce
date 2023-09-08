@@ -45,5 +45,11 @@ return [
             'not_found' => 'Brand not found.',
             'failed' => 'Could not :actionType the brand. Try again later.',
         ],
+
+        'tags' => [
+            'success' => 'Tag :actionType successfully.',
+            'not_found' => 'Tag not found.',
+            'failed' => 'Could not :actionType the tag. Try again later.',
+        ],
     ],
 ];

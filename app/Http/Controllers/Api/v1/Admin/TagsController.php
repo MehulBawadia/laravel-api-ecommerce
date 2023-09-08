@@ -59,14 +59,14 @@ class TagsController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('Tag added successfully.', $tag, 201);
+            return $this->successResponse(__('response.admin.tags.success', ['actionType' => 'added']), $tag, 201);
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not add tag.');
+            return $this->errorResponse(__('response.admin.tags.failed', ['actionType' => 'add']));
         }
     }
 
@@ -91,7 +91,7 @@ class TagsController extends Controller
             'id', 'name', 'description', 'meta_title', 'meta_description', 'meta_keywords',
         ])->find($id);
         if (! $tag) {
-            return $this->errorResponse('Tag not found.', [], 404);
+            return $this->errorResponse(__('response.admin.tags.not_found'), [], 404);
         }
 
         return $this->successResponse('', $tag);
@@ -117,7 +117,7 @@ class TagsController extends Controller
     {
         $tag = Tag::find($id);
         if (! $tag) {
-            return $this->errorResponse('Tag not found.', [], 404);
+            return $this->errorResponse(__('response.admin.tags.not_found'), [], 404);
         }
 
         DB::beginTransaction();
@@ -127,14 +127,14 @@ class TagsController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('Tag updated successfully.', $tag->fresh());
+            return $this->successResponse(__('response.admin.tags.success', ['actionType' => 'updated']), $tag->fresh());
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not update tag.');
+            return $this->errorResponse(__('response.admin.tags.failed', ['actionType' => 'update']));
         }
     }
 
@@ -160,7 +160,7 @@ class TagsController extends Controller
     {
         $tag = Tag::find($id);
         if (! $tag) {
-            return $this->errorResponse('Tag not found.', [], 404);
+            return $this->errorResponse(__('response.admin.tags.not_found'), [], 404);
         }
 
         DB::beginTransaction();
@@ -170,14 +170,14 @@ class TagsController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('Tag deleted successfully.');
+            return $this->successResponse(__('response.admin.tags.success', ['actionType' => 'deleted']));
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not delete tag.');
+            return $this->errorResponse(__('response.admin.tags.failed', ['actionType' => 'delete']));
         }
     }
 }
