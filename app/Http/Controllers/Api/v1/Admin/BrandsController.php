@@ -59,14 +59,14 @@ class BrandsController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('Brand added successfully.', $brand, 201);
+            return $this->successResponse(__('response.admin.brands.success', ['actionType' => 'added']), $brand, 201);
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not add brand.');
+            return $this->errorResponse(__('response.admin.brands.failed', ['actionType' => 'add']));
         }
     }
 
@@ -91,7 +91,7 @@ class BrandsController extends Controller
             'id', 'name', 'meta_title', 'meta_description', 'meta_keywords',
         ])->find($id);
         if (! $brand) {
-            return $this->errorResponse('Brand not found.', [], 404);
+            return $this->errorResponse(__('response.admin.brands.not_found'), [], 404);
         }
 
         return $this->successResponse('', $brand);
@@ -117,7 +117,7 @@ class BrandsController extends Controller
     {
         $brand = Brand::find($id);
         if (! $brand) {
-            return $this->errorResponse('Brand not found.', [], 404);
+            return $this->errorResponse(__('response.admin.brands.not_found'), [], 404);
         }
 
         DB::beginTransaction();
@@ -127,14 +127,14 @@ class BrandsController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('Brand updated successfully.', $brand->fresh());
+            return $this->successResponse(__('response.admin.brands.success', ['actionType' => 'updated']), $brand->fresh());
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not update brand.');
+            return $this->errorResponse(__('response.admin.brands.failed', ['actionType' => 'update']));
         }
     }
 
@@ -160,7 +160,7 @@ class BrandsController extends Controller
     {
         $brand = Brand::find($id);
         if (! $brand) {
-            return $this->errorResponse('Brand not found.', [], 404);
+            return $this->errorResponse(__('response.admin.brands.failed'), [], 404);
         }
 
         DB::beginTransaction();
@@ -170,14 +170,14 @@ class BrandsController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('Brand deleted successfully.');
+            return $this->successResponse(__('response.admin.brands.success', ['actionType' => 'deleted']));
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not delete brand.');
+            return $this->errorResponse(__('response.admin.brands.failed', ['actionType' => 'delete']));
         }
     }
 }

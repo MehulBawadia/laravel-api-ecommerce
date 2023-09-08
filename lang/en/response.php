@@ -38,4 +38,12 @@ return [
         'address' => ':addressType address updated successfully.',
         'address_failed' => 'Could not update :addressType address. Try again later.',
     ],
+
+    'admin' => [
+        'brands' => [
+            'success' => 'Brand :actionType successfully.',
+            'not_found' => 'Brand not found.',
+            'failed' => 'Could not :actionType the brand. Try again later.',
+        ],
+    ],
 ];

@@ -42,7 +42,7 @@ class DeleteBrandTest extends TestCase
 
         $response = $this->deleteJson($this->deleteRoute);
 
-        $response->assertSeeText('Brand deleted successfully.');
+        $response->assertSeeText(__('response.admin.brands.success', ['actionType' => 'deleted']));
         $this->assertCount(0, Brand::all());
         $this->assertEquals(1, Brand::withTrashed()->count());
         $this->assertNotNull(Brand::onlyTrashed()->first()->deleted_at);
