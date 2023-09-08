@@ -51,12 +51,12 @@ class LoginController extends Controller
 
             $userType = $user->is_admin ? 'Administrator' : 'User';
 
-            return $this->successResponse("$userType logged in successfully.", $data, 200);
+            return $this->successResponse(__('response.auth.logged_in', ['userType' => $userType]), $data, 200);
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
-            return $this->errorResponse(`Could not login the $userType.`);
+            return $this->errorResponse(__('response.could_not_login', ['userType' => $userType]));
         }
     }
 
@@ -76,6 +76,6 @@ class LoginController extends Controller
 
         $userType = $request->user()->is_admin ? 'Administrator' : 'User';
 
-        return $this->successResponse("$userType logged out successfully.");
+        return $this->successResponse(__('response.auth.logged_out', ['userType' => $userType]));
     }
 }

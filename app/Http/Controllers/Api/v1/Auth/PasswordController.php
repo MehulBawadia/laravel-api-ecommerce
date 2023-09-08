@@ -50,12 +50,12 @@ class PasswordController extends Controller
             Mail::to($request->email)
                 ->send(new ForgotPasswordMail($data));
 
-            return $this->successResponse('Password reset link sent successfully.', $data, 201);
+            return $this->successResponse(__('response.auth.password_reset_link_sent'), $data, 201);
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
-            return $this->errorResponse('Could not Auth administrator.');
+            return $this->errorResponse(__('response.auth.failed_sending_password_reset_link'));
         }
     }
 
@@ -75,20 +75,17 @@ class PasswordController extends Controller
             ->where('email', $request->email)
             ->where('token', $request->token)
             ->first();
-        if (! $resetToken) {
-            return $this->errorResponse('Invalid email address or reset token.', [], 404);
-        }
 
         $user = User::where('email', $request->email)->first();
         if (! $user) {
-            return $this->errorResponse('User not found with the given email address.', [], 404);
+            return $this->errorResponse(__('response.auth.reset_password_user_not_found'), [], 404);
         }
 
         $createdAt = Carbon::parse($resetToken->created_at);
         if ($createdAt->diffInMinutes() >= config('auth.passwords.users.expire')) {
             $this->deleteTokenRecord();
 
-            return $this->errorResponse('Token expired. Generate a new token.', [], 403);
+            return $this->errorResponse(__('response.auth.reset_password_token_expired'), [], 403);
         }
 
         DB::beginTransaction();
@@ -100,14 +97,14 @@ class PasswordController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('Password reset successfully.', [], 201);
+            return $this->successResponse(__('response.auth.reset_password'), [], 201);
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not reset password.');
+            return $this->errorResponse(__('response.auth.could_not_reset_password'));
         }
     }
 

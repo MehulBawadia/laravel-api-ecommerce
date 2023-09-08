@@ -35,7 +35,7 @@ class ForgotPasswordTest extends TestCase
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
         $response->assertStatus(201);
-        $response->assertSeeText('Password reset link sent successfully.');
+        $response->assertSeeText(__('response.auth.password_reset_link_sent'));
 
         $this->assertDatabaseHas('password_reset_tokens', [
             'email' => 'user@example.com',
@@ -64,7 +64,7 @@ class ForgotPasswordTest extends TestCase
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
         $response->assertStatus(201);
-        $response->assertSeeText('Password reset link sent successfully.');
+        $response->assertSeeText(__('response.auth.password_reset_link_sent'));
 
         Mail::assertSent(ForgotPasswordMail::class, function (ForgotPasswordMail $mail) {
             return $mail->hasTo('user@example.com') &&
