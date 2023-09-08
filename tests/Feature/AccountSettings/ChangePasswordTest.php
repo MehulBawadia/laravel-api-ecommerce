@@ -28,7 +28,7 @@ class ChangePasswordTest extends TestCase
         $response = $this->putJsonPayload($this->putRoute, $payload);
 
         $response->assertStatus(201);
-        $response->assertSeeText('Password updated successfully.');
+        $response->assertSeeText(__('response.account_settings.change_password'));
     }
 
     public function test_current_password_field_is_required()

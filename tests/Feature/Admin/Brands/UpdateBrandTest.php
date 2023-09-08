@@ -43,7 +43,7 @@ class UpdateBrandTest extends TestCase
         $payload = $this->preparePayload(['name' => 'New Brand']);
         $response = $this->putJsonPayload($this->putRoute, $payload);
 
-        $response->assertSeeText('Brand updated successfully.');
+        $response->assertSeeText(__('response.admin.brands.success', ['actionType' => 'updated']));
         $this->assertCount(1, Brand::all());
         $this->assertEquals($this->brand->fresh()->name, 'New Brand');
     }

@@ -42,7 +42,7 @@ class DeleteProductTest extends TestCase
 
         $response = $this->deleteJson($this->deleteRoute);
 
-        $response->assertSeeText('Product deleted successfully.');
+        $response->assertSeeText(__('response.admin.products.success', ['actionType' => 'deleted']));
         $this->assertCount(0, Product::all());
         $this->assertEquals(1, Product::withTrashed()->count());
         $this->assertNotNull(Product::onlyTrashed()->first()->deleted_at);

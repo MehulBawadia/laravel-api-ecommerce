@@ -39,7 +39,7 @@ class ShippingAddressTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSeeText('status');
-        $response->assertSeeText('Shipping address updated successfully.');
+        $response->assertSeeText(__('response.user.address', ['addressType' => 'Shipping']));
     }
 
     public function test_shipping_first_name_field_is_required()

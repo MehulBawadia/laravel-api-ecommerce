@@ -33,7 +33,7 @@ class LoginTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSeeText('status');
-        $response->assertSeeText('Administrator logged in successfully.');
+        $response->assertSeeText(__('response.auth.logged_in', ['userType' => 'Administrator']));
         $response->assertSeeText('access_token');
         $response->assertSeeText('token_type');
         $response->assertSeeText('Bearer');
@@ -54,7 +54,7 @@ class LoginTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSeeText('status');
-        $response->assertSeeText('User logged in successfully.');
+        $response->assertSeeText(__('response.auth.logged_in', ['userType' => 'User']));
         $response->assertSeeText('access_token');
         $response->assertSeeText('token_type');
         $response->assertSeeText('Bearer');
@@ -72,7 +72,7 @@ class LoginTest extends TestCase
         $response = $this->postJsonPayload(route('auth.logout'), [], $headers);
         $response->assertJsonFragment([
             'status' => 'success',
-            'message' => 'Administrator logged out successfully.',
+            'message' => __('response.auth.logged_out', ['userType' => 'Administrator']),
         ]);
     }
 
@@ -94,7 +94,7 @@ class LoginTest extends TestCase
         $response = $this->postJsonPayload(route('auth.logout'), [], $headers);
         $response->assertJsonFragment([
             'status' => 'success',
-            'message' => 'User logged out successfully.',
+            'message' => __('response.auth.logged_out', ['userType' => 'User']),
         ]);
     }
 

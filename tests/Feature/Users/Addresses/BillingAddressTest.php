@@ -39,7 +39,7 @@ class BillingAddressTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSeeText('status');
-        $response->assertSeeText('Billing address updated successfully.');
+        $response->assertSeeText(__('response.user.address', ['addressType' => 'Billing']));
     }
 
     public function test_billing_first_name_field_is_required()

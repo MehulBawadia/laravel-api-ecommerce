@@ -42,14 +42,14 @@ class AccountSettingsController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('General Settings updated successfully.', $user->fresh(), 201);
+            return $this->successResponse(__('response.account_settings.general'), $user->fresh(), 201);
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not update general settings.');
+            return $this->errorResponse(__('response.account_settings.failed_updated_general_settings'));
         }
     }
 
@@ -82,14 +82,14 @@ class AccountSettingsController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('Password updated successfully.', [], 201);
+            return $this->successResponse(__('response.account_settings.change_password'), [], 201);
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not update password.');
+            return $this->errorResponse(__('response.account_settings.failed_change_password'));
         }
     }
 }

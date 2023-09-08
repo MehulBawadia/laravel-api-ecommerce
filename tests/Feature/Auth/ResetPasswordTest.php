@@ -42,7 +42,7 @@ class ResetPasswordTest extends TestCase
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
         $response->assertStatus(201);
-        $response->assertSeeText('Password reset successfully.');
+        $response->assertSeeText(__('response.auth.reset_password'));
         $this->assertDatabaseMissing('password_reset_tokens', $data);
     }
 
@@ -75,8 +75,29 @@ class ResetPasswordTest extends TestCase
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
         $response->assertStatus(403);
-        $response->assertSeeText('Token expired. Generate a new token.');
+        $response->assertSeeText(__('response.auth.reset_password_token_expired'));
         $this->assertDatabaseMissing('password_reset_tokens', $data);
+    }
+
+    public function test_admin_or_user_not_found()
+    {
+        $this->withoutExceptionHandling();
+
+        $createdAt = now()->subHours(2)->format('Y-m-d H:i:s');
+        $data = [
+            'email' => 'user@example.com',
+            'token' => 'some-random-string',
+            'created_at' => $createdAt,
+        ];
+        DB::table('password_reset_tokens')->insert($data);
+        $this->assertDatabaseHas('password_reset_tokens', $data);
+
+        User::where('email', 'user@example.com')->first()->delete();
+        $payload = $this->preparePayload(['email' => 'user@example.com']);
+        $response = $this->postJsonPayload($this->postRoute, $payload);
+
+        $response->assertStatus(404);
+        $response->assertSeeText(__('response.auth.reset_password_user_not_found'));
     }
 
     public function test_email_field_is_required()

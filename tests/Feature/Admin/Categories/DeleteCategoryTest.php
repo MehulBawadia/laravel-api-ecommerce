@@ -42,7 +42,7 @@ class DeleteCategoryTest extends TestCase
 
         $response = $this->deleteJson($this->deleteRoute);
 
-        $response->assertSeeText('Category deleted successfully.');
+        $response->assertSeeText(__('response.admin.category.success', ['actionType' => 'deleted']));
         $this->assertCount(0, Category::all());
         $this->assertEquals(1, Category::withTrashed()->count());
         $this->assertNotNull(Category::onlyTrashed()->first()->deleted_at);

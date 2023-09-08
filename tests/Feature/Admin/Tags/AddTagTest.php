@@ -37,7 +37,7 @@ class AddTagTest extends TestCase
         $payload = $this->preparePayload();
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
-        $response->assertSeeText('Tag added successfully.');
+        $response->assertSeeText(__('response.admin.tags.success', ['actionType' => 'added']));
         $this->assertCount(1, Tag::all());
         $this->assertEquals(Tag::first()->name, 'Tag 1');
         $this->assertEquals(Tag::first()->slug, 'tag-1');

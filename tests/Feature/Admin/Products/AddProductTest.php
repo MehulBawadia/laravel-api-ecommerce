@@ -43,7 +43,7 @@ class AddProductTest extends TestCase
         $payload = $this->preparePayload();
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
-        $response->assertSeeText('Product added successfully.');
+        $response->assertSeeText(__('response.admin.products.success', ['actionType' => 'added']));
         $this->assertCount(1, Product::all());
         $this->assertEquals(Product::first()->name, 'Product 1');
         $this->assertEquals(Product::first()->slug, 'product-1');

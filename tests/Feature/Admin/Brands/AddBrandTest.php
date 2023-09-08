@@ -37,7 +37,7 @@ class AddBrandTest extends TestCase
         $payload = $this->preparePayload();
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
-        $response->assertSeeText('Brand added successfully.');
+        $response->assertSeeText(__('response.admin.brands.success', ['actionType' => 'added']));
         $this->assertCount(1, Brand::all());
         $this->assertEquals(Brand::first()->name, 'Brand 1');
         $this->assertEquals(Brand::first()->slug, 'brand-1');
