@@ -25,4 +25,12 @@ return [
         'reset_password_user_not_found' => 'User with the provided email address not found.',
         'could_not_reset_password' => 'Could not reset password. Try again later.',
     ],
+
+    'account_settings' => [
+        'general' => 'General settings updated successfully.',
+        'failed_updating_general_settings' => 'Could not update general settings. Try again later.',
+
+        'change_password' => 'Password changed successfully.',
+        'failed_change_password' => 'Could not change password. Try again later.',
+    ],
 ];

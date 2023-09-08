@@ -36,7 +36,7 @@ class GeneralSettingsTest extends TestCase
         $response = $this->putJsonPayload($this->putRoute, $payload);
 
         $response->assertStatus(201);
-        $response->assertSeeText('General Settings updated successfully.');
+        $response->assertSeeText(__('response.account_settings.general'));
         $this->assertEquals($this->user->first_name, 'John');
         $this->assertEquals($this->user->last_name, 'Doe');
     }
