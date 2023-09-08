@@ -33,4 +33,9 @@ return [
         'change_password' => 'Password changed successfully.',
         'failed_change_password' => 'Could not change password. Try again later.',
     ],
+
+    'user' => [
+        'address' => ':addressType address updated successfully.',
+        'address_failed' => 'Could not update :addressType address. Try again later.',
+    ],
 ];

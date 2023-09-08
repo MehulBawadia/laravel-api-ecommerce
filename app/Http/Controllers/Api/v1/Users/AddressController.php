@@ -52,14 +52,14 @@ class AddressController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('Billing address updated successfully.', $user->address->fresh());
+            return $this->successResponse(__('response.user.address', ['addressType' => 'Billing']), $user->address->fresh());
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not update the billing address.');
+            return $this->errorResponse(__('response.user.address.failed', ['addressType' => 'billing']));
         }
     }
 
@@ -100,14 +100,14 @@ class AddressController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('Shipping address updated successfully.', $user->address->fresh());
+            return $this->successResponse(__('response.user.address', ['addressType' => 'Shipping']), $user->address->fresh());
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not update the shipping address.');
+            return $this->errorResponse(__('response.user.address.failed', ['addressType' => 'shipping']));
         }
     }
 }
