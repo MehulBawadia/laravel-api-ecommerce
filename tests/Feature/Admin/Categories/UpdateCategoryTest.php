@@ -43,7 +43,7 @@ class UpdateCategoryTest extends TestCase
         $payload = $this->preparePayload(['name' => 'New Category']);
         $response = $this->putJsonPayload($this->putRoute, $payload);
 
-        $response->assertSeeText('Category updated successfully.');
+        $response->assertSeeText(__('response.admin.category.success', ['actionType' => 'updated']));
         $this->assertCount(1, Category::all());
         $this->assertEquals($this->category->fresh()->name, 'New Category');
     }

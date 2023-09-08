@@ -59,14 +59,14 @@ class CategoriesController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('Category added successfully.', $category, 201);
+            return $this->successResponse(__('response.admin.category.success', ['actionType' => 'added']), $category, 201);
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not add category.');
+            return $this->errorResponse(__('response.admin.category.failed', ['actionType' => 'add']));
         }
     }
 
@@ -91,7 +91,7 @@ class CategoriesController extends Controller
             'id', 'name', 'meta_title', 'meta_description', 'meta_keywords',
         ])->find($id);
         if (! $category) {
-            return $this->errorResponse('Category not found.', [], 404);
+            return $this->errorResponse(__('response.admin.category.not_found'), [], 404);
         }
 
         return $this->successResponse('', $category);
@@ -117,7 +117,7 @@ class CategoriesController extends Controller
     {
         $category = Category::find($id);
         if (! $category) {
-            return $this->errorResponse('Category not found.', [], 404);
+            return $this->errorResponse(__('response.admin.category.not_found'), [], 404);
         }
 
         DB::beginTransaction();
@@ -127,14 +127,14 @@ class CategoriesController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('Category updated successfully.', $category->fresh());
+            return $this->successResponse(__('response.admin.category.success', ['actionType' => 'updated']), $category->fresh());
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not update category.');
+            return $this->errorResponse(__('response.admin.category.failed', ['actionType' => 'update']));
         }
     }
 
@@ -160,7 +160,7 @@ class CategoriesController extends Controller
     {
         $category = Category::find($id);
         if (! $category) {
-            return $this->errorResponse('Category not found.', [], 404);
+            return $this->errorResponse(__('response.admin.category.not_found'), [], 404);
         }
 
         DB::beginTransaction();
@@ -170,14 +170,14 @@ class CategoriesController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('Category deleted successfully.');
+            return $this->successResponse(__('response.admin.category.success', ['actionType' => 'deleted']));
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not delete category.');
+            return $this->errorResponse(__('response.admin.category.failed', ['actionType' => 'delete']));
         }
     }
 }

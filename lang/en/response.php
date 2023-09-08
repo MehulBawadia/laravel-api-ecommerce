@@ -51,5 +51,11 @@ return [
             'not_found' => 'Tag not found.',
             'failed' => 'Could not :actionType the tag. Try again later.',
         ],
+
+        'category' => [
+            'success' => 'Category :actionType successfully.',
+            'not_found' => 'Category not found.',
+            'failed' => 'Could not :actionType the category. Try again later.',
+        ],
     ],
 ];

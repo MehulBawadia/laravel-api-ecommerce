@@ -37,7 +37,7 @@ class AddCategoryTest extends TestCase
         $payload = $this->preparePayload();
         $response = $this->postJsonPayload($this->postRoute, $payload);
 
-        $response->assertSeeText('Category added successfully.');
+        $response->assertSeeText(__('response.admin.category.success', ['actionType' => 'added']));
         $this->assertCount(1, Category::all());
         $this->assertEquals(Category::first()->name, 'Category 1');
         $this->assertEquals(Category::first()->slug, 'category-1');
