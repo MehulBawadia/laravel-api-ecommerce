@@ -33,8 +33,8 @@ class LoginController extends Controller
             $user = User::select([
                 'id', 'first_name', 'last_name', 'email', 'password', 'is_admin',
             ])
-            ->where('email', $request->email)
-            ->first();
+                ->where('email', $request->email)
+                ->first();
 
             if (! $user || ! Hash::check($request->password, $user->password)) {
                 return $this->errorResponse('The provided credentials are incorrect.', [], 401);

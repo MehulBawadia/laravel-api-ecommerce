@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Api\v1\Users\AddressController;
-use App\Http\Controllers\Api\v1\Users\Auth\PasswordController;
 use Illuminate\Support\Facades\Route;
 
 /*

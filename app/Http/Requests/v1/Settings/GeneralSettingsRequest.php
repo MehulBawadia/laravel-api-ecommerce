@@ -24,7 +24,7 @@ class GeneralSettingsRequest extends FormRequest
         return [
             'first_name' => 'required|string|max:100',
             'last_name' => 'required|string|max:100',
-            'email' => 'required|email:filter|unique:users,email,'. auth()->id(),
+            'email' => 'required|email:filter|unique:users,email,'.auth()->id(),
         ];
     }
 
