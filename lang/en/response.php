@@ -13,6 +13,9 @@ return [
     */
 
     'auth' => [
+        'register' => 'You have registered successfully.',
+        'could_not_register' => 'Could not register you. Try again later.',
+
         'logged_in' => ':userType logged in successfully.',
         'logged_out' => ':userType logged out successfully.',
         'could_not_login' => 'Could not login the :userType. Try again later.',

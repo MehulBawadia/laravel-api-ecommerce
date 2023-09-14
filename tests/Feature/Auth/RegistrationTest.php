@@ -17,9 +17,9 @@ class RegistrationTest extends TestCase
         parent::setUp();
 
         // Create the administrator for the application
-        $this->createUser();
+        $this->createUser(['is_admin' => true]);
 
-        $this->postRoute = route('v1_user.register');
+        $this->postRoute = route('auth.register');
     }
 
     /**
@@ -38,7 +38,7 @@ class RegistrationTest extends TestCase
 
         $data = $response->json();
         $this->assertEquals($data['status'], 'success');
-        $this->assertEquals($data['message'], 'You have registered successfully.');
+        $this->assertEquals($data['message'], __('response.auth.register'));
     }
 
     public function test_first_name_field_is_required()

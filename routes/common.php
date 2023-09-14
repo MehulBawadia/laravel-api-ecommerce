@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\v1\Auth\LoginController;
 use App\Http\Controllers\Api\v1\Auth\PasswordController;
+use App\Http\Controllers\Api\v1\Auth\RegisterController;
 use App\Http\Controllers\Api\v1\Settings\AccountSettingsController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('guest')->name('auth')->group(function () {
+    Route::post('/register', [RegisterController::class, 'store'])->name('.register');
     Route::post('/login', [LoginController::class, 'check'])->name('.login');
 
     Route::post('/forgot-password', [PasswordController::class, 'sendResetLink'])->name('.forgotPassword');

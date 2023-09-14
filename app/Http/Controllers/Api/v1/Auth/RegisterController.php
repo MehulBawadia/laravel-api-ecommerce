@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Api\v1\Users\Auth;
+namespace App\Http\Controllers\Api\v1\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\v1\Users\Auth\RegistrationRequest;
+use App\Http\Requests\v1\Auth\RegistrationRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 /**
- * @group User Endpoints
+ * @group Common Endpoints
  *
  * @subgroup Authentication
+ *
+ * @subgroupDescription  The endpoints that are common for all the users in the whole application.
  */
 class RegisterController extends Controller
 {
@@ -36,14 +38,14 @@ class RegisterController extends Controller
 
             DB::commit();
 
-            return $this->successResponse('You have registered successfully.', $user, 201);
+            return $this->successResponse(__('response.auth.register'), $user, 201);
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not register.');
+            return $this->errorResponse(__('response.auth.could_not_register'));
         }
     }
 }
