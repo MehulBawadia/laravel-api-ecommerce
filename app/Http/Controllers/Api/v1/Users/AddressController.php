@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api\v1\Users;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\v1\Users\BillingAddressRequest;
 use App\Http\Requests\v1\Users\ShippingAddressRequest;
-use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -35,7 +34,7 @@ class AddressController extends Controller
         try {
             $user = auth('sanctum')->user();
 
-            $user->address()->updateOrCreate([
+            $user->address->update([
                 'billing_first_name' => $request->billing_first_name,
                 'billing_last_name' => $request->billing_last_name,
                 'billing_email' => $request->billing_email,
@@ -83,7 +82,7 @@ class AddressController extends Controller
         try {
             $user = auth('sanctum')->user();
 
-            $user->address()->updateOrCreate([
+            $user->address->update([
                 'shipping_first_name' => $request->shipping_first_name,
                 'shipping_last_name' => $request->shipping_last_name,
                 'shipping_email' => $request->shipping_email,
