@@ -41,6 +41,17 @@ class RegistrationTest extends TestCase
         $this->assertEquals($data['message'], __('response.auth.register'));
     }
 
+    public function test_user_address_gets_created_after_registration()
+    {
+        $this->withoutExceptionHandling();
+
+        $payload = $this->preparePayload();
+
+        $this->postJsonPayload($this->postRoute, $payload);
+
+        $this->assertNotNull(User::with('address')->find(2)->address);
+    }
+
     public function test_first_name_field_is_required()
     {
         $payload = $this->preparePayload(['first_name' => '']);

@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\Users\Addresses;
 
-use App\Models\UserAddress;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use Tests\TestCase;
@@ -20,12 +19,10 @@ class ShippingAddressTest extends TestCase
         parent::setUp();
 
         // Create the administrator for the application
-        $this->createUser();
+        $this->createUser(['is_admin' => true]);
 
         // Create a non-admin user and log in them
         $this->user = $this->signInUser();
-
-        UserAddress::factory()->create(['user_id' => $this->user->id]);
 
         $this->putRoute = route('v1_user.addresses.shipping');
     }
