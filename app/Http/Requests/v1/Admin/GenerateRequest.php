@@ -32,7 +32,7 @@ class GenerateRequest extends FormRequest
 
     /**
      * The form body parameters.
-     * This content will be used whenever generate the docuemtation.
+     * This content will be used whenever generate the documentation.
      *
      * @return array
      */
