@@ -43,6 +43,11 @@ return [
     ],
 
     'admin' => [
+        'generate' => [
+            'success' => 'Administrator generated successfully.',
+            'failed' => 'Could not generate the administrator. Try again later.',
+        ],
+
         'brands' => [
             'success' => 'Brand :actionType successfully.',
             'not_found' => 'Brand not found.',
