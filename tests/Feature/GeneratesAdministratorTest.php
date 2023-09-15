@@ -32,7 +32,7 @@ class GeneratesAdministratorTest extends TestCase
 
         $data = $response->json();
         $this->assertEquals($data['status'], 'success');
-        $this->assertEquals($data['message'], 'Administrator generated successfully.');
+        $this->assertEquals($data['message'], __('response.admin.generate.success'));
     }
 
     public function test_first_name_field_is_required()

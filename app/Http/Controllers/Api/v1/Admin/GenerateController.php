@@ -27,19 +27,18 @@ class GenerateController extends Controller
         DB::beginTransaction();
 
         try {
-            $request['password'] = bcrypt($request->password);
-            $user = User::create($request->all());
+            $user = User::create($request->formPayload());
 
             DB::commit();
 
-            return $this->successResponse('Administrator generated successfully.', $user, 201);
+            return $this->successResponse(__('response.admin.generate.success'), $user, 201);
         } catch (\Exception $e) {
             info($e->getMessage());
             info($e->getTraceAsString());
 
             DB::rollBack();
 
-            return $this->errorResponse('Could not create administrator.');
+            return $this->errorResponse(__('response.admin.generate.failed'));
         }
     }
 }
