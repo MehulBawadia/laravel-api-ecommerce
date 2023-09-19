@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Api\v1\Auth;
 
-use App\Models\User;
-use Stripe\StripeClient;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\v1\Auth\RegistrationRequest;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
 /**
@@ -36,7 +35,7 @@ class RegisterController extends Controller
 
         try {
             $stripeCustomer = Http::withHeaders([
-                'Authorization' => 'Bearer '. config('stripe.keys.secret'),
+                'Authorization' => 'Bearer '.config('stripe.keys.secret'),
             ])->asForm()->post('https://api.stripe.com/v1/customers', [
                 'name' => "$request->first_name $request->last_name",
                 'email' => $request->email,

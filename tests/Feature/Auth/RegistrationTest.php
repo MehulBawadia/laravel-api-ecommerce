@@ -53,7 +53,7 @@ class RegistrationTest extends TestCase
         ]);
 
         Http::fake([
-            'https://api.stripe.com/v1/customers' => Http::response($fakeData, 200)
+            'https://api.stripe.com/v1/customers' => Http::response($fakeData, 200),
         ]);
 
         $this->withoutExceptionHandling();
@@ -62,8 +62,8 @@ class RegistrationTest extends TestCase
 
         $user = User::find(2);
         $this->assertEquals($user->stripe_user_id, "cus_$fakeCustomerId");
-        $this->assertEquals($user->first_name, "User");
-        $this->assertEquals($user->last_name, "One");
+        $this->assertEquals($user->first_name, 'User');
+        $this->assertEquals($user->last_name, 'One');
     }
 
     public function test_user_address_gets_created_after_registration()
@@ -190,10 +190,10 @@ class RegistrationTest extends TestCase
     protected function createdCustomerData($overrideData = [])
     {
         $data = [
-            "id" => "cus_9s6XKzkNRiz8i3",
-            "name" => null,
-            "email" => "test@test.com",
-            "object" => "customer",
+            'id' => 'cus_9s6XKzkNRiz8i3',
+            'name' => null,
+            'email' => 'test@test.com',
+            'object' => 'customer',
         ];
 
         return json_encode(array_merge($data, $overrideData));
