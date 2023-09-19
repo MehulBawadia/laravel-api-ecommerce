@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\v1\Auth\RegistrationRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 /**
  * @group Common Endpoints
@@ -33,6 +34,14 @@ class RegisterController extends Controller
         DB::beginTransaction();
 
         try {
+            $stripeCustomer = Http::withHeaders([
+                'Authorization' => 'Bearer '.config('stripe.keys.secret'),
+            ])->asForm()->post('https://api.stripe.com/v1/customers', [
+                'name' => "$request->first_name $request->last_name",
+                'email' => $request->email,
+            ])->json();
+
+            $request['stripe_user_id'] = is_array($stripeCustomer) && array_key_exists('id', $stripeCustomer) ? $stripeCustomer['id'] : null;
             $request['password'] = bcrypt($request->password);
             $user = User::create($request->all());
 
