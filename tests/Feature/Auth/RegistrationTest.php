@@ -17,7 +17,6 @@ class RegistrationTest extends TestCase
     {
         parent::setUp();
 
-        // Create the administrator for the application
         $this->createUser(['is_admin' => true]);
 
         $this->postRoute = route('auth.register');
