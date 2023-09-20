@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
             $table->string('meta_keywords')->nullable();
+            $table->string('stripe_product_id')->nullable()->index();
+            $table->string('stripe_price_id')->nullable()->index();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
 class UpdateProductTest extends TestCase
@@ -42,6 +43,8 @@ class UpdateProductTest extends TestCase
 
     public function test_admin_can_update_the_product()
     {
+        Http::fake();
+
         $this->withoutExceptionHandling();
 
         $this->assertEquals($this->product->name, 'Product 1');
@@ -56,6 +59,8 @@ class UpdateProductTest extends TestCase
 
     public function test_admin_may_update_product_image()
     {
+        Http::fake();
+
         $this->withoutExceptionHandling();
 
         $payload = $this->preparePayload([
@@ -68,6 +73,8 @@ class UpdateProductTest extends TestCase
 
     public function test_admin_receives_404_error_if_product_not_found()
     {
+        Http::fake();
+
         $this->withoutExceptionHandling();
 
         $payload = $this->preparePayload(['name' => 'Product 2']);
