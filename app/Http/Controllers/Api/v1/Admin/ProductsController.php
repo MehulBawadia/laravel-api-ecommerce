@@ -7,6 +7,7 @@ use App\Http\Requests\v1\Admin\Products\AddProductRequest;
 use App\Http\Requests\v1\Admin\Products\UpdateProductRequest;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 /**
  * @group Administrator Endpoints
@@ -60,6 +61,22 @@ class ProductsController extends Controller
         DB::beginTransaction();
 
         try {
+            $stripeProduct = Http::withHeaders([
+                'Authorization' => 'Bearer '.config('stripe.keys.secret'),
+            ])
+                ->asForm()
+                ->post('https://api.stripe.com/v1/products', [
+                    'name' => $request->name,
+                    'description' => $request->description,
+                    'default_price_data' => [
+                        'currency' => 'inr',
+                        'unit_amount' => $request->rate * 100,
+                    ],
+                ])
+                ->json();
+
+            $request['stripe_product_id'] = is_array($stripeProduct) && array_key_exists('id', $stripeProduct) ? $stripeProduct['id'] : null;
+            $request['stripe_price_id'] = is_array($stripeProduct) && array_key_exists('default_price', $stripeProduct) ? $stripeProduct['default_price'] : null;
             $product = Product::create($request->all());
 
             if ($request->has('image')) {
@@ -126,6 +143,24 @@ class ProductsController extends Controller
         $product = Product::find($id);
         if (! $product) {
             return $this->errorResponse(__('response.admin.products.not_found'), [], 404);
+        }
+
+        $existingRate = $product->rate;
+        $newRate = (float) $request->rate;
+
+        if ($newRate !== $existingRate) {
+            $stripePrice = Http::withHeaders([
+                'Authorization' => 'Bearer '.config('stripe.keys.secret'),
+            ])
+                ->asForm()
+                ->post('https://api.stripe.com/v1/prices', [
+                    'currency' => 'inr',
+                    'product' => $product->stripe_product_id,
+                    'unit_amount' => $request->rate * 100,
+                ])
+                ->json();
+
+            $request['stripe_price_id'] = is_array($stripePrice) && array_key_exists('id', $stripePrice) ? $stripePrice['id'] : null;
         }
 
         DB::beginTransaction();
@@ -207,6 +242,7 @@ class ProductsController extends Controller
             'id', 'category_id', 'brand_id', 'name', 'slug',
             'rate', 'quantity', 'description',
             'meta_title', 'meta_description', 'meta_keywords',
+            'stripe_product_id', 'stripe_price_id',
         ];
     }
 }
