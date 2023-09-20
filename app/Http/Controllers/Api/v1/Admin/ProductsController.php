@@ -64,16 +64,16 @@ class ProductsController extends Controller
             $stripeProduct = Http::withHeaders([
                 'Authorization' => 'Bearer '.config('stripe.keys.secret'),
             ])
-            ->asForm()
-            ->post('https://api.stripe.com/v1/products', [
-                'name' => $request->name,
-                'description' => $request->description,
-                'default_price_data' => [
-                    'currency' => 'inr',
-                    'unit_amount' => $request->rate * 100,
-                ],
-            ])
-            ->json();
+                ->asForm()
+                ->post('https://api.stripe.com/v1/products', [
+                    'name' => $request->name,
+                    'description' => $request->description,
+                    'default_price_data' => [
+                        'currency' => 'inr',
+                        'unit_amount' => $request->rate * 100,
+                    ],
+                ])
+                ->json();
 
             $request['stripe_product_id'] = is_array($stripeProduct) && array_key_exists('id', $stripeProduct) ? $stripeProduct['id'] : null;
             $request['stripe_price_id'] = is_array($stripeProduct) && array_key_exists('default_price', $stripeProduct) ? $stripeProduct['default_price'] : null;
@@ -150,15 +150,15 @@ class ProductsController extends Controller
 
         if ($newRate !== $existingRate) {
             $stripePrice = Http::withHeaders([
-                            'Authorization' => 'Bearer '.config('stripe.keys.secret'),
-                        ])
-                        ->asForm()
-                        ->post('https://api.stripe.com/v1/prices', [
-                            'currency' => 'inr',
-                            'product' => $product->stripe_product_id,
-                            'unit_amount' => $request->rate * 100,
-                        ])
-                        ->json();
+                'Authorization' => 'Bearer '.config('stripe.keys.secret'),
+            ])
+                ->asForm()
+                ->post('https://api.stripe.com/v1/prices', [
+                    'currency' => 'inr',
+                    'product' => $product->stripe_product_id,
+                    'unit_amount' => $request->rate * 100,
+                ])
+                ->json();
 
             $request['stripe_price_id'] = is_array($stripePrice) && array_key_exists('id', $stripePrice) ? $stripePrice['id'] : null;
         }
