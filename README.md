@@ -33,4 +33,4 @@ php artisan test
 
 #### License
 
-This project is licensed under MIT.
+This project is an open-sourced software licensed under the [MIT License](https://opensource.org/licenses/MIT).
