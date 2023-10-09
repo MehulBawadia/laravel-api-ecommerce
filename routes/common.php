@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\v1\Auth\LoginController;
 use App\Http\Controllers\Api\v1\Auth\PasswordController;
 use App\Http\Controllers\Api\v1\Auth\RegisterController;
 use App\Http\Controllers\Api\v1\Settings\AccountSettingsController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,4 +31,12 @@ Route::middleware('auth:sanctum')->name('auth')->group(function () {
 
     Route::put('/account-settings/general', [AccountSettingsController::class, 'general'])->name('.accountSettings.general');
     Route::put('/account-settings/change-password', [AccountSettingsController::class, 'changePassword'])->name('.accountSettings.changePassword');
+});
+
+Route::prefix('cart')->name('cart')->controller(CartController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::post('/add/{productId}', 'store')->name('.store');
+    Route::put('/update/{productId}', 'update')->name('.update');
+    Route::delete('/delete/{productId}', 'delete')->name('.delete');
+    Route::delete('/empty', 'empty')->name('.empty');
 });
