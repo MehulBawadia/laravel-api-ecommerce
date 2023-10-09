@@ -42,6 +42,14 @@ return [
         'address_failed' => 'Could not update :addressType address. Try again later.',
     ],
 
+    'cart' => [
+        'product_added' => 'Product added in the cart successfully.',
+        'product_not_found' => 'Product not found with the provided id.',
+        'product_updated' => 'Product quantity updated in the cart successfully.',
+        'product_removed' => 'Product removed from the cart successfully.',
+        'empty' => 'Cart emptied successfully.',
+    ],
+
     'admin' => [
         'generate' => [
             'success' => 'Administrator generated successfully.',
