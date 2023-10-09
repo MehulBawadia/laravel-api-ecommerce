@@ -5,7 +5,6 @@ use App\Http\Controllers\Api\v1\Admin\CategoriesController;
 use App\Http\Controllers\Api\v1\Admin\GenerateController;
 use App\Http\Controllers\Api\v1\Admin\ProductsController;
 use App\Http\Controllers\Api\v1\Admin\TagsController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,10 +17,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 Route::name('v1_admin')->prefix('/v1/admin')->group(function () {
     Route::post('/generate', [GenerateController::class, 'store'])->name('.generate');
