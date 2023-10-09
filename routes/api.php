@@ -22,12 +22,12 @@ Route::name('v1_admin')->prefix('/v1/admin')->group(function () {
     Route::post('/generate', [GenerateController::class, 'store'])->name('.generate');
 
     Route::middleware('auth:sanctum')->group(function () {
-        Route::prefix('categories')->name('.categories')->group(function () {
-            Route::get('/', [CategoriesController::class, 'index']);
-            Route::post('/', [CategoriesController::class, 'store'])->name('.store');
-            Route::get('/{id}', [CategoriesController::class, 'show'])->name('.show');
-            Route::put('/{id}', [CategoriesController::class, 'update'])->name('.update');
-            Route::delete('/{id}', [CategoriesController::class, 'destroy'])->name('.destroy');
+        Route::prefix('categories')->name('.categories')->controller(CategoriesController::class)->group(function () {
+            Route::get('/', 'index');
+            Route::post('/', 'store')->name('.store');
+            Route::get('/{id}', 'show')->name('.show');
+            Route::put('/{id}', 'update')->name('.update');
+            Route::delete('/{id}', 'destroy')->name('.destroy');
         });
 
         Route::prefix('tags')->name('.tags')->controller(TagsController::class)->group(function () {
