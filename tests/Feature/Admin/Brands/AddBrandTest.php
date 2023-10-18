@@ -3,12 +3,12 @@
 namespace Tests\Feature\Admin\Brands;
 
 use App\Models\Brand;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Tests\TestCase;
 
 class AddBrandTest extends TestCase
 {
-    use RefreshDatabase;
+    use LazilyRefreshDatabase;
 
     public $postRoute = null;
 

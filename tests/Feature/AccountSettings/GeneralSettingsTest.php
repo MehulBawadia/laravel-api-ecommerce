@@ -2,12 +2,12 @@
 
 namespace Tests\Feature\AccountSettings;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Tests\TestCase;
 
 class GeneralSettingsTest extends TestCase
 {
-    use RefreshDatabase;
+    use LazilyRefreshDatabase;
 
     public $putRoute = null;
 
