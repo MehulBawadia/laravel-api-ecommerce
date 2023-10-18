@@ -3,12 +3,12 @@
 namespace Tests\Feature\Admin\Tags;
 
 use App\Models\Tag;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Tests\TestCase;
 
 class ShowTagTest extends TestCase
 {
-    use RefreshDatabase;
+    use LazilyRefreshDatabase;
 
     public $getRoute = null;
 

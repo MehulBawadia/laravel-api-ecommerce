@@ -3,12 +3,12 @@
 namespace Tests\Feature\Admin\Products;
 
 use App\Models\Product;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Tests\TestCase;
 
 class DeleteProductTest extends TestCase
 {
-    use RefreshDatabase;
+    use LazilyRefreshDatabase;
 
     public $deleteRoute = null;
 
