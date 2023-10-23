@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Admin\Products;
+namespace Tests\Feature\Cart;
 
 use App\Models\Product;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
