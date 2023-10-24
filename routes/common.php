@@ -3,8 +3,8 @@
 use App\Http\Controllers\Api\v1\Auth\LoginController;
 use App\Http\Controllers\Api\v1\Auth\PasswordController;
 use App\Http\Controllers\Api\v1\Auth\RegisterController;
+use App\Http\Controllers\Api\v1\CartController;
 use App\Http\Controllers\Api\v1\Settings\AccountSettingsController;
-use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 /*
