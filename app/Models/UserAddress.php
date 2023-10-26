@@ -15,16 +15,16 @@ class UserAddress extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id',
+        'user_id', 'type',
 
-        'billing_first_name', 'billing_last_name', 'billing_email', 'billing_contact',
-        'billing_address_line_1', 'billing_address_line_2', 'billing_area', 'billing_landmark',
-        'billing_city', 'billing_postal_code', 'billing_state_province', 'billing_country',
-
-        'shipping_first_name', 'shipping_last_name', 'shipping_email', 'shipping_contact',
-        'shipping_address_line_1', 'shipping_address_line_2', 'shipping_area', 'shipping_landmark',
-        'shipping_city', 'shipping_postal_code', 'shipping_state_province', 'shipping_country',
+        'first_name', 'last_name', 'email', 'contact',
+        'address_line_1', 'address_line_2', 'area', 'landmark',
+        'city', 'postal_code', 'state_province', 'country',
     ];
+
+    public const BILLING = 1;
+
+    public const SHIPPING = 2;
 
     /**
      * An address belongs to a single user.
