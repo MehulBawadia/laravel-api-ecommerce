@@ -1,0 +1,23 @@
+{
+    "status": "success",
+    "message": "Shipping address updated successfully.",
+    "data": {
+        "id": 1,
+        "user_id": 2,
+        "type": 2,
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "johndoe@example.com",
+        "contact": "9876543210",
+        "address_line_1": "24, Building Name",
+        "address_line_2": "Some street name",
+        "area": "St. Peters Stn",
+        "landmark": "Chill StarBucks Cafe",
+        "city": "Mumbai",
+        "postal_code": "400001",
+        "state_province": "Maharashtra",
+        "country": "India",
+        "created_at": "2023-06-20T16:11:57.000000Z",
+        "updated_at": "2023-06-20T16:11:57.000000Z"
+    }
+}
