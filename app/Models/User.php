@@ -52,4 +52,15 @@ class User extends Authenticatable
         return $this->hasMany(UserAddress::class)
             ->where('type', UserAddress::BILLING);
     }
+
+    /**
+     * A user may have multiple shipping addresses.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function shippingAddress()
+    {
+        return $this->hasMany(UserAddress::class)
+            ->where('type', UserAddress::SHIPPING);
+    }
 }

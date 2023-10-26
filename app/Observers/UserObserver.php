@@ -20,5 +20,6 @@ class UserObserver
     public function created(User $user)
     {
         $user->billingAddress()->create(['type' => UserAddress::BILLING]);
+        $user->shippingAddress()->create(['type' => UserAddress::SHIPPING]);
     }
 }
