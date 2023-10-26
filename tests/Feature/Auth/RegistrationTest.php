@@ -75,7 +75,7 @@ class RegistrationTest extends TestCase
 
         $this->postJsonPayload($this->postRoute, $payload);
 
-        $this->assertNotNull(User::with('address')->find(2)->address);
+        $this->assertNotNull(User::with(['billingAddress'])->find(2)->billingAddress->first());
     }
 
     public function test_first_name_field_is_required()

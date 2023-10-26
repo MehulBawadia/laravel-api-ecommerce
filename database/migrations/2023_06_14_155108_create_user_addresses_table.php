@@ -14,32 +14,20 @@ return new class extends Migration
         Schema::create('user_addresses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->unsignedTinyInteger('type')->nullable()->comment('1:billing; 2:shipping');
 
-            $table->string('billing_first_name')->nullable();
-            $table->string('billing_last_name')->nullable();
-            $table->string('billing_email')->nullable();
-            $table->string('billing_contact')->nullable();
-            $table->string('billing_address_line_1')->nullable();
-            $table->string('billing_address_line_2')->nullable();
-            $table->string('billing_area')->nullable();
-            $table->string('billing_landmark')->nullable();
-            $table->string('billing_city')->nullable();
-            $table->string('billing_postal_code')->nullable();
-            $table->string('billing_state_province')->nullable();
-            $table->string('billing_country')->nullable();
-
-            $table->string('shipping_first_name')->nullable();
-            $table->string('shipping_last_name')->nullable();
-            $table->string('shipping_email')->nullable();
-            $table->string('shipping_contact')->nullable();
-            $table->string('shipping_address_line_1')->nullable();
-            $table->string('shipping_address_line_2')->nullable();
-            $table->string('shipping_area')->nullable();
-            $table->string('shipping_landmark')->nullable();
-            $table->string('shipping_city')->nullable();
-            $table->string('shipping_postal_code')->nullable();
-            $table->string('shipping_state_province')->nullable();
-            $table->string('shipping_country')->nullable();
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('contact')->nullable();
+            $table->string('address_line_1')->nullable();
+            $table->string('address_line_2')->nullable();
+            $table->string('area')->nullable();
+            $table->string('landmark')->nullable();
+            $table->string('city')->nullable();
+            $table->string('postal_code')->nullable();
+            $table->string('state_province')->nullable();
+            $table->string('country')->nullable();
 
             $table->timestamps();
         });

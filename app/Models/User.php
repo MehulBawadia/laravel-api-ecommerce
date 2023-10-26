@@ -43,12 +43,13 @@ class User extends Authenticatable
     ];
 
     /**
-     * A user has only one billing address and one shipping address.
+     * A user may have multiple billing addresses.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function address()
+    public function billingAddress()
     {
-        return $this->hasOne(UserAddress::class);
+        return $this->hasMany(UserAddress::class)
+            ->where('type', UserAddress::BILLING);
     }
 }

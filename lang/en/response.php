@@ -38,8 +38,11 @@ return [
     ],
 
     'user' => [
-        'address' => ':addressType address updated successfully.',
-        'address_failed' => 'Could not update :addressType address. Try again later.',
+        'address' => [
+            'success' => ':type address :action successfully.',
+            'not_found' => ':type address not found.',
+            'failed' => 'Could not :action the :type address. Try again later.',
+        ],
     ],
 
     'cart' => [

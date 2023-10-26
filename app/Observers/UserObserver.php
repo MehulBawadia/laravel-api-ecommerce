@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\User;
+use App\Models\UserAddress;
 
 class UserObserver
 {
@@ -18,6 +19,6 @@ class UserObserver
      */
     public function created(User $user)
     {
-        $user->address()->create();
+        $user->billingAddress()->create(['type' => UserAddress::BILLING]);
     }
 }
