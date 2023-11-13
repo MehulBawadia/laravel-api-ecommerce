@@ -63,4 +63,14 @@ class User extends Authenticatable
         return $this->hasMany(UserAddress::class)
             ->where('type', UserAddress::SHIPPING);
     }
+
+    /**
+     * A user may have multiple products in their wishlist.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function productWishlist()
+    {
+        return $this->hasMany(ProductWishlist::class);
+    }
 }

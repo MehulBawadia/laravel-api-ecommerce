@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\v1\Users\BillingAddressController;
 use App\Http\Controllers\Api\v1\Users\ShippingAddressController;
+use App\Http\Controllers\Api\v1\Users\WishlistController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,5 +29,11 @@ Route::middleware('auth:sanctum')->name('v1_user')->group(function () {
         Route::post('/store', 'store')->name('.store');
         Route::put('/{id}', 'update')->name('.update');
         Route::delete('/{id}', 'destroy')->name('.destroy');
+    });
+
+    Route::name('.wishlist')->prefix('wishlist')->controller(WishlistController::class)->group(function () {
+        Route::get('/', 'index');
+        Route::post('/', 'store')->name('.store');
+        Route::delete('/{productId}', 'destroy')->name('.destroy');
     });
 });

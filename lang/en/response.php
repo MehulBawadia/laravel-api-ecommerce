@@ -43,6 +43,13 @@ return [
             'not_found' => ':type address not found.',
             'failed' => 'Could not :action the :type address. Try again later.',
         ],
+
+        'wishlist' => [
+            'success' => 'Product has been successfully :action.',
+            'not_found' => 'Product not found with the provided id.',
+            'failed' => 'Could not :action the product. Try again later.',
+            'product_exists' => 'Product already exists in your wishlist.',
+        ],
     ],
 
     'cart' => [
