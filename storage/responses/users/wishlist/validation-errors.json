@@ -1,0 +1,6 @@
+{
+    "message": "The product is required.",
+    "errors": {
+        "product_id": ["The product is required."]
+    }
+}
