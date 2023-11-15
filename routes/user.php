@@ -41,5 +41,6 @@ Route::middleware('auth:sanctum')->name('v1_user')->group(function () {
     Route::name('.checkout')->prefix('checkout')->controller(CheckoutController::class)->group(function () {
         Route::get('/addresses', 'addresses')->name('.addresses');
         Route::post('/billing-address', 'billingAddress')->name('.billingAddress');
+        Route::post('/shipping-address', 'shippingAddress')->name('.shippingAddress');
     });
 });
