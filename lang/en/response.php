@@ -50,6 +50,12 @@ return [
             'failed' => 'Could not :action the product. Try again later.',
             'product_exists' => 'Product already exists in your wishlist.',
         ],
+
+        'checkout_address' => [
+            'success' => ':type address successfully selected.',
+            'not_found' => ':type address not found with the provided id.',
+            'failed' => 'Could not select the :type address.',
+        ],
     ],
 
     'cart' => [

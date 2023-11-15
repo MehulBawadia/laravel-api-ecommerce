@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\v1\Users\BillingAddressController;
+use App\Http\Controllers\Api\v1\Users\CheckoutController;
 use App\Http\Controllers\Api\v1\Users\ShippingAddressController;
 use App\Http\Controllers\Api\v1\Users\WishlistController;
 use Illuminate\Support\Facades\Route;
@@ -35,5 +36,10 @@ Route::middleware('auth:sanctum')->name('v1_user')->group(function () {
         Route::get('/', 'index');
         Route::post('/', 'store')->name('.store');
         Route::delete('/{productId}', 'destroy')->name('.destroy');
+    });
+
+    Route::name('.checkout')->prefix('checkout')->controller(CheckoutController::class)->group(function () {
+        Route::get('/addresses', 'addresses')->name('.addresses');
+        Route::post('/billing-address', 'billingAddress')->name('.billingAddress');
     });
 });
