@@ -12,6 +12,8 @@ class CartTest extends TestCase
 
     public $admin = null;
 
+    public $user = null;
+
     public function setup(): void
     {
         parent::setUp();
@@ -23,54 +25,60 @@ class CartTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $this->getJson(route('cart'));
+        $this->getJson(route('v1_user.cart'));
 
-        $this->assertNull(session('product_cart'));
+        $this->assertEmpty($this->user->cartProducts);
     }
 
     public function test_single_product_may_be_added_in_the_cart()
     {
         $this->withoutExceptionHandling();
 
+        $this->assertEmpty($this->user->cartProducts);
+
         $product = Product::all()->random();
-        $this->postJsonPayload(route('cart.store', $product->id), [
+        $response = $this->postJsonPayload(route('v1_user.cart.store'), [
             'product_id' => $product->id,
             'quantity' => 3,
         ]);
+        $response->assertCreated();
+        $response->assertSeeText(__('response.cart.success', ['actionType' => 'added']));
 
-        $this->assertNotNull(session('cart'));
-        $this->assertCount(1, session('cart.products'));
-        $this->assertEquals(3, session('cart.products')[$product->slug]['quantity']);
-        $this->assertEquals($product->rate * 3, session('cart.products')[$product->slug]['total']);
+        $cart = $this->user->fresh()->cartProducts;
+        $this->assertNotEmpty($cart);
+        $this->assertEquals(3, $cart->first()->quantity);
+        $this->assertEquals((float) (3 * $product->rate), (float) ($cart->first()->amount));
     }
 
     public function test_multiple_products_may_be_added_in_the_cart()
     {
         $this->withoutExceptionHandling();
 
+        $this->assertEmpty($this->user->cartProducts);
+
         $product1 = Product::all()->random();
-        $this->postJsonPayload(route('cart.store', $product1->id), [
+        $response = $this->postJsonPayload(route('v1_user.cart.store'), [
             'product_id' => $product1->id,
             'quantity' => 3,
         ]);
-        $this->assertNotNull(session('cart'));
-        $this->assertEquals(3, session('cart.products')[$product1->slug]['quantity']);
-        $this->assertEquals($product1->rate * 3, session('cart.products')[$product1->slug]['total']);
+        $response->assertCreated();
 
         $product2 = Product::where('id', '!=', $product1->id)->get()->random();
-        $this->postJsonPayload(route('cart.store', $product2->id), [
+        $response = $this->postJsonPayload(route('v1_user.cart.store'), [
             'product_id' => $product2->id,
             'quantity' => 2,
         ]);
-        $this->assertEquals(2, session('cart.products')[$product2->slug]['quantity']);
-        $this->assertEquals($product2->rate * 2, session('cart.products')[$product2->slug]['total']);
+        $response->assertCreated();
 
-        $this->assertCount(2, session('cart.products'));
+        $cart = $this->user->fresh()->cartProducts;
+        $this->assertCount(2, $cart);
+        $this->assertEquals((float) (3 * $product1->rate), (float) ($cart->where('product_id', '!=', $product2->id)->first()->amount));
+        $this->assertEquals((float) (2 * $product2->rate), (float) ($cart->where('product_id', '!=', $product1->id)->first()->amount));
     }
 
     public function test_cannot_add_product_that_does_not_exist()
     {
-        $response = $this->postJsonPayload(route('cart.store', 100));
+        $response = $this->postJsonPayload(route('v1_user.cart.store'), ['product_id' => 100]);
         $response->assertSeeText(__('response.cart.product_not_found'));
         $response->assertNotFound();
         $response->assertStatus(404);
@@ -81,78 +89,61 @@ class CartTest extends TestCase
         $this->withoutExceptionHandling();
 
         $product = Product::all()->random();
-        $this->dummyCartData($product);
-        $this->assertEquals(1, session("cart.products.$product->slug.quantity"));
+        $this->user->addProductInCart($product);
+        $cart = $this->user->fresh()->cartProducts;
+        $this->assertEquals(1, $cart->count());
 
-        $response = $this->putJsonPayload(route('cart.update', $product->id), [
+        $response = $this->putJsonPayload(route('v1_user.cart.update', $cart->random()->id), [
             'quantity' => 3,
         ]);
-        $response->assertSeeText(__('response.cart.product_updated'));
-
-        $product2 = Product::where('id', '!=', $product->id)->get()->random();
-        $this->dummyCartData($product2);
-        $this->assertEquals(1, session("cart.products.$product2->slug.quantity"));
-
-        $response = $this->putJsonPayload(route('cart.update', $product2->id), [
-            'quantity' => 2,
-        ]);
-        $this->assertEquals(2, session("cart.products.$product2->slug.quantity"));
-        $response->assertSeeText(__('response.cart.product_updated'));
+        $response->assertSeeText(__('response.cart.success', ['actionType' => 'updated']));
     }
 
     public function test_user_may_remove_a_product_from_cart()
     {
         $this->withoutExceptionHandling();
 
-        $product = Product::all()->random();
-        $this->dummyCartData($product);
-        $product2 = Product::where('id', '!=', $product->id)->get()->random();
-        $this->dummyCartData($product2);
-        $this->assertCount(2, session('cart.products'));
+        $product1 = Product::all()->random();
+        $this->user->addProductInCart($product1);
 
-        $response = $this->deleteJson(route('cart.delete', $product->id));
-        $response->assertSeeText(__('response.cart.product_removed'));
-        $this->assertCount(1, session('cart.products'));
+        $product2 = Product::where('id', '!=', $product1->id)->get()->random();
+        $this->user->addProductInCart($product2);
+
+        $cart = $this->user->fresh()->cartProducts;
+        $this->assertEquals(2, $cart->count());
+
+        $response = $this->deleteJson(route('v1_user.cart.delete', $cart->random()->id));
+        $response->assertSeeText(__('response.cart.success', ['actionType' => 'removed']));
+        $this->assertCount(1, $this->user->fresh()->cartProducts);
     }
 
     public function test_user_may_empty_the_cart_altogether()
     {
         $this->withoutExceptionHandling();
 
-        $product = Product::all()->random();
-        $this->dummyCartData($product);
-        $product2 = Product::where('id', '!=', $product->id)->get()->random();
-        $this->dummyCartData($product2);
-        $this->assertCount(2, session('cart.products'));
+        $product1 = Product::all()->random();
+        $this->user->addProductInCart($product1);
 
-        $response = $this->deleteJson(route('cart.empty'));
+        $product2 = Product::where('id', '!=', $product1->id)->get()->random();
+        $this->user->addProductInCart($product2);
+
+        $cart = $this->user->fresh()->cartProducts;
+        $this->assertEquals(2, $cart->count());
+
+        $response = $this->deleteJson(route('v1_user.cart.empty'));
         $response->assertSeeText(__('response.cart.empty'));
-        $this->assertNull(session('cart'));
-    }
-
-    protected function dummyCartData($product, $data = [])
-    {
-        $cart = session('cart') ?? [];
-
-        $cart['products'][$product->slug] = array_merge([
-            'id' => $product->id,
-            'quantity' => 1,
-            'rate' => $product->rate,
-            'total' => (float) ($product->rate * (int) 1),
-            'name' => $product->name,
-        ], $data);
-
-        session(['cart' => $cart]);
+        $this->assertEmpty($this->user->fresh()->cartProducts);
     }
 
     private function setUpForCart()
     {
         $this->createUser(['is_admin' => true]);
-        $this->createUser(['email' => 'userone@example.com', 'is_admin' => false]);
+        $this->user = $this->createUser(['email' => 'userone@example.com', 'is_admin' => false]);
+        $this->actingAs($this->user);
 
         $brand = \App\Models\Brand::factory()->create();
         $category = \App\Models\Category::factory()->create();
 
-        \App\Models\Product::factory(10)->create(['brand_id' => $brand->id, 'category_id' => $category->id]);
+        \App\Models\Product::factory(10)->create(['brand_id' => $brand->id, 'category_id' => $category->id, 'rate' => 100.00]);
     }
 }

@@ -73,4 +73,34 @@ class User extends Authenticatable
     {
         return $this->hasMany(ProductWishlist::class);
     }
+
+    /**
+     * A user has many products in their cart.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function cartProducts()
+    {
+        return $this->hasMany(CartProduct::class);
+    }
+
+    /**
+     * Add a product in the cart of the auth user with a default quantity of 1
+     * which can be overriden in the second paramter.
+     *
+     * @param  \App\Models\Product  $product
+     * @param  int  $quantity
+     * @return \App\Models\CartProduct
+     */
+    public function addProductInCart($product, $quantity = 1)
+    {
+        return $this->cartProducts()->create([
+            'product_id' => $product->id,
+            'product_name' => $product->name,
+            'product_slug' => $product->slug,
+            'quantity' => $quantity,
+            'rate' => $product->rate,
+            'amount' => (float) ($product->rate * (int) $quantity),
+        ]);
+    }
 }

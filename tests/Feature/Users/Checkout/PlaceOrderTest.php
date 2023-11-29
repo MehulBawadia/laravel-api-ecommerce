@@ -29,11 +29,9 @@ class PlaceOrderTest extends TestCase
         $this->withoutExceptionHandling();
 
         $product = Product::all()->random();
-        $this->postJsonPayload(route('cart.store', $product->id), [
-            'product_id' => $product->id,
-            'quantity' => 3,
-        ]);
-        $this->assertNotNull(session('cart'));
+        $this->user->addProductInCart($product);
+        $cart = $this->user->fresh()->cartProducts;
+        $this->assertEquals(1, $cart->count());
 
         $billingAddress = $this->user->billingAddress()->first();
         $this->postJson(route('v1_user.checkout.billingAddress'), [
@@ -48,7 +46,7 @@ class PlaceOrderTest extends TestCase
         $this->assertNotNull(session('user_checkout_shipping'));
 
         $fakeData = $this->dummyStripeOrderChargeData([
-            'amount' => session('cart.total_cart_amount') * 100,
+            'amount' => $cart->sum('amount') * 100,
         ]);
 
         Http::fake([

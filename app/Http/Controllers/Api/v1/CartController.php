@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Models\CartProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
- * @group Common Endpoints
+ * @group User Endpoints
  *
  * @subgroup Cart
  *
@@ -21,111 +23,139 @@ class CartController extends Controller
      * Lists all the products that are added in the cart.
      * Also, it will calculate the total amount of the cart.
      *
-     * @unauthenticated
+     * @authenticated
      *
      * @return  \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        return $this->successResponse('', session('cart'));
+        return $this->successResponse('', auth('sanctum')->user()->cartProducts);
     }
 
     /**
      * Add a product
      *
      * Adds the product of the given id in to the cart.
-     * The product is then stored in the session.
+     * The product is then stored in the database.
      * If the product is not found, 404 error will be returned.
      *
-     * @urlParam $productId integer required The id of the product that you want to add to the cart. Example: 1
+     * @responseFile status=201 storage/responses/users/cart/product-added.json
+     * @responseFile status=404 storage/responses/users/cart/product-not-found.json
      *
-     * @unauthenticated
+     * @authenticated
      *
-     * @param  int  $productId
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store($productId, Request $request)
+    public function store(Request $request)
     {
-        $product = Product::find($productId);
+        $product = Product::find($request->product_id);
         if (! $product) {
-            return $this->errorResponse(__('response.cart.product_not_found'), [], 404);
+            return $this->errorResponse(__('response.cart.product_not_found'), null, 404);
         }
 
-        $quantity = $request->quantity ?? 1;
-        $cart = session('cart') ?? [];
+        DB::beginTransaction();
 
-        $cart['products'][$product->slug] = [
-            'id' => $product->id,
-            'quantity' => $quantity,
-            'rate' => $product->rate,
-            'total' => (float) ($product->rate * (int) $quantity),
-            'name' => $product->name,
-        ];
+        try {
+            $quantity = $request->quantity ?? 1;
 
-        session(['cart' => $cart]);
+            $user = auth('sanctum')->user();
+            $cart = $user->addProductInCart($product, $quantity);
 
-        $this->recalculateCartTotal();
+            DB::commit();
 
-        return $this->successResponse('Product added in the cart successfully.');
+            return $this->successResponse(__('response.cart.success', ['actionType' => 'added']), $cart->fresh(), 201);
+        } catch (\Exception $e) {
+            info($e->getMessage());
+            info($e->getTraceAsString());
+
+            DB::rollBack();
+
+            return $this->errorResponse(__('response.cart.failed', ['actionType' => 'add']));
+        }
     }
 
     /**
      * Update product quantity
      *
-     * Update the product's quantity of the given id in to the cart.
-     * This will also update the cart total amount after updating.
-     * If the product is not found, 404 error will be returned.
+     * Update the product's quantity of the given cartProduct id.
+     * If the record is not found, 404 error will be returned.
      *
-     * @urlParam $productId integer required The id of the product that you want to update the quantity of. Example: 1
+     * @urlParam $cartProductId integer required The id of the cartProduct that you want to update the quantity of. Example: 1
      *
-     * @unauthenticated
+     * @responseFile status=200 storage/responses/users/cart/product-updated.json
+     * @responseFile status=404 storage/responses/users/cart/product-not-found.json
      *
-     * @param  int  $productId
+     * @authenticated
+     *
+     * @param  int  $cartProductId
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update($productId, Request $request)
+    public function update($cartProductId, Request $request)
     {
-        $product = Product::find($productId);
-        if (! $product) {
-            return $this->errorResponse(__('response.cart.product_not_found'), [], 404);
+        $cart = auth('sanctum')->user()->cartProducts()->find($cartProductId);
+        if (! $cart) {
+            return $this->errorResponse(__('response.cart.product_not_found'), null, 404);
         }
 
-        $quantity = $request->quantity ?? 1;
+        DB::beginTransaction();
 
-        session()->put("cart.products.$product->slug.quantity", (int) $quantity);
-        session()->put("cart.products.$product->slug.total", (float) ($product->rate * $quantity));
+        try {
+            $cart->update([
+                'quantity' => $request->quantity ?? 1,
+            ]);
 
-        $this->recalculateCartTotal();
+            DB::commit();
 
-        return $this->successResponse(__('response.cart.product_updated'));
+            return $this->successResponse(__('response.cart.success', ['actionType' => 'updated']), $cart->fresh());
+        } catch (\Exception $e) {
+            info($e->getMessage());
+            info($e->getTraceAsString());
+
+            DB::rollBack();
+
+            return $this->errorResponse(__('response.cart.failed', ['actionType' => 'update']));
+        }
     }
 
     /**
      * Remove product
      *
-     * Removes the product's of the given id from the cart.
-     * This will also update the cart total amount after removal.
+     * Removes the product of the given id from the cart.
      * If the product is not found, 404 error will be returned.
      *
-     * @urlParam $productId integer required The id of the product that you want to update the quantity of. Example: 1
+     * @urlParam $cartProductId integer required The id of the product that you want to update the quantity of. Example: 1
      *
-     * @unauthenticated
+     * @responseFile status=200 storage/responses/users/cart/product-removed.json
+     * @responseFile status=404 storage/responses/users/cart/product-not-found.json
      *
-     * @param  int  $productId
+     * @authenticated
+     *
+     * @param  int  $cartProductId
      * @return \Illuminate\Http\JsonResponse
      */
-    public function delete($productId)
+    public function delete($cartProductId)
     {
-        $product = Product::find($productId);
-        if (! $product) {
-            return $this->errorResponse(__('response.cart.product_not_found'), [], 404);
+        $cart = auth('sanctum')->user()->cartProducts()->find($cartProductId);
+        if (! $cart) {
+            return $this->errorResponse(__('response.cart.product_not_found'), null, 404);
         }
 
-        session()->forget("cart.products.$product->slug");
+        DB::beginTransaction();
 
-        $this->recalculateCartTotal();
+        try {
+            $cart->delete();
 
-        return $this->successResponse(__('response.cart.product_removed'));
+            DB::commit();
+
+            return $this->successResponse(__('response.cart.success', ['actionType' => 'removed']), $cart->fresh());
+        } catch (\Exception $e) {
+            info($e->getMessage());
+            info($e->getTraceAsString());
+
+            DB::rollBack();
+
+            return $this->errorResponse(__('response.cart.failed', ['actionType' => 'remove']));
+        }
     }
 
     /**
@@ -133,36 +163,29 @@ class CartController extends Controller
      *
      * Empties the cart entirely.
      *
-     * @unauthenticated
+     * @responseFile status=200 storage/responses/users/cart/emptied.json
+     *
+     * @authenticated
      *
      * @return \Illuminate\Http\JsonResponse
      */
     public function empty()
     {
-        session()->forget('cart');
+        DB::beginTransaction();
 
-        return $this->successResponse(__('response.cart.empty'));
-    }
+        try {
+            auth('sanctum')->user()->cartProducts()->delete();
 
-    /**
-     * Recalculate the cart total amount.
-     *
-     * @return void
-     */
-    private function recalculateCartTotal()
-    {
-        $allProductsTotal = 0.0;
-        $cartTotal = 0.0;
-        $cartProducts = session('cart.products');
-        foreach ($cartProducts as $data) {
-            $allProductsTotal += $data['total'];
+            DB::commit();
+
+            return $this->successResponse(__('response.cart.empty'), null);
+        } catch (\Exception $e) {
+            info($e->getMessage());
+            info($e->getTraceAsString());
+
+            DB::rollBack();
+
+            return $this->errorResponse(__('response.cart.failed', ['actionType' => 'empty']));
         }
-        $cartTotal += $allProductsTotal;
-
-        $cart['total_products_amount'] = $allProductsTotal;
-        $cart['total_cart_amount'] = $cartTotal;
-
-        session()->put('cart.total_products_amount', $allProductsTotal);
-        session()->put('cart.total_cart_amount', $cartTotal);
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\v1\CartController;
 use App\Http\Controllers\Api\v1\Users\BillingAddressController;
 use App\Http\Controllers\Api\v1\Users\CheckoutController;
 use App\Http\Controllers\Api\v1\Users\ShippingAddressController;
@@ -36,6 +37,14 @@ Route::middleware('auth:sanctum')->name('v1_user')->group(function () {
         Route::get('/', 'index');
         Route::post('/', 'store')->name('.store');
         Route::delete('/{productId}', 'destroy')->name('.destroy');
+    });
+
+    Route::name('.cart')->prefix('cart')->controller(CartController::class)->group(function () {
+        Route::get('/', 'index');
+        Route::post('/add', 'store')->name('.store');
+        Route::put('/update/{cartProductId}', 'update')->name('.update');
+        Route::delete('/delete/{cartProductId}', 'delete')->name('.delete');
+        Route::delete('/empty', 'empty')->name('.empty');
     });
 
     Route::name('.checkout')->prefix('checkout')->controller(CheckoutController::class)->group(function () {
