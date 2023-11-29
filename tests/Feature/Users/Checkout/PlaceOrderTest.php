@@ -2,10 +2,10 @@
 
 namespace Tests\Feature\Users\Checkout;
 
-use Tests\TestCase;
 use App\Models\Product;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
+use Illuminate\Support\Facades\Http;
+use Tests\TestCase;
 
 class PlaceOrderTest extends TestCase
 {

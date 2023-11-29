@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api\v1\Users;
 
-use App\Models\Order;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Http;
 use App\Http\Requests\v1\Users\CheckoutBillingRequest;
 use App\Http\Requests\v1\Users\CheckoutShippingRequest;
+use App\Models\Order;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 /**
  * @group User Endpoints
