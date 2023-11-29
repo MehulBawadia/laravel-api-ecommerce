@@ -64,11 +64,10 @@ return [
     ],
 
     'cart' => [
-        'product_added' => 'Product added in the cart successfully.',
-        'product_not_found' => 'Product not found with the provided id.',
-        'product_updated' => 'Product quantity updated in the cart successfully.',
-        'product_removed' => 'Product removed from the cart successfully.',
+        'product_not_found' => 'Product with the provided id not found.',
         'empty' => 'Cart emptied successfully.',
+        'success' => 'Product successfully :actionType.',
+        'failed' => 'Could not :actionType the product in the cart.',
     ],
 
     'admin' => [

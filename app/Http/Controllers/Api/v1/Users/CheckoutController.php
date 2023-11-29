@@ -100,7 +100,7 @@ class CheckoutController extends Controller
      */
     public function placeOrder()
     {
-        if (! session('cart')) {
+        if (auth('sanctum')->user()->cartProducts->isEmpty()) {
             return $this->errorResponse('Add products in the cart.', [], 403);
         }
 
@@ -114,7 +114,7 @@ class CheckoutController extends Controller
             'customer' => $user->stripe_customer_id,
         ])->json();
 
-        $products = session('cart')['products'];
+        $products = auth('sanctum')->user()->cartProducts;
         $code = \Illuminate\Support\Str::random(5);
 
         DB::beginTransaction();
@@ -130,18 +130,18 @@ class CheckoutController extends Controller
                 ]),
                 'billing_address' => json_encode(session('user_checkout_billing')),
                 'shipping_address' => json_encode(session('user_checkout_shipping')),
-                'total_amount' => session('cart.total_cart_amount'),
+                'total_amount' => $products->sum('amount'),
             ]);
 
-            foreach ($products as $productSlug => $product) {
+            foreach ($products as $product) {
                 $order->products()->create([
                     'order_id' => $order->id,
-                    'product_id' => $product['id'],
-                    'name' => $product['name'],
-                    'slug' => $productSlug,
-                    'quantity' => $product['quantity'],
-                    'rate' => $product['rate'],
-                    'total' => (float) ($product['rate'] * (int) $product['quantity']),
+                    'product_id' => $product->id,
+                    'name' => $product->product_name,
+                    'slug' => $product->product_slug,
+                    'quantity' => $product->quantity,
+                    'rate' => $product->rate,
+                    'total' => (float) ($product->rate * (int) $product->quantity),
                 ]);
             }
 
