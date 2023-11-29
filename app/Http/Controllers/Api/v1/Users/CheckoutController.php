@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Api\v1\Users;
 
+use App\Models\Order;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
 use App\Http\Requests\v1\Users\CheckoutBillingRequest;
 use App\Http\Requests\v1\Users\CheckoutShippingRequest;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @group User Endpoints
@@ -82,5 +85,76 @@ class CheckoutController extends Controller
         session(['user_checkout_shipping' => $address]);
 
         return $this->successResponse(__('response.user.checkout_address.success', ['type' => 'Shipping']));
+    }
+
+    /**
+     * Place Order
+     *
+     * Create a new order
+     *
+     * @responseFile status=200 storage/responses/users/checkout/order-created.json
+     *
+     * @authenticated
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function placeOrder()
+    {
+        if (! session('cart')) {
+            return $this->errorResponse('Add products in the cart.', [], 403);
+        }
+
+        $user = auth('sanctum')->user();
+
+        Http::withHeaders([
+            'Authorization' => 'Bearer '.config('stripe.keys.secret'),
+        ])->asForm()->post('https://api.stripe.com/v1/charges', [
+            'amount' => session('cart.total_cart_amount') * 100,
+            'currency' => 'inr',
+            'customer' => $user->stripe_customer_id,
+        ])->json();
+
+        $products = session('cart')['products'];
+        $code = \Illuminate\Support\Str::random(5);
+
+        DB::beginTransaction();
+
+        try {
+            $order = Order::create([
+                'code' => "ORD-{$code}",
+                'stripe_customer_id' => $user->stripe_customer_id,
+                'user_id' => $user->id,
+                'user_details' => json_encode([
+                    'full_name' => "$user->first_name $user->last_name",
+                    'email' => $user->email,
+                ]),
+                'billing_address' => json_encode(session('user_checkout_billing')),
+                'shipping_address' => json_encode(session('user_checkout_shipping')),
+                'total_amount' => session('cart.total_cart_amount'),
+            ]);
+
+            foreach ($products as $productSlug => $product) {
+                $order->products()->create([
+                    'order_id' => $order->id,
+                    'product_id' => $product['id'],
+                    'name' => $product['name'],
+                    'slug' => $productSlug,
+                    'quantity' => $product['quantity'],
+                    'rate' => $product['rate'],
+                    'total' => (float) ($product['rate'] * (int) $product['quantity']),
+                ]);
+            }
+
+            DB::commit();
+
+            return $this->successResponse(__('response.user.order_placed.success'), $order, 201);
+        } catch (\Exception $e) {
+            info($e->getMessage());
+            info($e->getTraceAsString());
+
+            DB::rollBack();
+
+            return $this->errorResponse(__('response.user.order_placed.failed'));
+        }
     }
 }
