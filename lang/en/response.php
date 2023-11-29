@@ -56,6 +56,11 @@ return [
             'not_found' => ':type address not found with the provided id.',
             'failed' => 'Could not select the :type address.',
         ],
+
+        'order_placed' => [
+            'success' => 'Order successfully placed.',
+            'failed' => 'Could not place your order.',
+        ],
     ],
 
     'cart' => [
