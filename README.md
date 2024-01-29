@@ -12,6 +12,7 @@ cd laravel-api-ecommerce
 cp .env.example .env
 ## Don't forget to update the DB_* credentials in the .env file
 composer install
+php artisan key:generate
 php artisan migrate
 php artisan storage:link
 php artisan scribe:generate
