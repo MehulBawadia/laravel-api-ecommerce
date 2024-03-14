@@ -22,7 +22,6 @@ class Product extends Model implements HasMedia
         'name', 'slug', 'description', 'quantity', 'rate',
         'brand_id', 'category_id',
         'meta_title', 'meta_description', 'meta_keywords',
-        'stripe_product_id', 'stripe_price_id',
     ];
 
     /**
@@ -49,7 +48,7 @@ class Product extends Model implements HasMedia
      * Register the media collection for generating images.
      * It will also generate necessary responsive images.
      */
-    public function registerMediaCollections(): void
+    public function registerMediaCollections() : void
     {
         $this->addMediaCollection('product-images')
             ->withResponsiveImages();

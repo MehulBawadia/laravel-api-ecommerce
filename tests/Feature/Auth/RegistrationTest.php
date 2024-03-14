@@ -13,7 +13,7 @@ class RegistrationTest extends TestCase
 
     public $postRoute = null;
 
-    public function setup(): void
+    public function setup() : void
     {
         parent::setUp();
 
@@ -25,9 +25,8 @@ class RegistrationTest extends TestCase
     /**
      * A basic feature test example.
      */
-    public function test_user_can_register(): void
+    public function test_user_can_register() : void
     {
-        Http::fake();
         $this->withoutExceptionHandling();
 
         $payload = $this->preparePayload();
@@ -44,30 +43,19 @@ class RegistrationTest extends TestCase
 
     public function test_creates_customer_in_stripe()
     {
-        $fakeCustomerId = 'G3E99LH8110';
         $payload = $this->preparePayload();
-        $fakeData = $this->createdCustomerData([
-            'id' => "cus_$fakeCustomerId",
-            'name' => "{$payload['first_name']} {$payload['last_name']}",
-        ]);
-
-        Http::fake([
-            'https://api.stripe.com/v1/customers' => Http::response($fakeData, 200),
-        ]);
 
         $this->withoutExceptionHandling();
 
         $this->postJsonPayload($this->postRoute, $payload);
 
         $user = User::find(2);
-        $this->assertEquals($user->stripe_user_id, "cus_$fakeCustomerId");
         $this->assertEquals($user->first_name, 'User');
         $this->assertEquals($user->last_name, 'One');
     }
 
     public function test_user_address_gets_created_after_registration()
     {
-        Http::fake();
 
         $this->withoutExceptionHandling();
 
@@ -184,17 +172,5 @@ class RegistrationTest extends TestCase
             'password' => 'Password',
             'confirm_password' => 'Password',
         ], $data);
-    }
-
-    protected function createdCustomerData($overrideData = [])
-    {
-        $data = [
-            'id' => 'cus_9s6XKzkNRiz8i3',
-            'name' => null,
-            'email' => 'test@test.com',
-            'object' => 'customer',
-        ];
-
-        return json_encode(array_merge($data, $overrideData));
     }
 }

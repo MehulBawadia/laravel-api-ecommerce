@@ -5,18 +5,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up() : void
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('code');
             $table->foreignIdFor(User::class)->constrained()->restrictOnDelete();
-            $table->string('stripe_customer_id')->nullable();
             $table->json('user_details')->nullable();
             $table->json('billing_address')->nullable();
             $table->json('shipping_address')->nullable();
@@ -29,7 +27,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down() : void
     {
         Schema::dropIfExists('orders');
     }
