@@ -25,5 +25,7 @@
     php artisan route:cache
     php artisan view:cache
 
+    php artisan scribe:generate
+
     echo "Check https://domain-name"
 @endtask
