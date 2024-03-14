@@ -20,11 +20,6 @@ php artisan serve --host=localhost
 # The docs can be viewed at http://localhost:8000/docs
 ```
 
-For the payments, this application uses Stripe Payment Gateway.
-If you do not have an account, create an account or simply log in.
-Then, add your Publishable Key and Secret Key in the .env file
-(Don't forget to restart the server, for the changes to take effect)
-
 #### Test the project
 
 ```bash
