@@ -7,7 +7,6 @@ use App\Http\Requests\v1\Users\CheckoutBillingRequest;
 use App\Http\Requests\v1\Users\CheckoutShippingRequest;
 use App\Models\Order;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Http;
 
 /**
  * @group User Endpoints
@@ -105,14 +104,6 @@ class CheckoutController extends Controller
         }
 
         $user = auth('sanctum')->user();
-
-        Http::withHeaders([
-            'Authorization' => 'Bearer '.config('stripe.keys.secret'),
-        ])->asForm()->post('https://api.stripe.com/v1/charges', [
-            'amount' => session('cart.total_cart_amount') * 100,
-            'currency' => 'inr',
-            'customer' => $user->stripe_customer_id,
-        ])->json();
 
         $products = auth('sanctum')->user()->cartProducts;
         $code = \Illuminate\Support\Str::random(5);

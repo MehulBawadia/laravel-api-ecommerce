@@ -16,7 +16,6 @@ return new class extends Migration
             $table->id();
             $table->string('code');
             $table->foreignIdFor(User::class)->constrained()->restrictOnDelete();
-            $table->string('stripe_customer_id')->nullable();
             $table->json('user_details')->nullable();
             $table->json('billing_address')->nullable();
             $table->json('shipping_address')->nullable();

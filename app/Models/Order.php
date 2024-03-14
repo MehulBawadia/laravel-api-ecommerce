@@ -16,7 +16,7 @@ class Order extends Model
      * @var array
      */
     protected $fillable = [
-        'code', 'user_id', 'stripe_customer_id', 'user_details',
+        'code', 'user_id', 'user_details',
         'billing_address', 'shipping_address', 'total_amount',
     ];
 

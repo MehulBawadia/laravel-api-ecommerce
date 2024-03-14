@@ -7,7 +7,6 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
 class AddProductTest extends TestCase
@@ -39,8 +38,6 @@ class AddProductTest extends TestCase
 
     public function test_admin_adds_a_new_product()
     {
-        Http::fake();
-
         $this->withoutExceptionHandling();
 
         $payload = $this->preparePayload();
@@ -52,35 +49,8 @@ class AddProductTest extends TestCase
         $this->assertEquals(Product::first()->slug, 'product-1');
     }
 
-    public function test_creates_product_with_price_in_stripe()
-    {
-        $fakeProductId = 'JUhskrvbsSsdfgF';
-        $fakePriceId = 'AKdufhefUYUiuebaf';
-        $payload = $this->preparePayload();
-        $fakeData = $this->dummyStripePriceData([
-            'id' => "prod_$fakeProductId",
-            'name' => $payload['name'],
-            'default_price' => "price_$fakePriceId",
-        ]);
-
-        Http::fake([
-            'https://api.stripe.com/v1/products' => Http::response($fakeData, 200),
-        ]);
-
-        $this->withoutExceptionHandling();
-
-        $payload = $this->preparePayload();
-        $this->postJsonPayload($this->postRoute, $payload);
-
-        $product = Product::first();
-        $this->assertEquals($product->stripe_product_id, "prod_$fakeProductId");
-        $this->assertEquals($product->stripe_price_id, "price_$fakePriceId");
-    }
-
     public function test_admin_may_upload_an_image()
     {
-        Http::fake();
-
         $this->withoutExceptionHandling();
 
         $payload = $this->preparePayload([
@@ -393,16 +363,5 @@ class AddProductTest extends TestCase
             'meta_description' => 'Laborum veniam culpa quis in exercitation officia fugiat sit id deserunt sunt.',
             'meta_keywords' => 'Id mollit aliquip reprehenderit culpa aliquip amet nisi consequat mollit ullamco.',
         ], $data);
-    }
-
-    protected function dummyStripePriceData($overrideData = [])
-    {
-        $data = [
-            'id' => 'prod_UKUksejSGbcg',
-            'object' => 'product',
-            'default_price' => 'price_YTsdkjghweubT',
-        ];
-
-        return json_encode(array_merge($data, $overrideData));
     }
 }

@@ -4,7 +4,6 @@ namespace Tests\Feature\Users\Checkout;
 
 use App\Models\Product;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
-use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
 class PlaceOrderTest extends TestCase
@@ -45,14 +44,6 @@ class PlaceOrderTest extends TestCase
         ]);
         $this->assertNotNull(session('user_checkout_shipping'));
 
-        $fakeData = $this->dummyStripeOrderChargeData([
-            'amount' => $cart->sum('amount') * 100,
-        ]);
-
-        Http::fake([
-            'https://api.stripe.com/v1/charges' => Http::response($fakeData, 200),
-        ]);
-
         $response = $this->postJsonPayload($this->postRoute);
         $response->assertStatus(201);
         $this->assertDatabaseCount('order_products', 1);
@@ -69,18 +60,5 @@ class PlaceOrderTest extends TestCase
         $category = \App\Models\Category::factory()->create();
 
         \App\Models\Product::factory(10)->create(['brand_id' => $brand->id, 'category_id' => $category->id]);
-    }
-
-    private function dummyStripeOrderChargeData($overrideData = [])
-    {
-        $data = [
-            'id' => 'ch_UKUksejSGbcg',
-            'object' => 'charge',
-            'amount' => 100,
-            'currency' => 'inr',
-            'customer' => $this->user->stripe_customer_id,
-        ];
-
-        return json_encode(array_merge($data, $overrideData));
     }
 }
