@@ -17,6 +17,9 @@ class BrandsTableSeeder extends Seeder
         Brand::insert($brands);
     }
 
+    /**
+     * A dummy data for testing purposes.
+     */
     private function dummyData(): array
     {
         $nowTime = now();

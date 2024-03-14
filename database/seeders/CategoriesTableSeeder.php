@@ -17,6 +17,9 @@ class CategoriesTableSeeder extends Seeder
         Category::insert($categories);
     }
 
+    /**
+     * A dummy data for testing purposes.
+     */
     private function dummyData(): array
     {
         $appName = config('app.name');

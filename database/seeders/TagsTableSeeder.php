@@ -17,6 +17,9 @@ class TagsTableSeeder extends Seeder
         Tag::insert($tags);
     }
 
+    /**
+     * A dummy data for testing purposes.
+     */
     private function dummyData(): array
     {
         $nowTime = now();
