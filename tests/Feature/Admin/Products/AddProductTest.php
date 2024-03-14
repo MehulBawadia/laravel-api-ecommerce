@@ -17,7 +17,7 @@ class AddProductTest extends TestCase
 
     public $admin = null;
 
-    public function setup() : void
+    public function setup(): void
     {
         parent::setUp();
 

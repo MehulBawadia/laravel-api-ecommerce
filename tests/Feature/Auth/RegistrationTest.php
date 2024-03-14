@@ -4,7 +4,6 @@ namespace Tests\Feature\Auth;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
-use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
 class RegistrationTest extends TestCase
@@ -13,7 +12,7 @@ class RegistrationTest extends TestCase
 
     public $postRoute = null;
 
-    public function setup() : void
+    public function setup(): void
     {
         parent::setUp();
 
@@ -25,7 +24,7 @@ class RegistrationTest extends TestCase
     /**
      * A basic feature test example.
      */
-    public function test_user_can_register() : void
+    public function test_user_can_register(): void
     {
         $this->withoutExceptionHandling();
 

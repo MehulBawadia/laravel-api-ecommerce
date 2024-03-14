@@ -48,7 +48,7 @@ class Product extends Model implements HasMedia
      * Register the media collection for generating images.
      * It will also generate necessary responsive images.
      */
-    public function registerMediaCollections() : void
+    public function registerMediaCollections(): void
     {
         $this->addMediaCollection('product-images')
             ->withResponsiveImages();

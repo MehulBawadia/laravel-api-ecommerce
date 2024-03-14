@@ -14,7 +14,7 @@ class PlaceOrderTest extends TestCase
 
     protected $user;
 
-    public function setup() : void
+    public function setup(): void
     {
         parent::setUp();
 
