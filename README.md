@@ -6,7 +6,7 @@ This is the API for an E-Commerce web store. At the moment, only one seller and 
 
 Run the commands below one by one
 
-```
+```bash
 git clone git@github.com:MehulBawadia/laravel-api-ecommerce.git
 cd laravel-api-ecommerce
 cp .env.example .env
@@ -27,10 +27,14 @@ Then, add your Publishable Key and Secret Key in the .env file
 
 #### Test the project
 
-```
+```bash
 php artisan test
 # or vendor/bin/phpunit
 ```
+
+#### Live Preview
+
+You can check the [live preview here](https://ecomapi.bmehul.com)
 
 #### License
 
