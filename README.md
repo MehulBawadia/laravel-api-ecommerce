@@ -9,8 +9,7 @@ Run the commands below one by one
 ```bash
 git clone git@github.com:MehulBawadia/laravel-api-ecommerce.git ecomapi
 cd ecomapi
-cp .env.example .env
-## Don't forget to update the DB_* credentials in the .env file
+cp .env.example .env # Don't forget to update the DB_* credentials in the .env file
 composer install
 php artisan key:generate
 php artisan migrate:fresh --seed
