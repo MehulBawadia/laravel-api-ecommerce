@@ -25,7 +25,7 @@ class CartController extends Controller
      *
      * @authenticated
      *
-     * @return  \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {

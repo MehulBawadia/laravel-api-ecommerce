@@ -30,7 +30,7 @@ class LoginRequest extends FormRequest
     /**
      * Custom error messages
      *
-     * @return  array
+     * @return array
      */
     public function messages()
     {
