@@ -7,13 +7,12 @@ This is the API for an E-Commerce web store. At the moment, only one seller and 
 Run the commands below one by one
 
 ```bash
-git clone git@github.com:MehulBawadia/laravel-api-ecommerce.git
-cd laravel-api-ecommerce
-cp .env.example .env
-## Don't forget to update the DB_* credentials in the .env file
+git clone git@github.com:MehulBawadia/laravel-api-ecommerce.git ecomapi
+cd ecomapi
+cp .env.example .env # Don't forget to update the DB_* credentials in the .env file
 composer install
-php artisan key:generate
-php artisan migrate
+php artisan key:generate --ansi
+php artisan migrate:fresh --seed
 php artisan storage:link
 php artisan scribe:generate
 php artisan serve --host=localhost
