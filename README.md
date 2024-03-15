@@ -11,7 +11,7 @@ git clone git@github.com:MehulBawadia/laravel-api-ecommerce.git ecomapi
 cd ecomapi
 cp .env.example .env # Don't forget to update the DB_* credentials in the .env file
 composer install
-php artisan key:generate
+php artisan key:generate --ansi
 php artisan migrate:fresh --seed
 php artisan storage:link
 php artisan scribe:generate
