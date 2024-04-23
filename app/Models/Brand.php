@@ -24,11 +24,14 @@ class Brand extends Model
     /**
      * Cast the attributes to their native types.
      *
-     * @var array
+     * @return array
      */
-    protected $casts = [
-        'deleted_at' => 'datetime:Y-m-d H:i:s',
-    ];
+    protected function casts()
+    {
+        return [
+            'deleted_at' => 'datetime:Y-m-d H:i:s',
+        ];
+    }
 
     /**
      * Do some processing with the model events related to Tag.

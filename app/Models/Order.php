@@ -21,13 +21,16 @@ class Order extends Model
     ];
 
     /**
-     * The attributes that will be mutated to native types.
+     * Cast the attributes to their native types.
      *
-     * @var array
+     * @return array
      */
-    protected $casts = [
-        'deleted_at' => 'datetime',
-    ];
+    protected function casts()
+    {
+        return [
+            'deleted_at' => 'datetime:Y-m-d H:i:s',
+        ];
+    }
 
     /**
      * An order has many products.
