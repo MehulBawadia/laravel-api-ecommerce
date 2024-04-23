@@ -32,14 +32,17 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
+     * Cast the attributes to their native types.
      *
-     * @var array<string, string>
+     * @return array
      */
-    protected $casts = [
-        'deleted_at' => 'datetime',
-        'email_verified_at' => 'datetime',
-    ];
+    protected function casts()
+    {
+        return [
+            'deleted_at' => 'datetime:Y-m-d H:i:s',
+            'email_verified_at' => 'datetime:Y-m-d H:i:s',
+        ];
+    }
 
     /**
      * A user may have multiple billing addresses.
