@@ -1051,16 +1051,16 @@
         },
         {
             "name": "guzzlehttp/uri-template",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/uri-template.git",
-                "reference": "ecea8feef63bd4fef1f037ecb288386999ecc11c"
+                "reference": "30e286560c137526eccd4ce21b2de477ab0676d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/uri-template/zipball/ecea8feef63bd4fef1f037ecb288386999ecc11c",
-                "reference": "ecea8feef63bd4fef1f037ecb288386999ecc11c",
+                "url": "https://api.github.com/repos/guzzle/uri-template/zipball/30e286560c137526eccd4ce21b2de477ab0676d2",
+                "reference": "30e286560c137526eccd4ce21b2de477ab0676d2",
                 "shasum": ""
             },
             "require": {
@@ -1117,7 +1117,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/uri-template/issues",
-                "source": "https://github.com/guzzle/uri-template/tree/v1.0.3"
+                "source": "https://github.com/guzzle/uri-template/tree/v1.0.4"
             },
             "funding": [
                 {
@@ -1133,7 +1133,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-03T19:50:20+00:00"
+            "time": "2025-02-03T10:55:03+00:00"
         },
         {
             "name": "laravel/framework",
@@ -3652,16 +3652,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "11.12.1",
+            "version": "11.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "8372552a74e781dbcb70ab8b7d0cc9c520b41daa"
+                "reference": "735127e4d2a61862bd67d0bdfa6ed87528948ace"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/8372552a74e781dbcb70ab8b7d0cc9c520b41daa",
-                "reference": "8372552a74e781dbcb70ab8b7d0cc9c520b41daa",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/735127e4d2a61862bd67d0bdfa6ed87528948ace",
+                "reference": "735127e4d2a61862bd67d0bdfa6ed87528948ace",
                 "shasum": ""
             },
             "require": {
@@ -3745,7 +3745,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-medialibrary/issues",
-                "source": "https://github.com/spatie/laravel-medialibrary/tree/11.12.1"
+                "source": "https://github.com/spatie/laravel-medialibrary/tree/11.12.2"
             },
             "funding": [
                 {
@@ -3757,7 +3757,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-01-13T16:29:49+00:00"
+            "time": "2025-02-05T08:23:50+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
@@ -6618,16 +6618,16 @@
         },
         {
             "name": "knuckleswtf/scribe",
-            "version": "4.39.0",
+            "version": "4.40.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/knuckleswtf/scribe.git",
-                "reference": "cb4c2e552fdae4fd2306e12bba60d5de38a9e4ad"
+                "reference": "1ad707f229185bb2413ea9ed2fb01747abe78ff6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/knuckleswtf/scribe/zipball/cb4c2e552fdae4fd2306e12bba60d5de38a9e4ad",
-                "reference": "cb4c2e552fdae4fd2306e12bba60d5de38a9e4ad",
+                "url": "https://api.github.com/repos/knuckleswtf/scribe/zipball/1ad707f229185bb2413ea9ed2fb01747abe78ff6",
+                "reference": "1ad707f229185bb2413ea9ed2fb01747abe78ff6",
                 "shasum": ""
             },
             "require": {
@@ -6701,7 +6701,7 @@
             ],
             "support": {
                 "issues": "https://github.com/knuckleswtf/scribe/issues",
-                "source": "https://github.com/knuckleswtf/scribe/tree/4.39.0"
+                "source": "https://github.com/knuckleswtf/scribe/tree/4.40.0"
             },
             "funding": [
                 {
@@ -6709,7 +6709,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2024-12-31T14:13:50+00:00"
+            "time": "2025-02-03T20:29:15+00:00"
         },
         {
             "name": "laravel/envoy",
