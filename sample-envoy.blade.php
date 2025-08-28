@@ -13,7 +13,7 @@
 
     git pull origin main
 
-    composer2 install --optimize-autoloader
+    composer install --optimize-autoloader
 
     php artisan migrate --force
 
