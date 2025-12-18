@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/', '/docs');
+Route::redirect('/', '/docs')->name('login');
