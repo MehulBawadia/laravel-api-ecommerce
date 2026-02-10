@@ -2,6 +2,10 @@
 
 This is the API for an E-Commerce web store. At the moment, only one seller and multiple buyers are supported.
 
+### End Of Life
+
+There won't be any updates after 28th February 2026.
+
 #### Steps to install this project:
 
 Run the commands below one by one
