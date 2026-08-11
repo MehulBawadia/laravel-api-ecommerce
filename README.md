@@ -30,10 +30,6 @@ php artisan test
 # or vendor/bin/phpunit
 ```
 
-#### Live Preview
-
-You can check the [live preview here](https://ecomapi.bmehul.com)
-
 #### License
 
 This project is an open-sourced software licensed under the [MIT License](https://opensource.org/licenses/MIT).
